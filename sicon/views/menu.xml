@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    <menuitem id="sicon_main_menu"
+        name="SICON"
+        sequence="10"/>
+        <!-- groups="sicon.group_manager,sicon.group_user"/> -->
+
+    <menuitem id="sicon_concessions_main_menu"
+        name="General Concessions"
+        parent="sicon_main_menu"
+        sequence="10"/>
+        <!-- groups="sicon.group_manager,sicon.group_user"/> -->
+
+        <menuitem id="sicon_concessions_list_menu"
+            name="Concessions"
+            parent="sicon_concessions_main_menu"
+            sequence="5"
+            action="concessions_list_action"/>
+
+        <menuitem id="sicon_concessionaires_menu"
+            name="Concesionaires"
+            parent="sicon_concessions_main_menu"
+            sequence="10"
+            action="partner_concessionaires_list_action"/>
+
+        <menuitem id="sicon_lists_menu"
+            name="Lists"
+            parent="sicon_concessions_main_menu"
+            sequence="15"/>
+            <!-- groups="sicon.group_manager,sicon.group_user"/> -->
+
+            <menuitem id="sicon_expired_concessions_menu"
+                name="Expired Concessions"
+                parent="sicon_lists_menu"
+                sequence="5"
+                action="expired_concessions_list_action"/>
+
+            <menuitem id="sicon_concessions_to_expire_menu"
+                name="Concessions To Expire"
+                parent="sicon_lists_menu"
+                sequence="10"
+                action="concessions_to_expire_list_action"/>
+
+            <menuitem id="sicon_event_menu"
+                name="Events"
+                parent="sicon_lists_menu"
+                sequence="15"
+                action="events_list_action"/>
+
+            <menuitem id="sicon_highlight_menu"
+                name="Highlights"
+                parent="sicon_lists_menu"
+                sequence="20"
+                action="highlight_list_action"/>
+
+            <menuitem id="sicon_control_notes_menu"
+                name="Control Notes"
+                parent="sicon_lists_menu"
+                sequence="25"
+                action="control_notes_list_action"/>
+
+            <!-- <menuitem id="sicon_unrelated_documents_menu"
+                name="Unrelated Documents"
+                parent="sicon_lists_menu"
+                sequence="30"
+                action="unrelated_documents_list_action"/> -->
+
+    <menuitem id="sicon_configuration_menu"
+        name="Configuration"
+        parent="sicon_main_menu"
+        sequence="20"/>
+        <!-- groups="sicon.group_manager"/> -->
+
+        <menuitem id="sicon_business_categories_menu"
+            name="Business Categories"
+            parent="sicon_configuration_menu"
+            sequence="5"
+            action="business_categories_list_action"/>
+
+        <menuitem id="sicon_event_types_menu"
+            name="Event Types"
+            parent="sicon_configuration_menu"
+            sequence="10"
+            action="event_types_list_action"/>
+
+</data>
+</odoo>

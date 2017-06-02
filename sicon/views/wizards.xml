@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <!-- FORM VIEW -->
+    <record id="view_add_event_wizard_form" model="ir.ui.view">
+        <field name="name">sicon.add_event_wizard.form</field>
+        <field name="model">sicon.add_event_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only" string="New event for"/>
+                    <h2>
+                        <field name="concession_id" readonly="True"/>
+                    </h2>
+                </div>
+                <group>
+                    <group string="Event Data">
+                        <field name="date" />
+                        <field name="event_type_id" options="{'no_create': True}"/>
+                        <field name="name"/>
+                        <field name="document_id"/>
+                        <field name="other_related_document"/>
+                        <field name="modify_concession"/>
+                        <field name="add_observations"/>
+                    </group>
+                    <group string="Concession Data"
+                        attrs="{'invisible':[('modify_concession','=',False)]}">
+                        <field name="fantasy_name"/>
+                        <field name="concessionaire_id"
+                               context="{'default_concessionaire': True}"
+                               attrs="{'required':[('state','=', 'awarded')]}"/>
+                        <field name="location"/>
+                        <field name="canon"/>
+                        <field name="start_date"/>
+                        <field name="expiration_date"/>
+                        <field name="state"/>
+                    </group>
+                </group>
+                <notebook attrs="{'invisible':[('add_observations','=', False)]}">
+                    <page string="Observations">
+                            <field name="observations"/>
+                    </page>
+                </notebook>
+                <footer>
+                    <button name="save_event"
+                        type="object"
+                        string="Save"
+                        class="oe_highlight"
+                        confirm="This action will made changes to the concession. Are you sure you want to continue?"
+                        attrs="{'invisible':[('modify_concession','=', False)]}"/>
+                    <button name="save_event"
+                        type="object"
+                        string="Save"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('modify_concession','=', True)]}"/>
+                    or
+                    <button string="Discard" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="add_event_wizard_action"
+                name="Event Entry"
+                res_model="sicon.add_event_wizard"
+                view_id="view_add_event_wizard_form"
+                view_mode="form"
+                target="new"
+                key2="client_action_multi"/>
+
+</data>
+</odoo>

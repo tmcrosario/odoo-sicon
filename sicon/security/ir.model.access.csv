@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sicon_concession_manager,sicon.concession.manager,model_sicon_concession,group_manager,1,1,1,1
+access_sicon_concession_user,sicon.concession.user,model_sicon_concession,group_user,1,1,1,0
+access_sicon_business_category_manager,sicon.business_category.manager,model_sicon_business_category,group_manager,1,1,1,1
+access_sicon_business_category_user,sicon.business_category.user,model_sicon_business_category,group_user,1,0,0,0
+access_sicon_control_note_manager,sicon.control_note.manager,model_sicon_control_note,group_manager,1,1,1,1
+access_sicon_control_note_user,sicon.control_note.user,model_sicon_control_note,group_user,1,1,1,0
+access_sicon_event_manager,sicon.event.manager,model_sicon_event,group_manager,1,1,1,1
+access_sicon_event_user,sicon.event.user,model_sicon_event,group_user,1,1,1,0
+access_sicon_event_type_manager,sicon.event_type.manager,model_sicon_event_type,group_manager,1,1,1,1
+access_sicon_event_type_user,sicon.event_type.user,model_sicon_event_type,group_user,1,0,0,0
+access_sicon_drei_manager,sicon.drei.manager,model_sicon_drei,group_manager,1,1,1,1
+access_sicon_drei_user,sicon.drei.user,model_sicon_drei,group_user,1,1,1,1
+access_sicon_unrelated_documents_manager,sicon.unrelated_documents.manager,model_sicon_unrelated_documents,group_manager,1,1,1,1
+access_sicon_unrelated_documents_user,sicon.unrelated_documents.user,model_sicon_unrelated_documents,group_user,1,0,0,0
