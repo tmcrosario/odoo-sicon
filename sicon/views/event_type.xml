@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<data>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window" id="sicon.event_types_list_action">
+    <record model="ir.actions.act_window"
+            id="sicon.event_types_list_action">
         <field name="name">Event Types</field>
         <field name="res_model">sicon.event_type</field>
         <field name="view_type">form</field>
@@ -11,20 +11,21 @@
     </record>
 
     <!-- SIMPLE FORM VIEW -->
-    <record id="view_sicon_event_type_simple_form" model="ir.ui.view">
+    <record id="view_sicon_event_type_simple_form"
+            model="ir.ui.view">
         <field name="name">sicon.event_type.form</field>
         <field name="model">sicon.event_type</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="description"/>
+                        <field name="name" />
+                        <field name="description" />
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-</data>
 </odoo>

@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class Dependence(models.Model):
 
     _inherit = 'tmc.dependence'
 
-    sicon = fields.Boolean(
-        string='SICON'
-    )
+    sicon = fields.Boolean()

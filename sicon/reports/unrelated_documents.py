@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, tools
+from odoo import fields, models, tools
 
 
 class unrelated_documents(models.Model):
-    """ Documents not related to any concession"""
+    """Documents not related to any concession"""
 
     _name = "sicon.unrelated_documents"
     _auto = False
@@ -21,9 +21,7 @@ class unrelated_documents(models.Model):
 
     period = fields.Integer()
 
-    reference = fields.Char(
-        string="Reference"
-    )
+    reference = fields.Char()
 
     name = fields.Char(
         string='Document'
@@ -75,5 +73,10 @@ class unrelated_documents(models.Model):
             FROM ( %s )
             %s
             %s
-        )"""
-        % (self._table, self._select(), self._from(), self._where(), self._order_by()))
+        )""" % (
+            self._table,
+            self._select(),
+            self._from(),
+            self._where(),
+            self._order_by())
+        )

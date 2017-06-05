@@ -1,77 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
 
-<!-- SEARCH VIEW -->
-<record id="sicon.highlight_search_view" model="ir.ui.view">
-    <field name="name">tmc.highlight.search</field>
-    <field name="model">tmc.highlight</field>
-    <field name="arch" type="xml">
-        <search string="Highlights">
-            <group expand="1">
-                <filter name="group_by_concession"
-                        string="Concession"
-                        context="{'group_by':'concession_id'}"/>
-            </group>
-            <field name="concession_id" string="Concession" search_domain="['|', (
-                'concession_id', '=', self)]"/>
-        </search>
-    </field>
-</record>
+    <!-- SEARCH VIEW -->
+    <record id="sicon.highlight_search_view"
+            model="ir.ui.view">
+        <field name="name">tmc.highlight.search</field>
+        <field name="model">tmc.highlight</field>
+        <field name="arch"
+               type="xml">
+            <search string="Highlights">
+                <group expand="1">
+                    <filter name="group_by_concession"
+                            string="Concession"
+                            context="{'group_by':'concession_id'}" />
+                </group>
+                <field name="concession_id"
+                       string="Concession"
+                       search_domain="['|', (
+                'concession_id', '=', self)]" />
+            </search>
+        </field>
+    </record>
 
-<!-- TREE VIEW -->
-<record id="sicon.highlight_tree_view" model="ir.ui.view">
-    <field name="name">sicon.highlight.tree</field>
-    <field name="model">tmc.highlight</field>
-    <field name="arch" type="xml">
-        <tree create="false"
-              delete="false"
-              default_order="applicable">
-                <field name="comment"/>
-                <field name="level"/>
-                <field name="concession_id"/>
-                <field name="applicable" invisible="True"/>
-        </tree>
-    </field>
-</record>
+    <!-- TREE VIEW -->
+    <record id="sicon.highlight_tree_view"
+            model="ir.ui.view">
+        <field name="name">sicon.highlight.tree</field>
+        <field name="model">tmc.highlight</field>
+        <field name="arch"
+               type="xml">
+            <tree create="false"
+                  delete="false"
+                  default_order="applicable">
+                <field name="comment" />
+                <field name="level" />
+                <field name="concession_id" />
+                <field name="applicable"
+                       invisible="True" />
+            </tree>
+        </field>
+    </record>
 
-<!-- WINDOW ACTION -->
-<record model="ir.actions.act_window" id="sicon.highlight_list_action">
-    <field name="name">Highlights</field>
-    <field name="res_model">tmc.highlight</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="sicon.highlight_tree_view"/>
-    <field name="limit">20</field>
-    <field name="help" type="html">
-        <p class="oe_view_nocontent">
-          No highlights were found.
-        </p><p>
-          You can add a highlight by editing the concession.
-        </p>
-    </field>
-</record>
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="sicon.highlight_list_action">
+        <field name="name">Highlights</field>
+        <field name="res_model">tmc.highlight</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id"
+               ref="sicon.highlight_tree_view" />
+        <field name="limit">20</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent">
+                No highlights were found.
+            </p>
+            <p>
+                You can add a highlight by editing the concession.
+            </p>
+        </field>
+    </record>
 
-<!-- WINDOW ACTION -->
-<record model="ir.actions.act_window" id="sicon.highlight_by_concession_list_action">
-    <field name="name">Highlights</field>
-    <field name="res_model">tmc.highlight</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="sicon.highlight_tree_view"/>
-    <field name="context">{
-        'search_default_concession_id': [active_id],
-        'default_concession_id': active_id
-    }</field>
-    <field name="limit">20</field>
-    <field name="help" type="html">
-        <p class="oe_view_nocontent">
-          No highlights were found.
-        </p><p>
-          You can add a highlight by editing the concession.
-        </p>
-    </field>
-</record>
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="sicon.highlight_by_concession_list_action">
+        <field name="name">Highlights</field>
+        <field name="res_model">tmc.highlight</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id"
+               ref="sicon.highlight_tree_view" />
+        <field name="context">{ 'search_default_concession_id': [active_id], 'default_concession_id': active_id }
+        </field>
+        <field name="limit">20</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent">
+                No highlights were found.
+            </p>
+            <p>
+                You can add a highlight by editing the concession.
+            </p>
+        </field>
+    </record>
 
-</data>
 </odoo>

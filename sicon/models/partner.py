@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class Partner(models.Model):
     _name = 'res.partner'
     _inherit = 'res.partner'
 
-    concessionaire = fields.Boolean(
-        string='Concessionaire'
-    )
+    concessionaire = fields.Boolean()
 
     drei = fields.Char(
-        string='DREI',
         size=10
     )
 
     drei_mgmt_code = fields.Char(
-        string='DREI Management Code',
         size=10
     )
 

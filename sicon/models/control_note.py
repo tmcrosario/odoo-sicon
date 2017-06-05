@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class Control_Note(models.Model):
 
     _name = 'sicon.control_note'
+    _order = 'date desc, write_date desc'
 
     _status_ = [
         ('pending', 'Pending'),
@@ -34,5 +35,3 @@ class Control_Note(models.Model):
         default='pending',
         required=True
     )
-
-    _order = 'date desc, write_date desc'

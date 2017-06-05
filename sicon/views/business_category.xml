@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<data>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window" id="sicon.business_categories_list_action">
+    <record model="ir.actions.act_window"
+            id="sicon.business_categories_list_action">
         <field name="name">Business Categories</field>
         <field name="res_model">sicon.business_category</field>
         <field name="priority">15</field>
@@ -12,26 +12,31 @@
     </record>
 
     <!-- TREE VIEW -->
-     <record id="sicon.business_category_tree_view" model="ir.ui.view">
-         <field name="name">sicon.business_category.tree</field>
-         <field name="model">sicon.business_category</field>
-         <field name="arch" type="xml">
-             <tree editable="top" default_order="name asc">
-                 <field name="name"/>
-             </tree>
-         </field>
-     </record>
+    <record id="sicon.business_category_tree_view"
+            model="ir.ui.view">
+        <field name="name">sicon.business_category.tree</field>
+        <field name="model">sicon.business_category</field>
+        <field name="arch"
+               type="xml">
+            <tree editable="top"
+                  default_order="name asc">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
 
     <!-- TREE VIEW *NO EDIT* -->
-     <record id="sicon.business_category_noedit_tree_view" model="ir.ui.view">
-         <field name="name">sicon.business_category.noedit.tree</field>
-         <field name="model">sicon.business_category</field>
-         <field name="arch" type="xml">
-             <tree default_order="name asc" edit="false">
-                 <field name="name"/>
-             </tree>
-         </field>
-     </record>
+    <record id="sicon.business_category_noedit_tree_view"
+            model="ir.ui.view">
+        <field name="name">sicon.business_category.noedit.tree</field>
+        <field name="model">sicon.business_category</field>
+        <field name="arch"
+               type="xml">
+            <tree default_order="name asc"
+                  edit="false">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
 
-</data>
 </odoo>

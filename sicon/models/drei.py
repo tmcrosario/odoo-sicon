@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class Drei(models.Model):
@@ -13,7 +13,6 @@ class Drei(models.Model):
     )
 
     management_code = fields.Char(
-        string='Personal Management Code',
         size=10
     )
 

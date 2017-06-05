@@ -9,7 +9,8 @@
     'license': 'AGPL-3',
     'sequence': 150,
     'depends': [
-        'tmc'
+        'tmc',
+        'partner_fiscal'
     ],
     'data': [
         # 'security/sicon_group.xml',

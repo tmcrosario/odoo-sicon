@@ -7,6 +7,7 @@ from odoo.exceptions import Warning
 class Concession(models.Model):
 
     _name = 'sicon.concession'
+    _order = 'name'
 
     _expiration_types_ = [
         ('certain', 'Certain'),
@@ -34,97 +35,6 @@ class Concession(models.Model):
         ('rescinded', 'Rescinded'),
         ('caducous', 'Caducous'),
     ]
-
-    @api.model
-    def create(self, values):
-        if not 'concession_id' in values:
-            domain = [
-                ('name', '=', values['name']),
-                ('concession_id', '=', False)
-            ]
-            if self.env['sicon.concession'].search(domain, limit=1):
-                raise Warning(_('Integrity Error: Duplicated concession'))
-            else:
-                res_id = super(Concession, self).create(values)
-                values['concession_id'] = res_id.id
-                super(Concession, self).create(values)
-        else:
-            res_id = super(Concession, self).create(values)
-        return res_id
-
-    @api.onchange('planned_extension')
-    def _onchange_planned_extension(self):
-        self.extension_expiration = False
-        self.extension_certain_expiration = False
-        self.extension_duration = False
-        self.extension_due_date = False
-
-    @api.onchange('term_expiration')
-    def _onchange_term_expiration(self):
-        self.term_certain_expiration = False
-        self.term_duration = False
-        self.term_due_date = False
-
-    @api.onchange('term_certain_expiration')
-    def _onchange_term_certain_expiration(self):
-        self.term_duration = False
-        self.term_due_date = False
-
-    @api.one
-    @api.depends('highlight_ids')
-    def _highlights_count(self):
-        applicable_highlight_ids = self.highlight_ids.filtered(
-            lambda record: record.applicable == True
-        )
-        self.highlights_count = len(applicable_highlight_ids)
-
-    @api.one
-    @api.depends('highlight_ids')
-    def _get_priority_and_color(self):
-        domain = [
-            ('concession_id', '=', self.id),
-            ('applicable', '=', True)
-        ]
-        related_highlights = self.env['tmc.highlight'].search(domain)
-
-        highest = related_highlights.sorted(
-            key=lambda r: r.highlight_level_id.priority,
-            reverse=True)
-
-        if highest:
-            highlight = highest[0]
-            highlight_level = highlight.highlight_level_id
-            self.priority = highlight_level.priority
-            self.color = highlight.color
-
-    @api.one
-    @api.depends('concessionaire_id')
-    def _get_business_categories(self):
-        domain = [
-            ('concessionaire_id', '=', self.concessionaire_id.id)
-        ]
-        concessionaire_drei_accounts = self.env['sicon.drei'].search(domain)
-        self.business_category_ids = concessionaire_drei_accounts.mapped(
-            'business_category_ids'
-        )
-
-    @api.multi
-    def add_event(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'sicon.add_event_wizard',
-            'target': 'new'
-        }
-
-    @api.multi
-    def add_control_note(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'sicon.add_control_note_wizard',
-            'target': 'new'
-        }
 
     name = fields.Char(
         required=True
@@ -256,4 +166,93 @@ class Concession(models.Model):
 
     changed = fields.Boolean()
 
-    _order = 'name'
+    @api.model
+    def create(self, values):
+        if 'concession_id' not in values:
+            domain = [
+                ('name', '=', values['name']),
+                ('concession_id', '=', False)
+            ]
+            if self.env['sicon.concession'].search(domain, limit=1):
+                raise Warning(_('Integrity Error: Duplicated concession'))
+            else:
+                res_id = super(Concession, self).create(values)
+                values['concession_id'] = res_id.id
+                super(Concession, self).create(values)
+        else:
+            res_id = super(Concession, self).create(values)
+        return res_id
+
+    @api.onchange('planned_extension')
+    def _onchange_planned_extension(self):
+        self.extension_expiration = False
+        self.extension_certain_expiration = False
+        self.extension_duration = False
+        self.extension_due_date = False
+
+    @api.onchange('term_expiration')
+    def _onchange_term_expiration(self):
+        self.term_certain_expiration = False
+        self.term_duration = False
+        self.term_due_date = False
+
+    @api.onchange('term_certain_expiration')
+    def _onchange_term_certain_expiration(self):
+        self.term_duration = False
+        self.term_due_date = False
+
+    @api.one
+    @api.depends('highlight_ids')
+    def _highlights_count(self):
+        applicable_highlight_ids = self.highlight_ids.filtered(
+            lambda record: record.applicable is True
+        )
+        self.highlights_count = len(applicable_highlight_ids)
+
+    @api.one
+    @api.depends('highlight_ids')
+    def _get_priority_and_color(self):
+        domain = [
+            ('concession_id', '=', self.id),
+            ('applicable', '=', True)
+        ]
+        related_highlights = self.env['tmc.highlight'].search(domain)
+
+        highest = related_highlights.sorted(
+            key=lambda r: r.highlight_level_id.priority,
+            reverse=True)
+
+        if highest:
+            highlight = highest[0]
+            highlight_level = highlight.highlight_level_id
+            self.priority = highlight_level.priority
+            self.color = highlight.color
+
+    @api.one
+    @api.depends('concessionaire_id')
+    def _get_business_categories(self):
+        domain = [
+            ('concessionaire_id', '=', self.concessionaire_id.id)
+        ]
+        concessionaire_drei_accounts = self.env['sicon.drei'].search(domain)
+        self.business_category_ids = concessionaire_drei_accounts.mapped(
+            'business_category_ids'
+        )
+
+    @api.multi
+    def add_event(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'sicon.add_event_wizard',
+            'target': 'new'
+        }
+
+    @api.multi
+    def add_control_note(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'sicon.add_control_note_wizard',
+            'target': 'new'
+        }

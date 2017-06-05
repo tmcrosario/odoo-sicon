@@ -1,66 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<data>
 
-   <!-- TREE VIEW -->
-    <record id="sicon.control_note_tree_view" model="ir.ui.view">
+    <!-- TREE VIEW -->
+    <record id="sicon.control_note_tree_view"
+            model="ir.ui.view">
         <field name="name">sicon.control_note.tree</field>
         <field name="model">sicon.control_note</field>
         <field name="priority">5</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <tree string="Control Notes"
                   fonts="bold:status=='pending'"
                   colors="dimgray:status=='done'">
-                <field name="date"/>
-                <field name="name"/>
-                <field name="status"/>
+                <field name="date" />
+                <field name="name" />
+                <field name="status" />
             </tree>
         </field>
     </record>
 
-   <!-- TREE VIEW -->
-    <record id="sicon.control_note_no_create_tree_view" model="ir.ui.view">
+    <!-- TREE VIEW -->
+    <record id="sicon.control_note_no_create_tree_view"
+            model="ir.ui.view">
         <field name="name">sicon.control_note.no_create.tree</field>
         <field name="model">sicon.control_note</field>
         <field name="priority">10</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <tree string="Control Notes"
                   fonts="bold:status=='pending'"
                   colors="dimgray:status=='done'"
                   create="false"
                   delete="false">
-                <field name="date"/>
-                <field name="name"/>
-                <field name="status"/>
-                <field name="concession_id"/>
+                <field name="date" />
+                <field name="name" />
+                <field name="status" />
+                <field name="concession_id" />
             </tree>
         </field>
     </record>
 
     <!-- FORM VIEW -->
-    <record id="sicon.control_note_form_view" model="ir.ui.view">
+    <record id="sicon.control_note_form_view"
+            model="ir.ui.view">
         <field name="name">sicon.control_note.form</field>
         <field name="model">sicon.control_note</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <form>
                 <sheet>
                     <group>
                         <group>
-                            <field name="date"/>
-                            <field name="status" class="oe_inline"/>
+                            <field name="date" />
+                            <field name="status"
+                                   class="oe_inline" />
                         </group>
                         <group>
                             <field name="create_uid"
                                    readonly="True"
-                                   attrs="{'invisible': [('create_uid', '=', False)]}"/>
+                                   attrs="{'invisible': [('create_uid', '=', False)]}" />
                             <field name="write_uid"
-                                readonly="True"
-                                attrs="{'invisible': [('write_uid', '=', False)]}"/>
+                                   readonly="True"
+                                   attrs="{'invisible': [('write_uid', '=', False)]}" />
                         </group>
                     </group>
                     <group>
-                        <field name="name"/>
-                        <field name="details"/>
+                        <field name="name" />
+                        <field name="details" />
                     </group>
                 </sheet>
             </form>
@@ -68,38 +74,47 @@
     </record>
 
     <!-- SEARCH VIEW -->
-    <record model="ir.ui.view" id="sicon_control_note_search_view">
+    <record model="ir.ui.view"
+            id="sicon_control_note_search_view">
         <field name="name">control_note.search</field>
         <field name="model">sicon.control_note</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <search string="Control Notes">
-                <field name="concession_id" string="concession_id" search_domain="['|', ('concession_id', '=', self)]"/>
-                <field name="details" string="details" search_domain="['|',('details','=','self')]"/>
+                <field name="concession_id"
+                       string="concession_id"
+                       search_domain="['|', ('concession_id', '=', self)]" />
+                <field name="details"
+                       string="details"
+                       search_domain="['|',('details','=','self')]" />
                 <group expand="1">
                     <filter name="group_by_concession"
                             string="Concession"
-                            context="{'group_by':'concession_id'}"/>
+                            context="{'group_by':'concession_id'}" />
                 </group>
             </search>
         </field>
     </record>
 
-<!-- WINDOW ACTION -->
-<record model="ir.actions.act_window" id="sicon.control_notes_list_action">
-    <field name="name">Control Notes</field>
-    <field name="res_model">sicon.control_note</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="sicon.control_note_no_create_tree_view"/>
-    <field name="limit">20</field>
-    <field name="help" type="html">
-        <p class="oe_view_nocontent">
-          No control notes were found.
-        </p><p>
-          You can add a control note by editing the concession.
-        </p>
-    </field>
-</record>
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="sicon.control_notes_list_action">
+        <field name="name">Control Notes</field>
+        <field name="res_model">sicon.control_note</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id"
+               ref="sicon.control_note_no_create_tree_view" />
+        <field name="limit">20</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent">
+                No control notes were found.
+            </p>
+            <p>
+                You can add a control note by editing the concession.
+            </p>
+        </field>
+    </record>
 
-</data>
 </odoo>

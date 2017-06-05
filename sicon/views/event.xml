@@ -1,99 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-<data>
 
     <!-- TREE VIEW -->
-    <record id="sicon.event_tree_view" model="ir.ui.view">
+    <record id="sicon.event_tree_view"
+            model="ir.ui.view">
         <field name="name">event.tree</field>
         <field name="model">sicon.event</field>
-        <field name="arch" type="xml">
-            <tree string="Events" default_order="date desc" create="false">
-            	<field name="date"/>
-            	<field name="document_id"/>
-            	<field name="event_type_id"/>
-            	<field name="name"/>
-            	<field name="concessionaire_id"/>
+        <field name="arch"
+               type="xml">
+            <tree string="Events"
+                  default_order="date desc"
+                  create="false">
+                <field name="date" />
+                <field name="document_id" />
+                <field name="event_type_id" />
+                <field name="name" />
+                <field name="concessionaire_id" />
                 <button type="object"
                         string="View Concession"
                         name="view_concession"
-                        icon="gtk-justify-left"/>
+                        icon="gtk-justify-left" />
             </tree>
         </field>
     </record>
 
     <!-- SEARCH VIEW SINGLE MODE-->
-    <record model="ir.ui.view" id="sicon_event_single_mode_search_view">
+    <record model="ir.ui.view"
+            id="sicon_event_single_mode_search_view">
         <field name="name">event_single_mode.search</field>
         <field name="model">sicon.event</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <search string="Events">
-                <field name="event_type_id" string="Event Type" search_domain="['|', ('event_type_id', '=', self)"/>
+                <field name="event_type_id"
+                       string="Event Type"
+                       search_domain="['|', ('event_type_id', '=', self)" />
             </search>
         </field>
     </record>
 
     <!-- SEARCH VIEW -->
-    <record model="ir.ui.view" id="sicon_event_search_view">
+    <record model="ir.ui.view"
+            id="sicon_event_search_view">
         <field name="name">event.search</field>
         <field name="model">sicon.event</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <search string="Events">
-                <field name="concession_id" string="concession_id" search_domain="['|', ('concession_id', '=', self)]"/>
-                <field name="event_type_id" string="Event Type" search_domain="['|', ('event_type_id', '=', self)"/>
+                <field name="concession_id"
+                       string="concession_id"
+                       search_domain="['|', ('concession_id', '=', self)]" />
+                <field name="event_type_id"
+                       string="Event Type"
+                       search_domain="['|', ('event_type_id', '=', self)" />
                 <group expand="1">
                     <filter name="group_by_concession"
                             string="Concession"
-                            context="{'group_by':'concession_id'}"/>
+                            context="{'group_by':'concession_id'}" />
                 </group>
             </search>
         </field>
     </record>
 
     <!-- FORM VIEW -->
-    <record id="sicon.event_form_view" model="ir.ui.view">
+    <record id="sicon.event_form_view"
+            model="ir.ui.view">
         <field name="name">sicon.event.form</field>
         <field name="model">sicon.event</field>
-        <field name="arch" type="xml">
+        <field name="arch"
+               type="xml">
             <form>
                 <sheet>
                     <group>
                         <group>
-                            <field name="concession_id"/>
-                            <field name="date" string="Date"/>
-                            <field name="event_type_id"/>
-                            <field name="name"/>
-                            <field name="document_id"/>
-                            <field name="other_related_document"/>
+                            <field name="concession_id" />
+                            <field name="date"
+                                   string="Date" />
+                            <field name="event_type_id" />
+                            <field name="name" />
+                            <field name="document_id" />
+                            <field name="other_related_document" />
                         </group>
                         <group>
-                            <field name="create_uid" readonly="True"/>
-                            <field name="write_uid" readonly="True"/>
+                            <field name="create_uid"
+                                   readonly="True" />
+                            <field name="write_uid"
+                                   readonly="True" />
                         </group>
                     </group>
                     <group>
-                    <field name="observations"/>
-                </group>
+                        <field name="observations" />
+                    </group>
                 </sheet>
             </form>
         </field>
     </record>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window" id="sicon.events_list_action">
+    <record model="ir.actions.act_window"
+            id="sicon.events_list_action">
         <field name="name">Events</field>
         <field name="res_model">sicon.event</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{'search_default_group_by_concession':True}</field>
         <field name="limit">20</field>
-        <field name="help" type="html">
+        <field name="help"
+               type="html">
             <p class="oe_view_nocontent">
-              No events were found.
-            </p><p>
-              You can add an event editing the concession.
+                No events were found.
+            </p>
+            <p>
+                You can add an event editing the concession.
             </p>
         </field>
     </record>
 
-</data>
 </odoo>
