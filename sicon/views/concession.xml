@@ -71,7 +71,6 @@
                   colors="red:color=='red';goldenrod:color=='yellow'"
                   edit="false">
                 <field name="name" />
-                <field name="fantasy_name" />
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
@@ -131,7 +130,6 @@
                                 type="object"
                                 string="New Event"
                                 context="{'default_concession_id':active_id,
-                        'default_fantasy_name':fantasy_name,
                         'default_concessionaire_id':concessionaire_id,
                         'default_location':location,
                         'default_canon':canon,
@@ -154,9 +152,6 @@
                     <group>
                         <field name="create_date"
                                invisible="1" />
-                        <field name="fantasy_name"
-                               attrs="{'readonly':[('create_date','!=',False)]}"
-                               class="oe_inline" />
                     </group>
                     <group>
                         <group>
@@ -264,10 +259,6 @@
                    duplicate="0">
                 <attribute name="attrs">{'readonly': False}</attribute>
             </field>
-            <field name="fantasy_name"
-                   position="attributes">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
             <field name="location"
                    position="attributes">
                 <attribute name="attrs">{'readonly': False}</attribute>
@@ -305,9 +296,6 @@
                                readonly="True" />
                     </group>
                     <group string="Concession Data">
-                        <field name="fantasy_name"
-                               class="oe_inline"
-                               readonly="True" />
                         <field name="state"
                                class="oe_inline"
                                readonly="True" />

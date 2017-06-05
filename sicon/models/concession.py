@@ -40,9 +40,6 @@ class Concession(models.Model):
         required=True
     )
 
-    fantasy_name = fields.Char(
-        required=True
-    )
 
     state = fields.Selection(
         selection=states,
