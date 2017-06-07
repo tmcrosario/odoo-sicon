@@ -161,8 +161,6 @@ class Concession(models.Model):
 
     url_mr = fields.Char()
 
-    changed = fields.Boolean()
-
     @api.model
     def create(self, values):
         if 'concession_id' not in values:

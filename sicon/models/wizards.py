@@ -127,8 +127,6 @@ class Add_Event_Wizard(models.TransientModel):
                 con_obj.expiration_date = self.expiration_date
                 con_obj.state = self.state
 
-                concession_vals['changed'] = True
-
         concession_model = self.env['sicon.concession']
         concession_id = concession_model.create(concession_vals)
 
