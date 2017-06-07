@@ -159,6 +159,8 @@ class Concession(models.Model):
         inverse_name='concession_id'
     )
 
+    url_mr = fields.Char()
+
     observations = fields.Html()
 
     changed = fields.Boolean()

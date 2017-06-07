@@ -158,6 +158,8 @@
                         <group>
                             <field name="location"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
+                            <field name="url_mr"
+                                   widget="url" />
                             <field name="concessionaire_id"
                                    attrs="{'readonly':[('create_date','!=',False)]}"
                                    context="{'default_concessionaire': True}" />
