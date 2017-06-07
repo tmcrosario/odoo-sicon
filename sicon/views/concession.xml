@@ -71,6 +71,7 @@
                   colors="red:color=='red';goldenrod:color=='yellow'"
                   edit="false">
                 <field name="name" />
+                <field name="start_date" />
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
