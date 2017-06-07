@@ -232,9 +232,6 @@
                             <field name="event_ids"
                                    options="{'no_create': True}" />
                         </page>
-                        <page string="Control Notes">
-                            <field name="control_note_ids" />
-                        </page>
                         <page string="Highlights">
                             <field name="highlight_ids" />
                         </page>

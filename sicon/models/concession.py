@@ -68,11 +68,6 @@ class Concession(models.Model):
         inverse_name='concession_id',
     )
 
-    control_note_ids = fields.One2many(
-        comodel_name='sicon.control_note',
-        inverse_name='concession_id'
-    )
-
     canon = fields.Char()
 
     start_date = fields.Date()
@@ -240,15 +235,6 @@ class Concession(models.Model):
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'res_model': 'sicon.add_event_wizard',
-            'target': 'new'
-        }
-
-    @api.multi
-    def add_control_note(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'sicon.add_control_note_wizard',
             'target': 'new'
         }
 

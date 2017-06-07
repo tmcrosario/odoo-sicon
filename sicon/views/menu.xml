@@ -54,12 +54,6 @@
               sequence="20"
               action="highlight_list_action" />
 
-    <menuitem id="sicon_control_notes_menu"
-              name="Control Notes"
-              parent="sicon_lists_menu"
-              sequence="25"
-              action="control_notes_list_action" />
-
     <!-- <menuitem id="sicon_unrelated_documents_menu"
                 name="Unrelated Documents"
                 parent="sicon_lists_menu"

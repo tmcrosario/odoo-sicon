@@ -3,8 +3,6 @@ access_sicon_concession_manager,sicon.concession.manager,model_sicon_concession,
 access_sicon_concession_user,sicon.concession.user,model_sicon_concession,group_user,1,1,1,0
 access_sicon_business_category_manager,sicon.business_category.manager,model_sicon_business_category,group_manager,1,1,1,1
 access_sicon_business_category_user,sicon.business_category.user,model_sicon_business_category,group_user,1,0,0,0
-access_sicon_control_note_manager,sicon.control_note.manager,model_sicon_control_note,group_manager,1,1,1,1
-access_sicon_control_note_user,sicon.control_note.user,model_sicon_control_note,group_user,1,1,1,0
 access_sicon_event_manager,sicon.event.manager,model_sicon_event,group_manager,1,1,1,1
 access_sicon_event_user,sicon.event.user,model_sicon_event,group_user,1,1,1,0
 access_sicon_event_type_manager,sicon.event_type.manager,model_sicon_event_type,group_manager,1,1,1,1

@@ -20,7 +20,6 @@
         'views/business_category.xml',
         'views/event.xml',
         'views/event_type.xml',
-        'views/control_note.xml',
         'views/partner.xml',
         'views/drei.xml',
         # 'reports/unrelated_documents.xml',
