@@ -238,9 +238,6 @@
                         <page string="Highlights">
                             <field name="highlight_ids" />
                         </page>
-                        <page string="Observations">
-                            <field name="observations" />
-                        </page>
                     </notebook>
                 </sheet>
             </form>

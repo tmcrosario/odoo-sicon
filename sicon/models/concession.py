@@ -161,8 +161,6 @@ class Concession(models.Model):
 
     url_mr = fields.Char()
 
-    observations = fields.Html()
-
     changed = fields.Boolean()
 
     @api.model
