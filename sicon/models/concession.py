@@ -123,18 +123,16 @@ class Concession(models.Model):
 
     extension_description = fields.Text()
 
+    highest_highlight = fields.Selection(
+        selection=[('high', 'High'),
+                   ('medium', 'Medium')],
+        compute='_get_highest_highlight'
+
+    )
+
     highlight_ids = fields.One2many(
         comodel_name='tmc.highlight',
         inverse_name='concession_id'
-    )
-
-    priority = fields.Integer(
-        compute='_get_priority_and_color',
-        store=True
-    )
-
-    color = fields.Char(
-        compute='_get_priority_and_color',
     )
 
     highlights_count = fields.Integer(
@@ -265,3 +263,21 @@ class Concession(models.Model):
                 self.expired = True
             else:
                 self.expired = False
+
+    @api.one
+    @api.depends('highlight_ids')
+    def _get_highest_highlight(self):
+        high_highlights = self.env['tmc.highlight'].search([
+            ('concession_id', '=', self.id),
+            ('applicable', '=', True),
+            ('level', '=', 'high')]
+        )
+        medium_highlights = self.env['tmc.highlight'].search([
+            ('concession_id', '=', self.id),
+            ('applicable', '=', True),
+            ('level', '=', 'medium')]
+        )
+        if high_highlights:
+            self.highest_highlight = 'high'
+        elif medium_highlights:
+            self.highest_highlight = 'medium'

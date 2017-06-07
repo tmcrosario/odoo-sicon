@@ -67,16 +67,16 @@
         <field name="arch"
                type="xml">
             <tree string="concession"
-                  default_order="priority desc, name"
-                  colors="red:color=='red';goldenrod:color=='yellow'"
+                  decoration-danger="highest_highlight=='high'"
+                  decoration-warning="highest_highlight=='medium'"
                   edit="false">
                 <field name="name" />
                 <field name="start_date" />
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
-                <field name="color"
-                       invisible="1" />
+                <field name="highest_highlight"
+                       invisible="True" />
             </tree>
         </field>
     </record>
