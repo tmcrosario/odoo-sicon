@@ -30,7 +30,6 @@ class Concession(models.Model):
         ('awarded', 'Awarded'),
         ('on_term', 'On Term'),
         ('extended', 'Extended'),
-        ('expired', 'Expired'),
         ('precarious', 'Precarious'),
         ('rescinded', 'Rescinded'),
         ('caducous', 'Caducous'),
@@ -40,6 +39,9 @@ class Concession(models.Model):
         required=True
     )
 
+    expired = fields.Boolean(
+        compute='_check_if_expired'
+    )
 
     state = fields.Selection(
         selection=states,
@@ -253,3 +255,13 @@ class Concession(models.Model):
             'res_model': 'sicon.add_control_note_wizard',
             'target': 'new'
         }
+
+    @api.one
+    @api.depends('expiration_date')
+    def _check_if_expired(self):
+        if self.expiration_date:
+            today = fields.Date.from_string(fields.Date.today())
+            if fields.Date.from_string(self.expiration_date) <= today:
+                self.expired = True
+            else:
+                self.expired = False
