@@ -139,7 +139,14 @@
                         'default_state':state
                         }"
                                 icon="fa-plus"
-                                attrs="{'invisible': [('create_date','=',False)]}" />
+                                attrs="{'invisible': [('create_date','=', False)]}" />
+                        <button class="oe_inline oe_stat_button"
+                                name="open_url"
+                                type="object"
+                                string="Images"
+                                attrs="{'invisible': [('url_images', '=', False)]}"
+                                context="{'url': url_images}"
+                                icon="fa-image" />
                         <button class="oe_inline oe_stat_button"
                                 name="%(sicon.highlight_by_concession_list_action)d"
                                 type="action"
@@ -160,6 +167,8 @@
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="url_mr"
                                    widget="url" />
+                            <field name="url_images"
+                                   class="oe_edit_only" />
                             <field name="concessionaire_id"
                                    attrs="{'readonly':[('create_date','!=',False)]}"
                                    context="{'default_concessionaire': True}" />

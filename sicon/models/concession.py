@@ -156,6 +156,8 @@ class Concession(models.Model):
 
     url_mr = fields.Char()
 
+    url_images = fields.Char()
+
     @api.model
     def create(self, values):
         if 'concession_id' not in values:
@@ -265,3 +267,13 @@ class Concession(models.Model):
             self.highest_highlight = 'high'
         elif medium_highlights:
             self.highest_highlight = 'medium'
+
+    @api.multi
+    def open_url(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_url',
+            'url': self.env.context['url'],
+            'target': 'new',
+        }
+
