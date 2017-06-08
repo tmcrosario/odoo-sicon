@@ -113,31 +113,22 @@
                            widget="statusbar" />
                 </header>
                 <sheet>
-                    <div class="oe_title">
-                        <label for="name"
-                               class="oe_edit_only"
-                               string="Concession Name" />
-                        <h1>
-                        <field name="name"
-                               string="Concession Name"
-                               attrs="{'readonly':[('create_date','!=',False)]}"/>
-                    </h1>
-                    </div>
-                    <div class="oe_right oe_button_box"
-                         name="buttons"
+
+                    <div class="oe_button_box"
+                         name="button_box"
                          groups="base.group_user">
                         <button class="oe_inline oe_stat_button"
                                 name="add_event"
                                 type="object"
                                 string="New Event"
                                 context="{'default_concession_id':active_id,
-                        'default_concessionaire_id':concessionaire_id,
-                        'default_location':location,
-                        'default_canon':canon,
-                        'default_start_date':start_date,
-                        'default_expiration_date':expiration_date,
-                        'default_state':state
-                        }"
+                                    'default_concessionaire_id':concessionaire_id,
+                                    'default_location':location,
+                                    'default_canon':canon,
+                                    'default_start_date':start_date,
+                                    'default_expiration_date':expiration_date,
+                                    'default_state':state
+                                }"
                                 icon="fa-plus"
                                 attrs="{'invisible': [('create_date','=', False)]}" />
                         <button class="oe_inline oe_stat_button"
@@ -151,12 +142,23 @@
                                 name="%(sicon.highlight_by_concession_list_action)d"
                                 type="action"
                                 attrs="{'invisible':[('highlights_count','=', 0)]}"
-                                icon="fa-star">
+                                icon="fa-exclamation-circle">
                         <field string="Highlight(s)"
                                name="highlights_count"
                                widget="statinfo"/>
                     </button>
                     </div>
+                    <div class="oe_title">
+                        <label for="name"
+                               class="oe_edit_only"
+                               string="Concession Name" />
+                        <h1>
+                        <field name="name"
+                               string="Concession Name"
+                               attrs="{'readonly':[('create_date','!=',False)]}" />
+                        </h1>
+                    </div>
+
                     <group>
                         <field name="create_date"
                                invisible="1" />
