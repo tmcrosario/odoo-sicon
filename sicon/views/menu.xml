@@ -18,16 +18,22 @@
               sequence="5"
               action="concessions_list_action" />
 
+    <menuitem id="sicon_permission_to_use_list_menu"
+              name="Permission To Use"
+              parent="sicon_concessions_main_menu"
+              sequence="10"
+              action="permission_to_use_list_action" />
+
     <menuitem id="sicon_concessionaires_menu"
               name="Concesionaires"
               parent="sicon_concessions_main_menu"
-              sequence="10"
+              sequence="15"
               action="partner_concessionaires_list_action" />
 
     <menuitem id="sicon_lists_menu"
               name="Lists"
               parent="sicon_concessions_main_menu"
-              sequence="15" />
+              sequence="20" />
     <!-- groups="sicon.group_manager,sicon.group_user"/> -->
 
     <menuitem id="sicon_expired_concessions_menu"

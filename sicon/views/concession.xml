@@ -8,11 +8,31 @@
         <field name="res_model">sicon.concession</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False)]</field>
+        <field name="domain">[('concession_id', '=', False), ('permission_to_use', '=', False)]</field>
         <field name="help"
                type="html">
             <p class="oe_view_nocontent_create">
                 Click to create a new concession.
+            </p>
+            <p>
+                No registries were found.
+            </p>
+        </field>
+    </record>
+
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="sicon.permission_to_use_list_action">
+        <field name="name">Permission To Use</field>
+        <field name="res_model">sicon.concession</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('concession_id', '=', False), ('permission_to_use', '=', True)]</field>
+        <field name="context">{'default_permission_to_use': True}</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new permission to use.
             </p>
             <p>
                 No registries were found.
