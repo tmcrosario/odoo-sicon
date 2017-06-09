@@ -172,8 +172,6 @@
                         <group>
                             <field name="location"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
-                            <field name="url_mr"
-                                   widget="url" />
                             <field name="url_images"
                                    class="oe_edit_only" />
                             <field name="concessionaire_id"
@@ -187,6 +185,10 @@
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="planned_extension" />
                         </group>
+                    </group>
+                    <group>
+                        <field name="url_mr"
+                               widget="url" />
                     </group>
                     <group>
                         <field name="business_category_ids"
