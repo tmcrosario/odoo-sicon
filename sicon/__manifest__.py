@@ -10,7 +10,9 @@
     'sequence': 150,
     'depends': [
         'tmc',
-        'partner_fiscal'
+        'partner_tmc',
+        'partner_fiscal',
+        'partner_external_map'
     ],
     'data': [
         # 'security/sicon_group.xml',

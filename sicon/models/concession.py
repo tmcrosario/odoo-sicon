@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning
+from odoo.exceptions import UserError, Warning
 
 
 class Concession(models.Model):
@@ -277,3 +277,38 @@ class Concession(models.Model):
             'target': 'new',
         }
 
+    @api.model
+    def _prepare_url(self, url, replace):
+        assert url, 'Missing URL'
+        for key, value in replace.iteritems():
+            if not isinstance(value, (str, unicode)):
+                # For latitude and longitude which are floats
+                value = unicode(value)
+            url = url.replace(key, value)
+        return url
+
+    @api.multi
+    def open_map(self):
+        self.ensure_one()
+        map_website = self.env.user.context_map_website_id
+        if not map_website:
+            raise UserError(
+                _('Missing map provider: '
+                  'you should set it in your preferences.'))
+        else:
+            if not map_website.address_url:
+                raise UserError(
+                    _("Missing parameter 'URL that uses the address' "
+                      "for map website '%s'.") % map_website.name)
+            addr = []
+            if self.location:
+                addr.append(self.location)
+                addr.append('Rosario')
+                url = self._prepare_url(
+                    map_website.address_url,
+                    {'{ADDRESS}': ' '.join(addr)})
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+            'target': 'new',
+        }

@@ -139,6 +139,11 @@
                                 context="{'url': url_images}"
                                 icon="fa-image" />
                         <button class="oe_inline oe_stat_button"
+                                name="open_map"
+                                type="object"
+                                string="Map"
+                                icon="fa-map-marker" />
+                        <button class="oe_inline oe_stat_button"
                                 name="%(sicon.highlight_by_concession_list_action)d"
                                 type="action"
                                 attrs="{'invisible':[('highlights_count','=', 0)]}"
