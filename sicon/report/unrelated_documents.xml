@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="unrelated_documents_list_action">
+        <field name="name">Unrelated Documents</field>
+        <field name="res_model">sicon.unrelated_documents.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent">
+                There are no pending documents to relate.
+            </p>
+            <p>
+                Here are listed those documents whose main or secondary topic is related to concessions and has not yet been included in SICON.
+            </p>
+        </field>
+    </record>
+
+    <!-- TREE VIEW -->
+    <record id="view_unrelated_documents_report_tree"
+            model="ir.ui.view">
+        <field name="name">sicon.unrelated_documents.report.tree</field>
+        <field name="model">sicon.unrelated_documents.report</field>
+        <field name="arch"
+               type="xml">
+            <tree string="Unrelated Documents"
+                  create="false">
+                <field name="name" />
+                <field name="document_object" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
