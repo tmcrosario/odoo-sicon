@@ -39,10 +39,6 @@ class Add_Event_Wizard(models.TransientModel):
 
     modify_concession = fields.Boolean()
 
-    fantasy_name = fields.Char(
-        required=True
-    )
-
     concessionaire_id = fields.Many2one(
         comodel_name='res.partner',
         domain=[('concessionaire', '=', 'True')]
@@ -52,9 +48,7 @@ class Add_Event_Wizard(models.TransientModel):
         comodel_name='municipal.business_category'
     )
 
-    location = fields.Char(
-        required=True
-    )
+    location = fields.Char()
 
     canon = fields.Char()
 
@@ -63,8 +57,7 @@ class Add_Event_Wizard(models.TransientModel):
     expiration_date = fields.Date()
 
     state = fields.Selection(
-        selection=Concession.states,
-        required=True
+        selection=Concession.states
     )
 
     @api.multi
@@ -84,7 +77,6 @@ class Add_Event_Wizard(models.TransientModel):
         event = event_model.create(events_vals)
 
         concession_vals = {
-            'fantasy_name': self.fantasy_name,
             'concessionaire_id': self.concessionaire_id.id,
             'business_category_ids': [(6, 0, self.business_category_ids.ids)],
             'location': self.location,
@@ -119,7 +111,6 @@ class Add_Event_Wizard(models.TransientModel):
             if newest == event or not newests:
 
                 con_obj = self.concession_id
-                con_obj.fantasy_name = self.fantasy_name
                 con_obj.location = self.location
                 con_obj.business_category_ids = self.business_category_ids
                 con_obj.concessionaire_id = self.concessionaire_id.id

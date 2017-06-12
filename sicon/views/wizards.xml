@@ -30,7 +30,6 @@
                     </group>
                     <group string="Concession Data"
                            attrs="{'invisible':[('modify_concession','=',False)]}">
-                        <field name="fantasy_name" />
                         <field name="concessionaire_id"
                                context="{'default_concessionaire': True}"
                                attrs="{'required':[('state','=', 'awarded')]}" />
