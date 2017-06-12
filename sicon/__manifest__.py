@@ -24,7 +24,7 @@
         'views/event.xml',
         'views/event_type.xml',
         'views/partner.xml',
-        # 'reports/unrelated_documents.xml',
+        'report/unrelated_documents.xml',
         'views/menu.xml',
         'views/wizards.xml',
         # 'schedule/schedule.xml'
