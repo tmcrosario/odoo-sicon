@@ -26,22 +26,6 @@
                     </field>
                 </page>
             </page>
-            <page name="afip"
-                  position="after">
-                <page name="mr"
-                      string="MR">
-                    <group style="margin-top: 20px; margin-bottom: 18px;">
-                        <a class="oe_form_uri"
-                           href="http://bit.ly/1ThljqJ"
-                           target="_blank">
-                           <span class="fa fa-globe"/> Acceso SIAT
-                       </a>
-                    </group>
-                    <group>
-                        <field name="drei_ids" />
-                    </group>
-                </page>
-            </page>
         </field>
     </record>
 

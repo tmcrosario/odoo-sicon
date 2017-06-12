@@ -49,7 +49,7 @@ class Add_Event_Wizard(models.TransientModel):
     )
 
     business_category_ids = fields.Many2many(
-        comodel_name='sicon.business_category'
+        comodel_name='municipal.business_category'
     )
 
     location = fields.Char(

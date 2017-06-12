@@ -72,12 +72,6 @@
               sequence="20" />
     <!-- groups="sicon.group_manager"/> -->
 
-    <menuitem id="sicon_business_categories_menu"
-              name="Business Categories"
-              parent="sicon_configuration_menu"
-              sequence="5"
-              action="business_categories_list_action" />
-
     <menuitem id="sicon_event_types_menu"
               name="Event Types"
               parent="sicon_configuration_menu"

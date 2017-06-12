@@ -12,6 +12,8 @@
         'tmc',
         'partner_tmc',
         'partner_fiscal',
+        'municipal',
+        'partner_municipal',
         'partner_external_map'
     ],
     'data': [
@@ -19,11 +21,9 @@
         # 'security/ir.model.access.csv',
         'views/highlight.xml',
         'views/concession.xml',
-        'views/business_category.xml',
         'views/event.xml',
         'views/event_type.xml',
         'views/partner.xml',
-        'views/drei.xml',
         # 'reports/unrelated_documents.xml',
         'views/menu.xml',
         'views/wizards.xml',

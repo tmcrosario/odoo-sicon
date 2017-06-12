@@ -211,8 +211,7 @@
                                widget="url" />
                     </group>
                     <group>
-                        <field name="business_category_ids"
-                               context="{'tree_view_ref': 'sicon.business_category_noedit_tree_view'}" />
+                        <field name="business_category_ids" />
                     </group>
                     <group>
                         <group string="Original Term As In Statement">

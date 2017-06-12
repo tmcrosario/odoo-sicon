@@ -53,7 +53,7 @@ class Concession(models.Model):
     )
 
     business_category_ids = fields.Many2many(
-        comodel_name='sicon.business_category',
+        comodel_name='municipal.business_category',
         compute='_get_business_categories',
         readonly=True
     )
@@ -226,9 +226,10 @@ class Concession(models.Model):
     @api.depends('concessionaire_id')
     def _get_business_categories(self):
         domain = [
-            ('concessionaire_id', '=', self.concessionaire_id.id)
+            ('partner_id', '=', self.concessionaire_id.id)
         ]
-        concessionaire_drei_accounts = self.env['sicon.drei'].search(domain)
+        concessionaire_drei_accounts = self.env[
+            'municipal.drei'].search(domain)
         self.business_category_ids = concessionaire_drei_accounts.mapped(
             'business_category_ids'
         )
