@@ -162,6 +162,7 @@
                                 name="open_map"
                                 type="object"
                                 string="Map"
+                                attrs="{'invisible': [('location', '=', False)]}"
                                 icon="fa-map-marker" />
                         <button class="oe_inline oe_stat_button"
                                 name="%(sicon.highlight_by_concession_list_action)d"
