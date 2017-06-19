@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date, datetime
+
 from concession import Concession
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class Add_Event_Wizard(models.TransientModel):
@@ -122,3 +125,55 @@ class Add_Event_Wizard(models.TransientModel):
         concession_id = concession_model.create(concession_vals)
 
         event.concession_history_id = concession_id
+
+
+class Concessions_Listing_Report_Wizard(models.TransientModel):
+    _name = 'sicon.concessions_listing.report.wizard'
+
+    _listing_options = [
+        ('expired', 'Expired Concessions'),
+        ('all', 'All'),
+    ]
+
+    listing = fields.Selection(
+        selection=_listing_options,
+        default='all',
+        required=True
+    )
+
+    @api.multi
+    def format_date(self, date_string):
+        formatted_date = None
+        if date_string:
+            formatted_date = datetime.strptime(
+                date_string, '%Y-%m-%d').strftime('%d/%m/%Y')
+        return formatted_date
+
+    @api.multi
+    def get_concessions(self):
+        concession_list = None
+        concessions_model = self.env['sicon.concession']
+        if self.listing == 'all':
+            concession_list = concessions_model.search(
+                [('concession_id', '=', False)])
+        if self.listing == 'expired':
+            concession_list = concessions_model.search(
+                [('concession_id', '=', False),
+                 ('expired', '=', True)])
+        return concession_list
+
+    @api.multi
+    def _prepare_report(self):
+        context = self._context.copy()
+        context['date'] = date.today().strftime('%d/%m/%Y')
+        return self.with_context(context)
+
+    @api.multi
+    def generate_report(self):
+        if not self.get_concessions():
+            raise UserError(
+                _('No concessions matched to specified search criteria.'))
+        self.ensure_one()
+        self = self._prepare_report()
+        return self.env['report'].get_action(
+            self, 'concessions_listing')

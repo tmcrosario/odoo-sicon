@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
+
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, Warning
 
@@ -40,7 +42,8 @@ class Concession(models.Model):
     )
 
     expired = fields.Boolean(
-        compute='_check_if_expired'
+        compute='_check_if_expired',
+        store=True
     )
 
     state = fields.Selection(

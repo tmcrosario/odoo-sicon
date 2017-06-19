@@ -66,6 +66,12 @@
               sequence="25"
               action="unrelated_documents_list_action" />
 
+    <menuitem id="sicon_reports_menu"
+              name="Reports"
+              parent="sicon_concessions_main_menu"
+              sequence="25"
+              action="concessions_listing_report_wizard_action" />
+
     <menuitem id="sicon_configuration_menu"
               name="Configuration"
               parent="sicon_main_menu"

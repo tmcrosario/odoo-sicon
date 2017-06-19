@@ -7,14 +7,14 @@
     'author': 'Tribunal Municipal de Cuentas - Municipalidad de Rosario',
     'website': 'https://www.tmcrosario.gob.ar',
     'license': 'AGPL-3',
-    'sequence': 150,
     'depends': [
         'tmc',
         'partner_tmc',
         'partner_fiscal',
         'municipal',
         'partner_municipal',
-        'partner_external_map'
+        'partner_external_map',
+        'report_py3o'
     ],
     'data': [
         # 'security/sicon_group.xml',
@@ -25,8 +25,9 @@
         'views/event_type.xml',
         'views/partner.xml',
         'report/unrelated_documents.xml',
-        'views/menu.xml',
+        'report/concessions_listing.xml',
         'views/wizards.xml',
+        'views/menu.xml',
         # 'schedule/schedule.xml'
     ],
     'demo': [],
