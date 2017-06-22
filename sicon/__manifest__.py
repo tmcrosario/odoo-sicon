@@ -19,6 +19,7 @@
     'data': [
         # 'security/sicon_group.xml',
         # 'security/ir.model.access.csv',
+        'data/py3o.xml',
         'views/highlight.xml',
         'views/concession.xml',
         'views/event.xml',

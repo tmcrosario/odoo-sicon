@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="local_py3o_server"
-            model="py3o.server">
-        <field name="url">http://localhost:8765/form</field>
-    </record>
-
     <record id="sicon.concessions_listing_report"
             model="ir.actions.report.xml">
         <field name="name">Concessions Listing</field>
@@ -20,6 +15,5 @@
         <field name="module">sicon</field>
         <field name="py3o_template_fallback">report/concessions_listing.odt</field>
     </record>
-
 
 </odoo>
