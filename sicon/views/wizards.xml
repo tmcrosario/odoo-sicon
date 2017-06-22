@@ -76,9 +76,10 @@
                     <field name="listing" />
                 </group>
                 <footer>
-                    <button name="generate_report"
+                    <button name="check_and_generate_report"
                             type="object"
                             string="_Print"
+                            context="{'report_name': 'concessions_listing'}"
                             icon="fa-file-text-o"
                             class="oe_highlight" />
                     <button special="cancel"

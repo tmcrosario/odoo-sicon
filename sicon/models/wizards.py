@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date, datetime
-
 from concession import Concession
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -128,7 +126,9 @@ class Add_Event_Wizard(models.TransientModel):
 
 
 class Concessions_Listing_Report_Wizard(models.TransientModel):
+
     _name = 'sicon.concessions_listing.report.wizard'
+    _inherit = ['tmc.report']
 
     _listing_options = [
         ('expired', 'Expired Concessions'),
@@ -140,20 +140,6 @@ class Concessions_Listing_Report_Wizard(models.TransientModel):
         default='all',
         required=True
     )
-
-    @api.multi
-    def format_date(self, date_string):
-        formatted_date = None
-        if date_string:
-            try:
-                tmp = datetime.strptime(
-                    date_string, '%Y-%m-%d')
-            except Exception:
-                tmp = datetime.strptime(
-                    date_string, '%Y-%m-%d %H:%M:%S').date()
-            finally:
-                formatted_date = tmp.strftime('%d/%m/%Y')
-        return formatted_date
 
     @api.multi
     def get_concessions(self):
@@ -169,16 +155,8 @@ class Concessions_Listing_Report_Wizard(models.TransientModel):
         return concession_list
 
     @api.multi
-    def _prepare_report(self):
-        context = self._context.copy()
-        return self.with_context(context)
-
-    @api.multi
-    def generate_report(self):
+    def check_and_generate_report(self):
         if not self.get_concessions():
             raise UserError(
                 _('No concessions matched to specified search criteria.'))
-        self.ensure_one()
-        self = self._prepare_report()
-        return self.env['report'].get_action(
-            self, 'concessions_listing')
+        return self.generate_report()

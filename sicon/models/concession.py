@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
-
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, Warning
 
@@ -10,6 +8,7 @@ class Concession(models.Model):
 
     _name = 'sicon.concession'
     _order = 'name'
+    _inherit = ['tmc.report']
 
     _expiration_types_ = [
         ('certain', 'Certain'),
@@ -162,20 +161,6 @@ class Concession(models.Model):
     url_images = fields.Char()
 
     permission_to_use = fields.Boolean()
-
-    @api.multi
-    def format_date(self, date_string):
-        formatted_date = None
-        if date_string:
-            try:
-                tmp = datetime.strptime(
-                    date_string, '%Y-%m-%d')
-            except Exception:
-                tmp = datetime.strptime(
-                    date_string, '%Y-%m-%d %H:%M:%S').date()
-            finally:
-                formatted_date = tmp.strftime('%d/%m/%Y')
-        return formatted_date
 
     @api.model
     def create(self, values):
