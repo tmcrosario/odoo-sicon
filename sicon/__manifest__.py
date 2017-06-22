@@ -27,6 +27,7 @@
         'views/partner.xml',
         'report/unrelated_documents.xml',
         'report/concessions_listing.xml',
+        'report/concession.xml',
         'views/wizards.xml',
         'views/menu.xml',
         # 'schedule/schedule.xml'
