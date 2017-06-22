@@ -18,12 +18,6 @@
               sequence="5"
               action="concessions_list_action" />
 
-    <menuitem id="sicon_permission_to_use_list_menu"
-              name="Permission To Use"
-              parent="sicon_concessions_main_menu"
-              sequence="10"
-              action="permission_to_use_list_action" />
-
     <menuitem id="sicon_concessionaires_menu"
               name="Concesionaires"
               parent="sicon_concessions_main_menu"

@@ -22,26 +22,6 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="sicon.permission_to_use_list_action">
-        <field name="name">Permission To Use</field>
-        <field name="res_model">sicon.concession</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False), ('permission_to_use', '=', True)]</field>
-        <field name="context">{'default_permission_to_use': True}</field>
-        <field name="help"
-               type="html">
-            <p class="oe_view_nocontent_create">
-                Click to create a new permission to use.
-            </p>
-            <p>
-                No registries were found.
-            </p>
-        </field>
-    </record>
-
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
             id="sicon.expired_concessions_list_action">
         <field name="name">Expired Concessions</field>
         <field name="res_model">sicon.concession</field>
@@ -179,9 +159,9 @@
                                class="oe_edit_only"
                                string="Concession Name" />
                         <h1>
-                        <field name="name"
-                               string="Concession Name"
-                               attrs="{'readonly':[('create_date','!=',False)]}" />
+                            <field name="name"
+                                   string="Concession Name"
+                                   attrs="{'readonly':[('create_date', '!=', False)]}" />
                         </h1>
                     </div>
 
@@ -191,6 +171,7 @@
                     </group>
                     <group>
                         <group>
+                            <field name="permission_to_use" />
                             <field name="location"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="url_images"
