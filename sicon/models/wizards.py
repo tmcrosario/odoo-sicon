@@ -145,8 +145,14 @@ class Concessions_Listing_Report_Wizard(models.TransientModel):
     def format_date(self, date_string):
         formatted_date = None
         if date_string:
-            formatted_date = datetime.strptime(
-                date_string, '%Y-%m-%d').strftime('%d/%m/%Y')
+            try:
+                tmp = datetime.strptime(
+                    date_string, '%Y-%m-%d')
+            except Exception:
+                tmp = datetime.strptime(
+                    date_string, '%Y-%m-%d %H:%M:%S').date()
+            finally:
+                formatted_date = tmp.strftime('%d/%m/%Y')
         return formatted_date
 
     @api.multi
@@ -165,7 +171,6 @@ class Concessions_Listing_Report_Wizard(models.TransientModel):
     @api.multi
     def _prepare_report(self):
         context = self._context.copy()
-        context['date'] = date.today().strftime('%d/%m/%Y')
         return self.with_context(context)
 
     @api.multi
