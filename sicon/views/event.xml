@@ -88,9 +88,6 @@
                                    readonly="True" />
                         </group>
                     </group>
-                    <group>
-                        <field name="observations" />
-                    </group>
                 </sheet>
             </form>
         </field>

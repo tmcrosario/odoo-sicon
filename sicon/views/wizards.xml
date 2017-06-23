@@ -26,7 +26,6 @@
                         <field name="document_id" />
                         <field name="other_related_document" />
                         <field name="modify_concession" />
-                        <field name="add_observations" />
                     </group>
                     <group string="Concession Data"
                            attrs="{'invisible':[('modify_concession','=',False)]}">
@@ -40,11 +39,6 @@
                         <field name="state" />
                     </group>
                 </group>
-                <notebook attrs="{'invisible':[('add_observations','=', False)]}">
-                    <page string="Observations">
-                        <field name="observations" />
-                    </page>
-                </notebook>
                 <footer>
                     <button name="save_event"
                             type="object"

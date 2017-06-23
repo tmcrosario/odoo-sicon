@@ -45,8 +45,6 @@ class Event(models.Model):
 
     other_related_document = fields.Char()
 
-    observations = fields.Html()
-
     modify_concession = fields.Boolean()
 
     @api.multi

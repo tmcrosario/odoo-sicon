@@ -34,10 +34,6 @@ class Add_Event_Wizard(models.TransientModel):
 
     other_related_document = fields.Char()
 
-    add_observations = fields.Boolean()
-
-    observations = fields.Html()
-
     modify_concession = fields.Boolean()
 
     concessionaire_id = fields.Many2one(
@@ -70,8 +66,7 @@ class Add_Event_Wizard(models.TransientModel):
             'name': self.name,
             'concession_id': self.concession_id.id,
             'document_id': self.document_id.id,
-            'other_related_document': self.other_related_document,
-            'observations': self.observations
+            'other_related_document': self.other_related_document
         }
 
         event_model = self.env['sicon.event']
