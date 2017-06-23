@@ -48,6 +48,7 @@
         <field name="res_model">tmc.highlight</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree</field>
+        <field name="domain">[('concession_id', '!=', False)]</field>
         <field name="view_id"
                ref="sicon.highlight_tree_view" />
         <field name="limit">20</field>
