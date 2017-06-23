@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import _, fields, models
 
 
 class Event_Type(models.Model):
@@ -12,3 +12,9 @@ class Event_Type(models.Model):
     )
 
     description = fields.Text()
+
+    _sql_constraints = [
+        ('name_unique',
+         'UNIQUE(name)',
+         _('Event type name must be unique'))
+    ]
