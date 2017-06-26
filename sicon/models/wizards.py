@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from concession import Concession
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -57,6 +59,14 @@ class Add_Event_Wizard(models.TransientModel):
 
     @api.multi
     def save_event(self):
+
+        if self.document_id:
+            if self.date:
+                event_year = datetime.strptime(
+                    self.date, '%Y-%m-%d').strftime('%Y')
+                if event_year != str(self.document_id.period):
+                    raise UserError(
+                        _('Event year must be equal to document period.'))
 
         events_vals = {
             'date': self.date,
