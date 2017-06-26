@@ -23,7 +23,8 @@
                         <field name="event_type_id"
                                options="{'no_create': True}" />
                         <field name="name" />
-                        <field name="document_id" />
+                        <field name="document_id"
+                               options="{'no_create': True}" />
                         <field name="other_related_document" />
                         <field name="modify_concession" />
                     </group>
