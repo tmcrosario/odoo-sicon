@@ -25,7 +25,11 @@
                         <field name="name" />
                         <field name="document_id"
                                options="{'no_create': True}" />
-                        <field name="other_related_document" />
+                        <field name="related_document_ids">
+                            <tree>
+                                <field name="name" />
+                            </tree>
+                        </field>
                         <field name="modify_concession" />
                     </group>
                     <group string="Concession Data"

@@ -43,7 +43,9 @@ class Event(models.Model):
         comodel_name='tmc.document'
     )
 
-    other_related_document = fields.Char()
+    related_document_ids = fields.Many2many(
+        comodel_name='tmc.document'
+    )
 
     modify_concession = fields.Boolean()
 

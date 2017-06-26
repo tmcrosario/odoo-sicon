@@ -34,7 +34,9 @@ class Add_Event_Wizard(models.TransientModel):
         string='Administrative Act'
     )
 
-    other_related_document = fields.Char()
+    related_document_ids = fields.Many2many(
+        comodel_name='tmc.document'
+    )
 
     modify_concession = fields.Boolean()
 
@@ -74,7 +76,7 @@ class Add_Event_Wizard(models.TransientModel):
             'name': self.name,
             'concession_id': self.concession_id.id,
             'document_id': self.document_id.id,
-            'other_related_document': self.other_related_document
+            'related_document_ids': [(6, 0, self.related_document_ids.ids)]
         }
 
         event_model = self.env['sicon.event']

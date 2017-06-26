@@ -85,7 +85,6 @@
                             <field name="event_type_id" />
                             <field name="name" />
                             <field name="document_id" />
-                            <field name="other_related_document" />
                         </group>
                         <group>
                             <field name="create_uid"
@@ -93,6 +92,9 @@
                             <field name="write_uid"
                                    readonly="True" />
                         </group>
+                    </group>
+                    <group>
+                        <field name="related_document_ids" />
                     </group>
                 </sheet>
             </form>
