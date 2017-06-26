@@ -33,7 +33,8 @@
                                context="{'default_concessionaire': True}"
                                attrs="{'required':[('state','=', 'awarded')]}" />
                         <field name="location" />
-                        <field name="canon" />
+                        <field name="canon"
+                               attrs="{'invisible':[('state', 'not in', ['awarded', 'precarious', 'on_term'])]}" />
                         <field name="start_date" />
                         <field name="expiration_date" />
                         <field name="state" />

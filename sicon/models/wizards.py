@@ -119,6 +119,11 @@ class Add_Event_Wizard(models.TransientModel):
 
         event.concession_history_id = concession_id
 
+    @api.onchange('state')
+    def _onchange_state(self):
+        if self.state in ['rescinded', 'caducous']:
+            self.concessionaire_id = False
+
 
 class Concessions_Listing_Report_Wizard(models.TransientModel):
 
