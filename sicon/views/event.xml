@@ -48,11 +48,14 @@
                type="xml">
             <search string="Events">
                 <field name="concession_id"
-                       string="concession_id"
+                       string="Concession"
                        search_domain="['|', ('concession_id', '=', self)]" />
                 <field name="event_type_id"
                        string="Event Type"
                        search_domain="['|', ('event_type_id', '=', self)" />
+                <field name="document_id"
+                       string="Document"
+                       search_domain="['|', ('document_id', '=', self)" />
                 <group expand="1">
                     <filter name="group_by_concession"
                             string="Concession"
