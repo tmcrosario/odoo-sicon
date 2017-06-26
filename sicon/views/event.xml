@@ -19,7 +19,7 @@
                 <button type="object"
                         string="View Concession"
                         name="view_concession"
-                        icon="gtk-justify-left" />
+                        icon="fa-eye" />
             </tree>
         </field>
     </record>

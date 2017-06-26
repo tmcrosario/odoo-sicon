@@ -45,8 +45,6 @@ class Add_Event_Wizard(models.TransientModel):
         comodel_name='municipal.business_category'
     )
 
-    location = fields.Char()
-
     canon = fields.Char()
 
     start_date = fields.Date()
@@ -75,7 +73,7 @@ class Add_Event_Wizard(models.TransientModel):
         concession_vals = {
             'concessionaire_id': self.concessionaire_id.id,
             'business_category_ids': [(6, 0, self.business_category_ids.ids)],
-            'location': self.location,
+            'location': self.concession_id.location,
             'canon': self.canon,
             'start_date': self.start_date,
             'expiration_date': self.expiration_date,
@@ -107,7 +105,7 @@ class Add_Event_Wizard(models.TransientModel):
             if newest == event or not newests:
 
                 con_obj = self.concession_id
-                con_obj.location = self.location
+                con_obj.location = self.concession_id.location
                 con_obj.business_category_ids = self.business_category_ids
                 con_obj.concessionaire_id = self.concessionaire_id.id
                 con_obj.canon = self.canon
