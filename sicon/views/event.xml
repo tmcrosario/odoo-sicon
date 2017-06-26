@@ -12,6 +12,8 @@
                   default_order="date desc"
                   create="false">
                 <field name="date" />
+                <field name="modify_concession"
+                       invisible="True" />
                 <field name="document_id" />
                 <field name="event_type_id" />
                 <field name="name" />
@@ -19,7 +21,8 @@
                 <button type="object"
                         string="View Concession"
                         name="view_concession"
-                        icon="fa-eye" />
+                        icon="fa-eye"
+                        attrs="{'invisible':[('modify_concession', '=', False)]}" />
             </tree>
         </field>
     </record>
