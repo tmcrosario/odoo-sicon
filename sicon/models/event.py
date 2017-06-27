@@ -49,6 +49,10 @@ class Event(models.Model):
 
     modify_concession = fields.Boolean()
 
+    folder_file = fields.Binary()
+
+    folder_filename = fields.Char()
+
     @api.multi
     def view_concession(self):
         return {

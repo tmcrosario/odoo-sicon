@@ -24,24 +24,35 @@
                                options="{'no_create': True}" />
                         <field name="name" />
                         <field name="document_id"
-                               options="{'no_create': True}" />
+                               options="{'no_create': True}"
+                               attrs="{'required':[('state','=', 'tendered')]}" />
                         <field name="related_document_ids">
                             <tree>
                                 <field name="name" />
                             </tree>
                         </field>
-                        <field name="modify_concession" />
                     </group>
-                    <group string="Concession Data"
-                           attrs="{'invisible':[('modify_concession','=',False)]}">
-                        <field name="concessionaire_id"
-                               context="{'default_concessionaire': True}"
-                               attrs="{'required':[('state','=', 'awarded')]}" />
-                        <field name="canon"
-                               attrs="{'invisible':[('state', 'not in', ['awarded', 'precarious', 'on_term'])]}" />
-                        <field name="start_date" />
-                        <field name="expiration_date" />
-                        <field name="state" />
+                    <group string="Concession Data">
+                        <group>
+                            <field name="modify_concession" />
+                        </group>
+                        <group attrs="{'invisible':[('modify_concession','=',False)]}"
+                               col="2"
+                               colspan="2">
+                            <field name="concessionaire_id"
+                                   context="{'default_concessionaire': True}"
+                                   attrs="{'required':[('state','=', 'awarded')]}" />
+                            <field name="canon"
+                                   attrs="{'invisible':[('state', 'not in', ['awarded', 'precarious', 'on_term'])]}" />
+                            <field name="start_date" />
+                            <field name="expiration_date" />
+                            <field name="state" />
+                            <field name="folder_file"
+                                   filename="folder_filename"
+                                   attrs="{'invisible':[('state','!=', 'tendered')]}" />
+                            <field name="folder_filename"
+                                   invisible="True" />
+                        </group>
                     </group>
                 </group>
                 <footer>

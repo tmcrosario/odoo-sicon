@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import datetime
+from re import search
 
 from concession import Concession
 from odoo import _, api, fields, models
@@ -59,6 +60,20 @@ class Add_Event_Wizard(models.TransientModel):
         selection=Concession.states
     )
 
+    folder_file = fields.Binary()
+
+    folder_filename = fields.Char()
+
+    @api.onchange('folder_file',
+                  'document_id')
+    def _onchange_folder_file(self):
+        if self.folder_file and self.date:
+            tmp = search(r'\.[A-Za-z0-9]+$', self.folder_filename)
+            extension = tmp.group(0) if tmp else ""
+            date = datetime.strptime(
+                self.date, '%Y-%m-%d').strftime('%d-%m-%Y')
+            self.folder_filename = 'pliego-' + date + extension
+
     @api.multi
     def save_event(self):
 
@@ -76,7 +91,9 @@ class Add_Event_Wizard(models.TransientModel):
             'name': self.name,
             'concession_id': self.concession_id.id,
             'document_id': self.document_id.id,
-            'related_document_ids': [(6, 0, self.related_document_ids.ids)]
+            'related_document_ids': [(6, 0, self.related_document_ids.ids)],
+            'folder_file': self.folder_file,
+            'folder_filename': self.folder_filename
         }
 
         event_model = self.env['sicon.event']
