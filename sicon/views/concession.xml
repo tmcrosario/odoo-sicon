@@ -253,6 +253,9 @@
                         <page string="Highlights">
                             <field name="highlight_ids" />
                         </page>
+                        <page string="Related Documents">
+                            <field name="related_document_ids" />
+                        </page>
                     </notebook>
                 </sheet>
             </form>

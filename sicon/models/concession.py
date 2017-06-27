@@ -162,6 +162,12 @@ class Concession(models.Model):
 
     permission_to_use = fields.Boolean()
 
+    related_document_ids = fields.Many2many(
+        comodel_name='tmc.document',
+        compute='_get_related_documents',
+        readonly=True
+    )
+
     @api.model
     def create(self, values):
         if 'concession_id' not in values:
@@ -223,6 +229,19 @@ class Concession(models.Model):
             highlight_level = highlight.highlight_level_id
             self.priority = highlight_level.priority
             self.color = highlight.color
+
+    @api.one
+    @api.depends('event_ids')
+    def _get_related_documents(self):
+        tmp = []
+        for event in self.event_ids:
+            if event.document_id.id:
+                tmp.append(event.document_id.id)
+            if event.related_document_ids:
+                tmp.extend(event.related_document_ids.mapped('id'))
+        related_documents_list = sorted(list(set(tmp)))
+        domain = [('id', 'in', related_documents_list)]
+        self.related_document_ids = self.env['tmc.document'].search(domain)
 
     @api.one
     @api.depends('concessionaire_id')
