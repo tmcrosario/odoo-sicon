@@ -79,9 +79,8 @@ class Event(models.Model):
         if newests:
             newest = newests[0]
             con_obj = self.concession_id
-            con_hist_obj = newest.con_hist_objory_id
+            con_hist_obj = newest.concession_history_id
 
-            con_obj.fantasy_name = con_hist_obj.fantasy_name
             con_obj.location = con_hist_obj.location
             con_obj.business_category_ids = con_hist_obj.business_category_ids
             con_obj.concessionaire_id = con_hist_obj.concessionaire_id.id
