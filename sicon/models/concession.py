@@ -21,9 +21,9 @@ class Concession(models.Model):
     ]
 
     _date_units_ = [
-        ('days', 'Day(s)'),
-        ('months', 'Month(s)'),
-        ('years', 'Year(s)'),
+        ('days', ' Day(s)'),
+        ('months', ' Month(s)'),
+        ('years', ' Year(s)'),
     ]
 
     states = [
