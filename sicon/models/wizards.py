@@ -76,7 +76,6 @@ class Add_Event_Wizard(models.TransientModel):
 
     @api.multi
     def save_event(self):
-
         if self.document_id:
             if self.date:
                 event_year = datetime.strptime(
@@ -113,31 +112,26 @@ class Add_Event_Wizard(models.TransientModel):
         }
 
         if self.modify_concession:
-
             event.modify_concession = True
-
             domain = [
                 ('concession_id', '=', self.concession_id.id),
                 ('modify_concession', '=', True)
             ]
-
             related_events = self.env['sicon.event'].search(domain)
 
             newests = related_events.sorted(
                 key=lambda r: r.date,
                 reverse=True)
-
             newest = False
             if newests:
                 newest = newests[0]
-
             if newest == event or not newests:
-
                 con_obj = self.concession_id
                 con_obj.location = self.concession_id.location
                 con_obj.business_category_ids = self.business_category_ids
                 con_obj.concessionaire_id = self.concessionaire_id.id
                 con_obj.canon = self.canon
+                con_obj.start_date = self.start_date
                 con_obj.expiration_date = self.expiration_date
                 con_obj.state = self.state
 
