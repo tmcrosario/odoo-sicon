@@ -5,5 +5,4 @@ access_sicon_event_manager,sicon.event.manager,model_sicon_event,group_manager,1
 access_sicon_event_user,sicon.event.user,model_sicon_event,group_user,1,1,1,0
 access_sicon_event_type_manager,sicon.event_type.manager,model_sicon_event_type,group_manager,1,1,1,1
 access_sicon_event_type_user,sicon.event_type.user,model_sicon_event_type,group_user,1,0,0,0
-access_sicon_unrelated_documents_manager,sicon.unrelated_documents.manager,model_sicon_unrelated_documents,group_manager,1,1,1,1
-access_sicon_unrelated_documents_user,sicon.unrelated_documents.user,model_sicon_unrelated_documents,group_user,1,0,0,0
+access_sicon_unrelated_documents_report,access_sicon_unrelated_documents_report,model_sicon_unrelated_documents_report,,1,0,0,0
