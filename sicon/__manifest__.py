@@ -13,8 +13,7 @@
         'partner_fiscal',
         'municipal',
         'partner_municipal',
-        'partner_external_map',
-        'report_py3o'
+        'partner_external_map'
     ],
     'data': [
         'security/groups.xml',
