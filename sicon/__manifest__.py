@@ -9,6 +9,7 @@
     'license': 'AGPL-3',
     'depends': [
         'tmc',
+        'tmc_data',
         'partner_tmc',
         'partner_fiscal',
         'municipal',
@@ -18,7 +19,6 @@
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
-        'data/py3o.xml',
         'views/highlight.xml',
         'views/concession.xml',
         'views/event.xml',
