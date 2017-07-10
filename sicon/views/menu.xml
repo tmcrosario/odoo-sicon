@@ -3,14 +3,13 @@
 
     <menuitem id="sicon_main_menu"
               name="SICON"
-              sequence="10" />
-    <!-- groups="sicon.group_manager,sicon.group_user"/> -->
+              sequence="10"
+              groups="group_manager,group_user,group_read_only" />
 
     <menuitem id="sicon_concessions_main_menu"
               name="General Concessions"
               parent="sicon_main_menu"
               sequence="10" />
-    <!-- groups="sicon.group_manager,sicon.group_user"/> -->
 
     <menuitem id="sicon_concessions_list_menu"
               name="Concessions"
@@ -28,7 +27,6 @@
               name="Lists"
               parent="sicon_concessions_main_menu"
               sequence="20" />
-    <!-- groups="sicon.group_manager,sicon.group_user"/> -->
 
     <menuitem id="sicon_expired_concessions_menu"
               name="Expired Concessions"
@@ -69,8 +67,8 @@
     <menuitem id="sicon_configuration_menu"
               name="Configuration"
               parent="sicon_main_menu"
-              sequence="20" />
-    <!-- groups="sicon.group_manager"/> -->
+              sequence="20"
+              groups="group_manager" />
 
     <menuitem id="sicon_event_types_menu"
               name="Event Types"

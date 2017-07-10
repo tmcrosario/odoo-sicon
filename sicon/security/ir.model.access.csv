@@ -1,8 +1,14 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_sicon_concession_manager,sicon.concession.manager,model_sicon_concession,group_manager,1,1,1,1
 access_sicon_concession_user,sicon.concession.user,model_sicon_concession,group_user,1,1,1,0
+access_sicon_concession_read_only,sicon.concession.read_only,model_sicon_concession,group_read_only,1,0,0,0
+access_res_partner_manager,res.partner.manager,model_res_partner,group_manager,1,1,1,1
+access_res_partner_user,res.partner.user,model_res_partner,group_user,1,1,1,0
+access_res_partner_read_only,res.partner.read_only,model_res_partner,group_read_only,1,0,0,0
 access_sicon_event_manager,sicon.event.manager,model_sicon_event,group_manager,1,1,1,1
 access_sicon_event_user,sicon.event.user,model_sicon_event,group_user,1,1,1,0
+access_sicon_event_read_only,sicon.event.read_only,model_sicon_event,group_read_only,1,0,0,0
 access_sicon_event_type_manager,sicon.event_type.manager,model_sicon_event_type,group_manager,1,1,1,1
 access_sicon_event_type_user,sicon.event_type.user,model_sicon_event_type,group_user,1,0,0,0
+access_sicon_event_type_read_only,sicon.event_type.read_only,model_sicon_event_type,group_read_only,1,0,0,0
 access_sicon_unrelated_documents_report,access_sicon_unrelated_documents_report,model_sicon_unrelated_documents_report,,1,0,0,0

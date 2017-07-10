@@ -4,7 +4,6 @@
     <record model="ir.module.category"
             id="module_category_sicon">
         <field name="name">SICON</field>
-        <field name="description">Sistema de Concesiones Generales</field>
         <field name="sequence">2</field>
     </record>
 
@@ -26,6 +25,15 @@
                ref="module_category_sicon" />
         <field name="implied_ids"
                eval="[(4,ref('group_user'))]" />
+    </record>
+
+    <record id="group_read_only"
+            model="res.groups">
+        <field name="name">Read Only</field>
+        <field name="users"
+               eval="[(4, ref('base.user_root'))]" />
+        <field name="category_id"
+               ref="module_category_sicon" />
     </record>
 
 </odoo>
