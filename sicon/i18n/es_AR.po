@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-29 15:06+0000\n"
-"PO-Revision-Date: 2017-06-29 15:06+0000\n"
+"POT-Creation-Date: 2017-07-11 13:42+0000\n"
+"PO-Revision-Date: 2017-07-11 13:42+0000\n"
 "Last-Translator: Liso <lisandrogallo@tmcrosario.gov.ar>, 2017\n"
 "Language-Team: Spanish (Argentina) (https://www.transifex.com/tmcrosario/teams/73663/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -273,11 +273,6 @@ msgid "Duration"
 msgstr "Duración"
 
 #. module: sicon
-#: sql_constraint:sicon.event_type:0
-msgid "El tipo de evento debe ser único"
-msgstr ""
-
-#. module: sicon
 #: model:ir.ui.view,arch_db:sicon.view_add_event_wizard_form
 msgid "Event Data"
 msgstr "Datos de Evento"
@@ -324,7 +319,7 @@ msgid "Event type id"
 msgstr "Tipo de Evento"
 
 #. module: sicon
-#: code:addons/sicon/models/event_type.py:19
+#: code:addons/sicon/models/event_type.py:19 sql_constraint:sicon.event_type:0
 #, python-format
 msgid "Event type name must be unique"
 msgstr "El tipo de evento debe ser único"
@@ -652,6 +647,11 @@ msgid "Precarious"
 msgstr "Precaria"
 
 #. module: sicon
+#: model:res.groups,name:sicon.group_read_only
+msgid "Read Only"
+msgstr "Sólo Lectura"
+
+#. module: sicon
 #: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
 msgid "Related Documents"
 msgstr "Documentos Relacionados"
@@ -683,11 +683,6 @@ msgstr ""
 #: model:ir.ui.view,arch_db:sicon.view_add_event_wizard_form
 msgid "Save"
 msgstr "Guardar"
-
-#. module: sicon
-#: model:ir.module.category,description:sicon.module_category_sicon
-msgid "Sistema de Concesiones Generales"
-msgstr ""
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard_start_date
@@ -838,11 +833,6 @@ msgstr ""
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_unrelated_documents_report
 msgid "sicon.unrelated_documents.report"
-msgstr ""
-
-#. module: sicon
-#: model:ir.model,name:sicon.model_tmc_document
-msgid "tmc.document"
 msgstr ""
 
 #. module: sicon
