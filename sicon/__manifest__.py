@@ -9,6 +9,7 @@
     'license': 'AGPL-3',
     'depends': [
         'tmc',
+        'document_index',
         'tmc_data',
         'partner_tmc',
         'partner_fiscal',

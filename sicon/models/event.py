@@ -43,6 +43,10 @@ class Event(models.Model):
         comodel_name='tmc.document'
     )
 
+    document_pdf_url = fields.Char(
+        related='document_id.pdf_url'
+    )
+
     related_document_ids = fields.Many2many(
         comodel_name='tmc.document'
     )
@@ -52,6 +56,10 @@ class Event(models.Model):
     folder_file = fields.Binary()
 
     folder_filename = fields.Char()
+
+    @api.multi
+    def open_document_pdf(self):
+        return self.document_id.open_pdf()
 
     @api.multi
     def view_concession(self):
