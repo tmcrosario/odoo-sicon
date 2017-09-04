@@ -8,7 +8,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
-class Add_Event_Wizard(models.TransientModel):
+class AddEventWizard(models.TransientModel):
 
     _name = 'sicon.add_event_wizard'
 
@@ -146,7 +146,7 @@ class Add_Event_Wizard(models.TransientModel):
             self.concessionaire_id = False
 
 
-class Concessions_Listing_Report_Wizard(models.TransientModel):
+class ConcessionsListingReportWizard(models.TransientModel):
 
     _name = 'sicon.concessions_listing.report.wizard'
     _inherit = ['tmc.report']

@@ -75,8 +75,9 @@ class Event(models.Model):
             'target': 'new',
         }
 
-    @api.one
+    @api.multi
     def unlink(self):
+        self.ensure_one()
         domain = [
             ('concession_id', '=', self.concession_id.id),
             ('modify_concession', '=', True),

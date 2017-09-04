@@ -41,13 +41,12 @@ class Concession(models.Model):
     )
 
     expired = fields.Boolean(
-        compute='_check_if_expired',
+        compute='_compute_if_expired',
         store=True
     )
 
     state = fields.Selection(
-        selection=states,
-        string='State'
+        selection=states
     )
 
     location = fields.Char(
@@ -56,7 +55,7 @@ class Concession(models.Model):
 
     business_category_ids = fields.Many2many(
         comodel_name='municipal.business_category',
-        compute='_get_business_categories',
+        compute='_compute_business_categories',
         readonly=True
     )
 
@@ -123,7 +122,7 @@ class Concession(models.Model):
     highest_highlight = fields.Selection(
         selection=[('high', 'High'),
                    ('medium', 'Medium')],
-        compute='_get_highest_highlight'
+        compute='_compute_highest_highlight'
 
     )
 
@@ -133,7 +132,7 @@ class Concession(models.Model):
     )
 
     highlights_count = fields.Integer(
-        compute='_highlights_count'
+        compute='_compute_highlights_count'
     )
 
     event_id = fields.Many2one(
@@ -164,7 +163,7 @@ class Concession(models.Model):
 
     related_document_ids = fields.Many2many(
         comodel_name='tmc.document',
-        compute='_get_related_documents',
+        compute='_compute_related_documents',
         readonly=True
     )
 
@@ -203,17 +202,19 @@ class Concession(models.Model):
         self.term_duration = False
         self.term_due_date = False
 
-    @api.one
+    @api.multi
     @api.depends('highlight_ids')
-    def _highlights_count(self):
+    def _compute_highlights_count(self):
+        self.ensure_one()
         applicable_highlight_ids = self.highlight_ids.filtered(
             lambda record: record.applicable is True
         )
         self.highlights_count = len(applicable_highlight_ids)
 
-    @api.one
+    @api.multi
     @api.depends('highlight_ids')
     def _get_priority_and_color(self):
+        self.ensure_one()
         domain = [
             ('concession_id', '=', self.id),
             ('applicable', '=', True)
@@ -230,9 +231,10 @@ class Concession(models.Model):
             self.priority = highlight_level.priority
             self.color = highlight.color
 
-    @api.one
+    @api.multi
     @api.depends('event_ids')
-    def _get_related_documents(self):
+    def _compute_related_documents(self):
+        self.ensure_one()
         tmp = []
         for event in self.event_ids:
             if event.document_id.id:
@@ -243,9 +245,10 @@ class Concession(models.Model):
         domain = [('id', 'in', related_documents_list)]
         self.related_document_ids = self.env['tmc.document'].search(domain)
 
-    @api.one
+    @api.multi
     @api.depends('concessionaire_id')
-    def _get_business_categories(self):
+    def _compute_business_categories(self):
+        self.ensure_one()
         domain = [
             ('partner_id', '=', self.concessionaire_id.id)
         ]
@@ -264,9 +267,10 @@ class Concession(models.Model):
             'target': 'new'
         }
 
-    @api.one
+    @api.multi
     @api.depends('expiration_date')
-    def _check_if_expired(self):
+    def _compute_if_expired(self):
+        self.ensure_one()
         if self.expiration_date:
             today = fields.Date.from_string(fields.Date.today())
             if fields.Date.from_string(self.expiration_date) <= today:
@@ -274,9 +278,10 @@ class Concession(models.Model):
             else:
                 self.expired = False
 
-    @api.one
+    @api.multi
     @api.depends('highlight_ids')
-    def _get_highest_highlight(self):
+    def _compute_highest_highlight(self):
+        self.ensure_one()
         high_highlights = self.env['tmc.highlight'].search([
             ('concession_id', '=', self.id),
             ('applicable', '=', True),

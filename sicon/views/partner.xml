@@ -31,7 +31,7 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="sicon.partner_concessionaires_list_action">
+            id="partner_concessionaires_list_action">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
         <field name="view_type">form</field>

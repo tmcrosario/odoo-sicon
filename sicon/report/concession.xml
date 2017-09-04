@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="sicon.concession"
+    <record id="concession"
             model="ir.actions.report.xml">
         <field name="name">Concession Details</field>
         <field name="model">sicon.concession</field>

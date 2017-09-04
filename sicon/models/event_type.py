@@ -3,7 +3,7 @@
 from odoo import _, fields, models
 
 
-class Event_Type(models.Model):
+class EventType(models.Model):
 
     _name = 'sicon.event_type'
 

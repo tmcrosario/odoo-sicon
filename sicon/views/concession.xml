@@ -3,7 +3,7 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="sicon.concessions_list_action">
+            id="concessions_list_action">
         <field name="name">Concessions</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_type">form</field>
@@ -22,7 +22,7 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="sicon.expired_concessions_list_action">
+            id="expired_concessions_list_action">
         <field name="name">Expired Concessions</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_type">form</field>
@@ -41,7 +41,7 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="sicon.concessions_to_expire_list_action">
+            id="concessions_to_expire_list_action">
         <field name="name">Concessions To Expire</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_type">form</field>
@@ -59,7 +59,7 @@
     </record>
 
     <!-- TREE VIEW -->
-    <record id="sicon_concession_tree_view"
+    <record id="concession_tree_view"
             model="ir.ui.view">
         <field name="name">sicon.concession.tree</field>
         <field name="model">sicon.concession</field>
@@ -82,7 +82,7 @@
     </record>
 
     <!-- HISTORY TREE VIEW -->
-    <record id="sicon_concession_history_tree_view"
+    <record id="concession_history_tree_view"
             model="ir.ui.view">
         <field name="name">sicon.concession.history.tree</field>
         <field name="model">sicon.concession</field>
@@ -100,7 +100,7 @@
     </record>
 
     <!-- FORM VIEW -->
-    <record id="sicon_concession_form_view"
+    <record id="concession_form_view"
             model="ir.ui.view">
         <field name="name">sicon.concession.form</field>
         <field name="model">sicon.concession</field>
@@ -144,7 +144,7 @@
                                 attrs="{'invisible': [('location', '=', False)]}"
                                 icon="fa-map-marker" />
                         <button class="oe_inline oe_stat_button"
-                                name="%(sicon.highlight_by_concession_list_action)d"
+                                name="%(highlight_by_concession_list_action)d"
                                 type="action"
                                 attrs="{'invisible':[('highlights_count','=', 0)]}"
                                 icon="fa-exclamation-circle">
@@ -263,13 +263,12 @@
     </record>
 
     <!-- FULL WRITE FORM VIEW -->
-    <record id="sicon_concession_form_view_write"
+    <record id="concession_form_view_write"
             model="ir.ui.view">
         <field name="name">sicon.concession.form.write</field>
         <field name="model">sicon.concession</field>
         <field name="inherit_id"
-               ref="sicon.sicon_concession_form_view" />
-        <!-- <field name="groups_id" eval="[(6, 0, [ref('sicon.group_manager')])]"/> -->
+               ref="concession_form_view" />
         <field name="arch"
                type="xml">
             <field name="name"
@@ -297,7 +296,7 @@
     </record>
 
     <!-- HISTORY FORM VIEW -->
-    <record id="sicon_concession_history_form_view"
+    <record id="concession_history_form_view"
             model="ir.ui.view">
         <field name="name">sicon.concession.history.form</field>
         <field name="model">sicon.concession</field>
