@@ -8,7 +8,7 @@
         <field name="res_model">sicon.concession</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False), ('permission_to_use', '=', False)]</field>
+        <field name="domain">[('concession_id', '=', False)]</field>
         <field name="help"
                type="html">
             <p class="oe_view_nocontent_create">
