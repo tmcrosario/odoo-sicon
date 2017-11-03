@@ -205,11 +205,11 @@ class Concession(models.Model):
     @api.multi
     @api.depends('highlight_ids')
     def _compute_highlights_count(self):
-        self.ensure_one()
-        applicable_highlight_ids = self.highlight_ids.filtered(
-            lambda record: record.applicable is True
-        )
-        self.highlights_count = len(applicable_highlight_ids)
+        for concession in self:
+            applicable_highlight_ids = concession.highlight_ids.filtered(
+                lambda record: record.applicable is True
+            )
+            concession.highlights_count = len(applicable_highlight_ids)
 
     @api.multi
     @api.depends('highlight_ids')
@@ -281,21 +281,21 @@ class Concession(models.Model):
     @api.multi
     @api.depends('highlight_ids')
     def _compute_highest_highlight(self):
-        self.ensure_one()
-        high_highlights = self.env['tmc.highlight'].search([
-            ('concession_id', '=', self.id),
-            ('applicable', '=', True),
-            ('level', '=', 'high')]
-        )
-        medium_highlights = self.env['tmc.highlight'].search([
-            ('concession_id', '=', self.id),
-            ('applicable', '=', True),
-            ('level', '=', 'medium')]
-        )
-        if high_highlights:
-            self.highest_highlight = 'high'
-        elif medium_highlights:
-            self.highest_highlight = 'medium'
+        for concession in self:
+            high_highlights = self.env['tmc.highlight'].search([
+                ('concession_id', '=', concession.id),
+                ('applicable', '=', True),
+                ('level', '=', 'high')]
+            )
+            medium_highlights = self.env['tmc.highlight'].search([
+                ('concession_id', '=', concession.id),
+                ('applicable', '=', True),
+                ('level', '=', 'medium')]
+            )
+            if high_highlights:
+                concession.highest_highlight = 'high'
+            elif medium_highlights:
+                concession.highest_highlight = 'medium'
 
     @api.multi
     def open_url(self):
