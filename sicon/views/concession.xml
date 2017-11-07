@@ -303,7 +303,8 @@
         <field name="priority">10</field>
         <field name="arch"
                type="xml">
-            <form edit="false">
+            <form edit="false"
+                  create="false">
                 <sheet>
                     <group attrs="{'invisible': [('event_id', '=', False)]}">
                         <field name="event_date"

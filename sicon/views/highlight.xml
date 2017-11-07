@@ -30,7 +30,10 @@
                type="xml">
             <tree create="false"
                   delete="false"
-                  default_order="applicable">
+                  default_order="applicable"
+                  decoration-it="applicable==False"
+                  decoration-danger="level=='high'"
+                  decoration-warning="level=='medium'">
                 <field name="comment" />
                 <field name="level" />
                 <field name="concession_id" />
