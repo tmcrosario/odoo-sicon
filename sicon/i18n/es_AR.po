@@ -3,14 +3,14 @@
 # * sicon
 # 
 # Translators:
-# Liso <lisandrogallo@tmcrosario.gov.ar>, 2017
+# Lisandro <lisandrogallo@tmcrosario.gov.ar>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-11 13:42+0000\n"
-"PO-Revision-Date: 2017-07-11 13:42+0000\n"
-"Last-Translator: Liso <lisandrogallo@tmcrosario.gov.ar>, 2017\n"
+"POT-Creation-Date: 2017-11-07 11:14+0000\n"
+"PO-Revision-Date: 2017-11-07 11:14+0000\n"
+"Last-Translator: Lisandro <lisandrogallo@tmcrosario.gov.ar>, 2017\n"
 "Language-Team: Spanish (Argentina) (https://www.transifex.com/tmcrosario/teams/73663/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,13 +97,13 @@ msgid "Concesionaires"
 msgstr "Concesionarios"
 
 #. module: sicon
+#: model:ir.ui.view,arch_db:sicon.event_search_view
 #: model:ir.ui.view,arch_db:sicon.highlight_search_view
-#: model:ir.ui.view,arch_db:sicon.sicon_event_search_view
 msgid "Concession"
 msgstr "Concesión"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_form_view
 #: model:ir.ui.view,arch_db:sicon.view_add_event_wizard_form
 msgid "Concession Data"
 msgstr "Datos de la Concesión"
@@ -119,13 +119,13 @@ msgid "Concession Events"
 msgstr "Eventos de Concesiones"
 
 #. module: sicon
-#: code:addons/sicon/models/event.py:60
+#: code:addons/sicon/models/event.py:68
 #, python-format
 msgid "Concession History"
 msgstr "Estado Histórico de la Concesión"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "Concession Name"
 msgstr "Nombre de la Concesión"
 
@@ -245,7 +245,7 @@ msgstr "Nombre"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report_name
-#: model:ir.ui.view,arch_db:sicon.sicon_event_search_view
+#: model:ir.ui.view,arch_db:sicon.event_search_view
 msgid "Document"
 msgstr "Documento"
 
@@ -265,8 +265,8 @@ msgid "Document type id"
 msgstr "Tipo de Documento"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_form_view
 #: selection:sicon.concession,extension_certain_expiration:0
 #: selection:sicon.concession,term_certain_expiration:0
 msgid "Duration"
@@ -278,8 +278,8 @@ msgid "Event Data"
 msgstr "Datos de Evento"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_form_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_tree_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_tree_view
 msgid "Event Date"
 msgstr "Fecha"
 
@@ -289,8 +289,8 @@ msgid "Event Entry"
 msgstr "Nuevo Evento"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_event_search_view
-#: model:ir.ui.view,arch_db:sicon.sicon_event_single_mode_search_view
+#: model:ir.ui.view,arch_db:sicon.event_search_view
+#: model:ir.ui.view,arch_db:sicon.event_single_mode_search_view
 msgid "Event Type"
 msgstr "Tipo de Evento"
 
@@ -334,10 +334,10 @@ msgstr ""
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.events_list_action
 #: model:ir.ui.menu,name:sicon.sicon_event_menu
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
+#: model:ir.ui.view,arch_db:sicon.event_search_view
+#: model:ir.ui.view,arch_db:sicon.event_single_mode_search_view
 #: model:ir.ui.view,arch_db:sicon.event_tree_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
-#: model:ir.ui.view,arch_db:sicon.sicon_event_search_view
-#: model:ir.ui.view,arch_db:sicon.sicon_event_single_mode_search_view
 msgid "Events"
 msgstr "Eventos"
 
@@ -365,8 +365,8 @@ msgid "Extended"
 msgstr "Prórrogada"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_form_view
 msgid "Extension As In Statement"
 msgstr "Prórroga Según Pliego"
 
@@ -447,7 +447,7 @@ msgid "Highlight ids"
 msgstr "Resaltados"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "Highlight(s)"
 msgstr "Resaltado(s)"
 
@@ -455,8 +455,8 @@ msgstr "Resaltado(s)"
 #: model:ir.actions.act_window,name:sicon.highlight_by_concession_list_action
 #: model:ir.actions.act_window,name:sicon.highlight_list_action
 #: model:ir.ui.menu,name:sicon.sicon_highlight_menu
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 #: model:ir.ui.view,arch_db:sicon.highlight_search_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
 msgid "Highlights"
 msgstr "Resaltados"
 
@@ -476,12 +476,12 @@ msgid "ID"
 msgstr ""
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "Images"
 msgstr "Imágenes"
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:179
+#: code:addons/sicon/models/concession.py:178
 #, python-format
 msgid "Integrity Error: Duplicated concession"
 msgstr "Error de Integridad: Concesión duplicada"
@@ -535,7 +535,7 @@ msgid "Manager"
 msgstr "Responsable"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "Map"
 msgstr "Mapa"
 
@@ -545,13 +545,13 @@ msgid "Medium"
 msgstr "Medio"
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:320
+#: code:addons/sicon/models/concession.py:325
 #, python-format
 msgid "Missing map provider: you should set it in your preferences."
-msgstr ""
+msgstr "No se encuentra configurado el proveedor de mapas."
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:325
+#: code:addons/sicon/models/concession.py:330
 #, python-format
 msgid "Missing parameter 'URL that uses the address' for map website '%s'."
 msgstr ""
@@ -569,7 +569,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "New Event"
 msgstr "Nuevo Evento"
 
@@ -616,14 +616,19 @@ msgid "On Term"
 msgstr "En Término"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_history_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_history_form_view
 msgid "Original Term As In Statement"
 msgstr "Plazo Original Según Pliego"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_res_partner
 msgid "Partner"
+msgstr ""
+
+#. module: sicon
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_document_pdf_url
+msgid "Pdf url"
 msgstr ""
 
 #. module: sicon
@@ -652,7 +657,7 @@ msgid "Read Only"
 msgstr "Sólo Lectura"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_form_view
+#: model:ir.ui.view,arch_db:sicon.concession_form_view
 msgid "Related Documents"
 msgstr "Documentos Relacionados"
 
@@ -780,6 +785,11 @@ msgid "View Concession"
 msgstr "Ver Concesión"
 
 #. module: sicon
+#: model:ir.ui.view,arch_db:sicon.event_tree_view
+msgid "View PDF"
+msgstr "Ver PDF"
+
+#. module: sicon
 #: model:ir.actions.act_window,help:sicon.highlight_by_concession_list_action
 #: model:ir.actions.act_window,help:sicon.highlight_list_action
 msgid "You can add a highlight by editing the concession."
@@ -796,7 +806,7 @@ msgid "_Print"
 msgstr "Reporte"
 
 #. module: sicon
-#: model:ir.ui.view,arch_db:sicon.sicon_concession_tree_view
+#: model:ir.ui.view,arch_db:sicon.concession_tree_view
 msgid "concession"
 msgstr "Concesión"
 
