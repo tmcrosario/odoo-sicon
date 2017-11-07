@@ -70,9 +70,15 @@ class Event(models.Model):
             'view_type': 'form',
             'view_mode': 'form',
             'view_id': self.env['ir.model.data'].xmlid_to_res_id(
-                'sicon.sicon_concession_history_form_view'),
+                'sicon.concession_history_form_view'),
             'res_id': self.concession_history_id.id,
-            'target': 'new',
+            'flags': {
+                'initial_mode': 'view',
+                'form': {
+                    'options': {'mode': 'view'}
+                }
+            },
+            'target': 'new'
         }
 
     @api.multi
