@@ -29,8 +29,7 @@
         'report/concessions_listing.xml',
         'report/concession.xml',
         'views/wizards.xml',
-        'views/menu.xml',
-        # 'schedule/schedule.xml'
+        'views/menu.xml'
     ],
     'demo': [],
     'installable': True,
