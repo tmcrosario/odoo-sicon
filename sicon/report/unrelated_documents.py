@@ -62,6 +62,7 @@ class UnrelatedDocumentsReport(models.Model):
                             ON doc.document_type_id = doc_type.id
                 )
                 WHERE doc_topic.name = 'Concesiones Generales'
+                    AND doc_type.abbreviation = 'DEC'
                     AND doc.id NOT IN (
                         SELECT
                             document_id
