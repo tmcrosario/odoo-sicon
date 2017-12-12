@@ -372,7 +372,7 @@
                                    readonly="True" />
                         </group>
                         <group string="Extension As In Statement"
-                               attrs="{'invisible': [('planned_extension', '=', False)]}">>
+                               attrs="{'invisible': [('planned_extension', '=', False)]}">
                             <field name="extension_expiration"
                                    class="oe_inline oe_edit_only"
                                    readonly="True" />
