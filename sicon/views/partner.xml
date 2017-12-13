@@ -14,7 +14,10 @@
                type="xml">
             <page name="internal_notes"
                   position="before">
-                <page string="Concession Events">
+                <page string="Concession Events"
+                      attrs="{'invisible':[('concessionaire', '=', False)]}">
+                    <field name="concessionaire"
+                           invisible="True" />
                     <field name="event_ids">
                         <tree create="false"
                               edit="false"
