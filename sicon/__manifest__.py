@@ -8,6 +8,8 @@
     'website': 'https://www.tmcrosario.gob.ar',
     'license': 'AGPL-3',
     'depends': [
+        'report_py3o',
+        'report_py3o_fusion_server',
         'tmc',
         'document_index',
         'tmc_data',
