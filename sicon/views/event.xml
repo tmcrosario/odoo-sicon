@@ -10,7 +10,8 @@
                type="xml">
             <tree string="Events"
                   default_order="date desc"
-                  create="false">
+                  create="false"
+                  decoration-bf="event_type_name=='Adjudicación'">
                 <field name="date" />
                 <field name="modify_concession"
                        invisible="True" />
@@ -24,6 +25,8 @@
                 <field name="document_id" />
                 <field name="event_type_id"
                        widget="many2one_unclickable" />
+                <field name="event_type_name"
+                       invisible="True" />
                 <field name="name" />
                 <field name="concessionaire_id"
                        widget="many2one_unclickable" />

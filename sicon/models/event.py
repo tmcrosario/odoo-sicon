@@ -39,6 +39,10 @@ class Event(models.Model):
         required=True
     )
 
+    event_type_name = fields.Char(
+        related='event_type_id.name'
+    )
+
     document_id = fields.Many2one(
         comodel_name='tmc.document'
     )
