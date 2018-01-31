@@ -180,8 +180,6 @@
                                    context="{'default_concessionaire': True}" />
                         </group>
                         <group>
-                            <field name="canon"
-                                   attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="expiration_date"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="planned_extension" />
@@ -192,7 +190,14 @@
                                widget="url" />
                     </group>
                     <group>
-                        <field name="business_category_ids" />
+                        <group>
+                            <field name="business_category_ids"
+                                   widget="many2many_tags" />
+                        </group>
+                        <group>
+                            <field name="canon"
+                                   attrs="{'readonly':[('create_date','!=',False)]}" />
+                        </group>
                     </group>
                     <group>
                         <group string="Original Term As In Statement">
@@ -210,7 +215,8 @@
                             <div attrs="{'invisible':['|', '|', ('term_certain_expiration','=',False), ('term_expiration','=','uncertain'), ('term_certain_expiration','=','date')]}">
                                 <field name="term_duration"
                                        class="oe_inline"
-                                       nolabel="1" />
+                                       nolabel="1"
+                                       style="margin-right: 5px;" />
                                 <field name="term_unit"
                                        class="oe_inline"
                                        nolabel="1" />
@@ -234,7 +240,8 @@
                             <div attrs="{'invisible':['|', '|', ('extension_certain_expiration','=',False), ('extension_expiration','=','uncertain'), ('extension_certain_expiration','=','date')]}">
                                 <field name="extension_duration"
                                        class="oe_inline"
-                                       nolabel="1" />
+                                       nolabel="1"
+                                       style="margin-right: 5px;" />
                                 <field name="extension_unit"
                                        class="oe_inline"
                                        nolabel="1" />
@@ -254,7 +261,13 @@
                             <field name="highlight_ids" />
                         </page>
                         <page string="Related Documents">
-                            <field name="related_document_ids" />
+                            <field name="related_document_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="date" />
+                                    <field name="topics_display_name" />
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -326,8 +339,6 @@
                                    readonly="True" />
                         </group>
                         <group>
-                            <field name="canon"
-                                   readonly="True" />
                             <field name="expiration_date"
                                    readonly="True" />
                             <field name="planned_extension"
@@ -335,8 +346,15 @@
                         </group>
                     </group>
                     <group>
-                        <field name="business_category_ids"
-                               readonly="True" />
+                        <group>
+                            <field name="business_category_ids"
+                                   widget="many2many_tags"
+                                   readonly="True" />
+                        </group>
+                        <group>
+                            <field name="canon"
+                                   readonly="True" />
+                        </group>
                     </group>
                     <group>
                         <group string="Original Term As In Statement">

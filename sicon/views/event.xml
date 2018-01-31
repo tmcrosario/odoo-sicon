@@ -22,17 +22,18 @@
                         attrs="{'invisible': [('document_pdf_url', '=', False)]}"
                         icon="fa-file-pdf-o" />
                 <field name="document_id" />
-                <field name="event_type_id" />
+                <field name="event_type_id"
+                       widget="many2one_unclickable" />
                 <field name="name" />
-                <field name="concessionaire_id" />
+                <field name="concessionaire_id"
+                       widget="many2one_unclickable" />
                 <field name="folder_file"
                        filename="folder_filename" />
                 <field name="folder_filename"
                        invisible="True" />
                 <button type="object"
-                        string="View Concession"
+                        string="View Historical State"
                         name="view_concession"
-                        icon="fa-eye"
                         attrs="{'invisible':[('modify_concession', '=', False)]}" />
             </tree>
         </field>
