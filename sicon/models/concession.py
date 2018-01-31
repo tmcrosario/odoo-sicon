@@ -248,15 +248,15 @@ class Concession(models.Model):
     @api.multi
     @api.depends('concessionaire_id')
     def _compute_business_categories(self):
-        self.ensure_one()
-        domain = [
-            ('partner_id', '=', self.concessionaire_id.id)
-        ]
-        concessionaire_drei_accounts = self.env[
-            'municipal.drei'].search(domain)
-        self.business_category_ids = concessionaire_drei_accounts.mapped(
-            'business_category_ids'
-        )
+        for con in self:
+            domain = [
+                ('partner_id', '=', con.concessionaire_id.id)
+            ]
+            concessionaire_drei_accounts = self.env[
+                'municipal.drei'].search(domain)
+            con.business_category_ids = concessionaire_drei_accounts.mapped(
+                'business_category_ids'
+            )
 
     @api.multi
     def add_event(self):
