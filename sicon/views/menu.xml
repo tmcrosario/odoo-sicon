@@ -40,22 +40,28 @@
               sequence="10"
               action="concessions_to_expire_list_action" />
 
+    <menuitem id="sicon_concessions_archived_menu"
+              name="Archived Concessions"
+              parent="sicon_lists_menu"
+              sequence="15"
+              action="concessions_archived_list_action" />
+
     <menuitem id="sicon_event_menu"
               name="Events"
               parent="sicon_lists_menu"
-              sequence="15"
+              sequence="20"
               action="events_list_action" />
 
     <menuitem id="sicon_highlight_menu"
               name="Highlights"
               parent="sicon_lists_menu"
-              sequence="20"
+              sequence="25"
               action="highlight_list_action" />
 
     <menuitem id="sicon_unrelated_documents_menu"
               name="Unrelated Decrets"
               parent="sicon_lists_menu"
-              sequence="25"
+              sequence="30"
               action="unrelated_documents_list_action" />
 
     <menuitem id="sicon_reports_menu"
