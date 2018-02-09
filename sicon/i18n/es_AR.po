@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-01 13:53+0000\n"
-"PO-Revision-Date: 2018-02-01 13:53+0000\n"
+"POT-Creation-Date: 2018-02-09 18:59+0000\n"
+"PO-Revision-Date: 2018-02-09 18:59+0000\n"
 "Last-Translator: Lisandro, 2017\n"
 "Language-Team: Spanish (Argentina) (https://www.transifex.com/tmcrosario/teams/73663/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,6 @@ msgid "Certain"
 msgstr "Cierta"
 
 #. module: sicon
-#: model:ir.actions.act_window,help:sicon.concessions_archived_list_action
 #: model:ir.actions.act_window,help:sicon.concessions_list_action
 #: model:ir.actions.act_window,help:sicon.concessions_to_expire_list_action
 #: model:ir.actions.act_window,help:sicon.expired_concessions_list_action
@@ -616,7 +615,6 @@ msgid "No highlights were found."
 msgstr "No se encontraron resaltados."
 
 #. module: sicon
-#: model:ir.actions.act_window,help:sicon.concessions_archived_list_action
 #: model:ir.actions.act_window,help:sicon.concessions_list_action
 #: model:ir.actions.act_window,help:sicon.concessions_to_expire_list_action
 #: model:ir.actions.act_window,help:sicon.expired_concessions_list_action
