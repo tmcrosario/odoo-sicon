@@ -268,13 +268,7 @@
                             <field name="highlight_ids" />
                         </page>
                         <page string="Related Documents">
-                            <field name="related_document_ids">
-                                <tree>
-                                    <field name="name" />
-                                    <field name="date" />
-                                    <field name="topics_display_name" />
-                                </tree>
-                            </field>
+                            <field name="related_document_ids" />
                         </page>
                     </notebook>
                 </sheet>

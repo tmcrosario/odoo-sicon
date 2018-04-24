@@ -21,7 +21,7 @@
                         string="View PDF"
                         name="open_document_pdf"
                         attrs="{'invisible': [('document_pdf_url', '=', False)]}"
-                        icon="fa-file-pdf-o" />
+                        icon="fa-file-pdf-o text-danger" />
                 <field name="document_id" />
                 <field name="event_type_id"
                        widget="many2one_unclickable" />
