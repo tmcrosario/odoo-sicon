@@ -167,7 +167,9 @@ class Concession(models.Model):
         readonly=True
     )
 
-    active = fields.Boolean()
+    active = fields.Boolean(
+        default=True
+    )
 
     @api.model
     def create(self, values):
