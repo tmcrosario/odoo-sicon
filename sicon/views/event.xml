@@ -9,7 +9,7 @@
         <field name="arch"
                type="xml">
             <tree string="Events"
-                  default_order="date desc"
+                  default_order="date desc document_id desc"
                   create="false"
                   decoration-bf="event_type_name=='Adjudicación'">
                 <field name="date" />
