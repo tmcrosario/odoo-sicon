@@ -40,6 +40,8 @@ class Concession(models.Model):
         required=True
     )
 
+    fantasy_name = fields.Char()
+
     expired = fields.Boolean(
         compute='_compute_if_expired',
         store=True

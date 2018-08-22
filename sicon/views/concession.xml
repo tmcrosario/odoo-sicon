@@ -177,7 +177,7 @@
                     </group>
                     <group>
                         <group>
-                            <field name="permission_to_use" />
+                            <field name="fantasy_name" />
                             <field name="location"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="url_images"
@@ -334,6 +334,8 @@
                     </group>
                     <group>
                         <group>
+                            <field name="fantasy_name"
+                                   readonly="True" />
                             <field name="location"
                                    readonly="True" />
                             <field name="concessionaire_id"
