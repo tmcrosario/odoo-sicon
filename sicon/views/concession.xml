@@ -3,25 +3,6 @@
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
-            id="concessions_list_action">
-        <field name="name">Concessions</field>
-        <field name="res_model">sicon.concession</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False)]</field>
-        <field name="help"
-               type="html">
-            <p class="oe_view_nocontent_create">
-                Click to create a new concession.
-            </p>
-            <p>
-                No registries were found.
-            </p>
-        </field>
-    </record>
-
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
             id="expired_concessions_list_action">
         <field name="name">Expired Concessions</field>
         <field name="res_model">sicon.concession</field>
@@ -438,12 +419,35 @@
             <search string="Concessions">
                 <field name="name" />
                 <field name="concessionaire_id" />
+                <filter string="Vigentes"
+                        name="filter_active_concessions"
+                        domain="[('active', '=', True)]" />           
                 <group expand="1">
                     <filter name="group_by_state"
                             string="State"
                             context="{'group_by':'state'}" />
                 </group>
             </search>
+        </field>
+    </record>
+
+    <!-- WINDOW ACTION -->
+    <record model="ir.actions.act_window"
+            id="concessions_list_action">
+        <field name="name">Concessions</field>
+        <field name="res_model">sicon.concession</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', ('active', '=', False), ('active', '=', True), ('concession_id', '=', False)]</field>
+        <field name="context">{'search_default_filter_active_concessions': True }</field>
+        <field name="help"
+               type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new concession.
+            </p>
+            <p>
+                No registries were found.
+            </p>
         </field>
     </record>
 

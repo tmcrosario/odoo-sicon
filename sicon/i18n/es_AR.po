@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sicon
+#	* sicon
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-22 18:23+0000\n"
-"PO-Revision-Date: 2018-08-23 09:09-0300\n"
+"POT-Creation-Date: 2018-08-23 15:55+0000\n"
+"PO-Revision-Date: 2018-08-23 15:55+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: es_AR\n"
-"X-Generator: Poedit 2.1.1\n"
 
 #. module: sicon
 #: selection:sicon.concession,extension_unit:0
@@ -57,7 +55,8 @@ msgid "Archived Concessions"
 msgstr "Concesiones Archivadas"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Awarded"
 msgstr "Adjudicada"
 
@@ -68,7 +67,8 @@ msgid "Business category ids"
 msgstr "Rubros"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Caducous"
 msgstr "Caduca"
 
@@ -105,6 +105,11 @@ msgstr "Haga click para crear un nuevo concesionario."
 #: model:ir.ui.menu,name:sicon.sicon_concessionaires_menu
 msgid "Concesionaires"
 msgstr "Concesionarios"
+
+#. module: sicon
+#: model:ir.ui.view,arch_db:sicon.view_sicon_concession_search
+msgid "Concesiones Activas"
+msgstr "Concesiones Activas"
 
 #. module: sicon
 #: model:ir.ui.view,arch_db:sicon.event_search_view
@@ -329,7 +334,8 @@ msgid "Event type id"
 msgstr "Tipo de Evento"
 
 #. module: sicon
-#: code:addons/sicon/models/event_type.py:19 sql_constraint:sicon.event_type:0
+#: code:addons/sicon/models/event_type.py:19
+#: sql_constraint:sicon.event_type:0
 #, python-format
 msgid "Event type name must be unique"
 msgstr "El tipo de evento debe ser único"
@@ -369,7 +375,8 @@ msgid "Expired Concessions"
 msgstr "Concesiones Vencidas"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Extended"
 msgstr "Prorrogada"
 
@@ -626,7 +633,8 @@ msgid "Number"
 msgstr "Número"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "On Term"
 msgstr "En Término"
 
@@ -662,7 +670,8 @@ msgid "Planned extension"
 msgstr "Prórroga prevista"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Precarious"
 msgstr "Precaria"
 
@@ -684,7 +693,8 @@ msgid "Related document ids"
 msgstr "Documentos Relacionados"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Rescinded"
 msgstr "Rescindida"
 
@@ -713,7 +723,8 @@ msgid "State"
 msgstr "Estado"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0
+#: selection:sicon.concession,state:0
 msgid "Tendered"
 msgstr "Licitación en Ejecución"
 
@@ -859,3 +870,4 @@ msgstr "sicon.unrelated_documents.report"
 #: model:ir.model,name:sicon.model_tmc_highlight
 msgid "tmc.highlight"
 msgstr "tmc.highlight"
+
