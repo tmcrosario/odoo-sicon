@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* sicon
+# 	* sicon
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 18:51+0000\n"
-"PO-Revision-Date: 2018-04-24 18:51+0000\n"
+"POT-Creation-Date: 2018-08-22 18:23+0000\n"
+"PO-Revision-Date: 2018-08-23 09:09-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es_AR\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #. module: sicon
 #: selection:sicon.concession,extension_unit:0
@@ -55,8 +57,7 @@ msgid "Archived Concessions"
 msgstr "Concesiones Archivadas"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Awarded"
 msgstr "Adjudicada"
 
@@ -67,8 +68,7 @@ msgid "Business category ids"
 msgstr "Rubros"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Caducous"
 msgstr "Caduca"
 
@@ -329,14 +329,13 @@ msgid "Event type id"
 msgstr "Tipo de Evento"
 
 #. module: sicon
-#: code:addons/sicon/models/event_type.py:19
-#: sql_constraint:sicon.event_type:0
+#: code:addons/sicon/models/event_type.py:19 sql_constraint:sicon.event_type:0
 #, python-format
 msgid "Event type name must be unique"
 msgstr "El tipo de evento debe ser único"
 
 #. module: sicon
-#: code:addons/sicon/models/wizards.py:85
+#: code:addons/sicon/models/wizards.py:87
 #, python-format
 msgid "Event year must be equal to document period."
 msgstr "El año del evento debe coincidir con el período del acto administrativo"
@@ -370,8 +369,7 @@ msgid "Expired Concessions"
 msgstr "Concesiones Vencidas"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Extended"
 msgstr "Prorrogada"
 
@@ -410,6 +408,12 @@ msgstr "Tipo de Vencimiento"
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession_extension_unit
 msgid "Extension unit"
 msgstr "Extension unit"
+
+#. module: sicon
+#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard_fantasy_name
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_fantasy_name
+msgid "Fantasy name"
+msgstr "Nombre de Fantasía"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard_folder_file
@@ -493,7 +497,7 @@ msgid "Images"
 msgstr "Imágenes"
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:180
+#: code:addons/sicon/models/concession.py:184
 #, python-format
 msgid "Integrity Error: Duplicated concession"
 msgstr "Error de Integridad: Concesión duplicada"
@@ -557,13 +561,13 @@ msgid "Medium"
 msgstr "Medio"
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:327
+#: code:addons/sicon/models/concession.py:331
 #, python-format
 msgid "Missing map provider: you should set it in your preferences."
 msgstr "No se encuentra configurado el proveedor de mapas."
 
 #. module: sicon
-#: code:addons/sicon/models/concession.py:332
+#: code:addons/sicon/models/concession.py:336
 #, python-format
 msgid "Missing parameter 'URL that uses the address' for map website '%s'."
 msgstr "Missing parameter 'URL that uses the address' for map website '%s'."
@@ -592,7 +596,7 @@ msgid "New event for"
 msgstr "Nuevo evento para"
 
 #. module: sicon
-#: code:addons/sicon/models/wizards.py:182
+#: code:addons/sicon/models/wizards.py:186
 #, python-format
 msgid "No concessions matched to specified search criteria."
 msgstr "No se encontraron concesiones que coincidan con el criterio de búsqueda especificado"
@@ -622,8 +626,7 @@ msgid "Number"
 msgstr "Número"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "On Term"
 msgstr "En Término"
 
@@ -636,7 +639,7 @@ msgstr "Plazo Original Según Pliego"
 #. module: sicon
 #: model:ir.model,name:sicon.model_res_partner
 msgid "Partner"
-msgstr "Partner"
+msgstr "Empresa"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_document_pdf_url
@@ -659,8 +662,7 @@ msgid "Planned extension"
 msgstr "Prórroga prevista"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Precarious"
 msgstr "Precaria"
 
@@ -682,8 +684,7 @@ msgid "Related document ids"
 msgstr "Documentos Relacionados"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Rescinded"
 msgstr "Rescindida"
 
@@ -712,8 +713,7 @@ msgid "State"
 msgstr "Estado"
 
 #. module: sicon
-#: selection:sicon.add_event_wizard,state:0
-#: selection:sicon.concession,state:0
+#: selection:sicon.add_event_wizard,state:0 selection:sicon.concession,state:0
 msgid "Tendered"
 msgstr "Licitación en Ejecución"
 
@@ -859,4 +859,3 @@ msgstr "sicon.unrelated_documents.report"
 #: model:ir.model,name:sicon.model_tmc_highlight
 msgid "tmc.highlight"
 msgstr "tmc.highlight"
-
