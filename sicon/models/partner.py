@@ -1,4 +1,3 @@
-
 from odoo import fields, models
 
 
@@ -8,12 +7,8 @@ class Partner(models.Model):
 
     concessionaire = fields.Boolean()
 
-    event_ids = fields.One2many(
-        comodel_name='sicon.event',
-        inverse_name='concessionaire_id'
-    )
+    event_ids = fields.One2many(comodel_name='sicon.event',
+                                inverse_name='concessionaire_id')
 
-    drei_ids = fields.One2many(
-        comodel_name='municipal.drei',
-        inverse_name='partner_id'
-    )
+    drei_ids = fields.One2many(comodel_name='municipal.drei',
+                               inverse_name='partner_id')

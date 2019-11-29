@@ -6,7 +6,6 @@
             id="event_types_list_action">
         <field name="name">Event Types</field>
         <field name="res_model">sicon.event_type</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 

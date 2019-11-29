@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="sicon_event_menu"
+              name="Events"
+              parent="sicon_lists_menu"
+              sequence="20"
+              action="events_list_action" />
+
+</odoo>

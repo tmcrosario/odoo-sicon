@@ -4,7 +4,7 @@
     <!-- SEARCH VIEW -->
     <record id="highlight_search_view"
             model="ir.ui.view">
-        <field name="name">tmc.highlight.search</field>
+        <field name="name">tmc.highlight.view_search</field>
         <field name="model">tmc.highlight</field>
         <field name="arch"
                type="xml">
@@ -14,9 +14,7 @@
                             string="Concession"
                             context="{'group_by':'concession_id'}" />
                 </group>
-                <field name="concession_id"
-                       string="Concession"
-                       search_domain="['|', ('concession_id', '=', self)]" />
+                <field name="concession_id" />
             </search>
         </field>
     </record>
@@ -48,7 +46,6 @@
             id="highlight_list_action">
         <field name="name">Highlights</field>
         <field name="res_model">tmc.highlight</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('concession_id', '!=', False)]</field>
         <field name="view_id"
@@ -70,11 +67,11 @@
             id="highlight_by_concession_list_action">
         <field name="name">Highlights</field>
         <field name="res_model">tmc.highlight</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree</field>
         <field name="view_id"
                ref="highlight_tree_view" />
-        <field name="context">{ 'search_default_concession_id': [active_id], 'default_concession_id': active_id }
+        <field name="context">
+            { 'search_default_concession_id': [active_id], 'default_concession_id': active_id }
         </field>
         <field name="limit">20</field>
         <field name="help"

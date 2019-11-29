@@ -33,7 +33,7 @@
     </record>
 
     <!-- PARTNER FORM VIEW -->
-    <record id="view_partner_form"
+    <!-- <record id="view_partner_form"
             model="ir.ui.view">
         <field name="name">map.button.res.partner.form</field>
         <field name="model">res.partner</field>
@@ -46,14 +46,13 @@
             <xpath expr="//button[@name='open_route_map']"
                    position="replace" />
         </field>
-    </record>
+    </record> -->
 
     <!-- WINDOW ACTION -->
     <record model="ir.actions.act_window"
             id="partner_concessionaires_list_action">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('concessionaire','=',True)]</field>
         <field name="context">{'default_concessionaire': True}</field>

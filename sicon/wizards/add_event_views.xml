@@ -67,34 +67,11 @@
                             type="object"
                             string="Save"
                             class="oe_highlight"
-                            attrs="{'invisible':[('modify_concession','=', True)]}" /> or
+                            attrs="{'invisible':[('modify_concession','=', True)]}" />
+                    or
                     <button string="Discard"
                             class="oe_link"
                             special="cancel" />
-                </footer>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view"
-            id="view_sicon_concessions_listing_report_wizard_form">
-        <field name="name">sicon.concessions_listing.report.wizard.form</field>
-        <field name="model">sicon.concessions_listing.report.wizard</field>
-        <field name="arch"
-               type="xml">
-            <form>
-                <group>
-                    <field name="listing" />
-                </group>
-                <footer>
-                    <button name="check_and_generate_report"
-                            type="object"
-                            string="_Print"
-                            context="{'report_name': 'concessions_listing'}"
-                            icon="fa-file-text-o"
-                            class="oe_highlight" />
-                    <button special="cancel"
-                            string="Cancel" />
                 </footer>
             </form>
         </field>
@@ -105,15 +82,6 @@
                 res_model="sicon.add_event_wizard"
                 view_id="view_add_event_wizard_form"
                 view_mode="form"
-                target="new"
-                key2="client_action_multi" />
-
-    <act_window id="concessions_listing_report_wizard_action"
-                name="Generate Concessions Report"
-                res_model="sicon.concessions_listing.report.wizard"
-                view_mode="form"
-                target="new"
-                view_id="view_sicon_concessions_listing_report_wizard_form"
-                key2="client_action_multi" />
+                target="new" />
 
 </odoo>

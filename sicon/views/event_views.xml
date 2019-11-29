@@ -43,7 +43,7 @@
     </record>
 
     <!-- SEARCH VIEW SINGLE MODE-->
-    <record model="ir.ui.view"
+    <!-- <record model="ir.ui.view"
             id="event_single_mode_search_view">
         <field name="name">event_single_mode.search</field>
         <field name="model">sicon.event</field>
@@ -52,13 +52,13 @@
             <search string="Events">
                 <field name="event_type_id"
                        string="Event Type"
-                       search_domain="['|', ('event_type_id', '=', self)" />
+                       search_domain="['|', ('event_type_id', '=', self)]" />
             </search>
         </field>
-    </record>
+    </record> -->
 
     <!-- SEARCH VIEW -->
-    <record model="ir.ui.view"
+    <!-- <record model="ir.ui.view"
             id="event_search_view">
         <field name="name">event.search</field>
         <field name="model">sicon.event</field>
@@ -70,10 +70,10 @@
                        search_domain="['|', ('concession_id', '=', self)]" />
                 <field name="event_type_id"
                        string="Event Type"
-                       search_domain="['|', ('event_type_id', '=', self)" />
+                       search_domain="['|', ('event_type_id', '=', self)]" />
                 <field name="document_id"
                        string="Document"
-                       search_domain="['|', ('document_id', '=', self)" />
+                       search_domain="['|', ('document_id', '=', self)]" />
                 <group expand="1">
                     <filter name="group_by_concession"
                             string="Concession"
@@ -81,7 +81,7 @@
                 </group>
             </search>
         </field>
-    </record>
+    </record> -->
 
     <!-- FORM VIEW -->
     <record id="event_form_view"
@@ -125,7 +125,6 @@
             id="events_list_action">
         <field name="name">Events</field>
         <field name="res_model">sicon.event</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{'search_default_group_by_concession':True}</field>
         <field name="limit">20</field>

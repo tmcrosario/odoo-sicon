@@ -1,53 +1,37 @@
-
 from datetime import datetime
 from re import search
 
-from concession import Concession
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
+from ..models.concession import Concession
 
 
 class AddEventWizard(models.TransientModel):
 
     _name = 'sicon.add_event_wizard'
 
-    concession_id = fields.Many2one(
-        comodel_name='sicon.concession',
-    )
+    concession_id = fields.Many2one(comodel_name='sicon.concession')
 
-    date = fields.Date(
-        required=True
-    )
+    date = fields.Date(required=True)
 
-    event_type_id = fields.Many2one(
-        comodel_name='sicon.event_type',
-        required=True
-    )
+    event_type_id = fields.Many2one(comodel_name='sicon.event_type',
+                                    required=True)
 
-    name = fields.Char(
-        string='Description',
-        required=True
-    )
+    name = fields.Char(string='Description', required=True)
 
-    document_id = fields.Many2one(
-        comodel_name='tmc.document',
-        string='Administrative Act'
-    )
+    document_id = fields.Many2one(comodel_name='tmc.document',
+                                  string='Administrative Act')
 
-    related_document_ids = fields.Many2many(
-        comodel_name='tmc.document'
-    )
+    related_document_ids = fields.Many2many(comodel_name='tmc.document')
 
     modify_concession = fields.Boolean()
 
-    concessionaire_id = fields.Many2one(
-        comodel_name='res.partner',
-        domain=[('concessionaire', '=', 'True')]
-    )
+    concessionaire_id = fields.Many2one(comodel_name='res.partner',
+                                        domain=[('concessionaire', '=', 'True')
+                                                ])
 
     business_category_ids = fields.Many2many(
-        comodel_name='municipal.business_category'
-    )
+        comodel_name='municipal.business_category')
 
     fantasy_name = fields.Char()
 
@@ -57,30 +41,26 @@ class AddEventWizard(models.TransientModel):
 
     expiration_date = fields.Date()
 
-    state = fields.Selection(
-        selection=Concession.states
-    )
+    state = fields.Selection(selection=Concession.states)
 
     folder_file = fields.Binary()
 
     folder_filename = fields.Char()
 
-    @api.onchange('folder_file',
-                  'document_id')
+    @api.onchange('folder_file', 'document_id')
     def _onchange_folder_file(self):
         if self.folder_file and self.date:
             tmp = search(r'\.[A-Za-z0-9]+$', self.folder_filename)
             extension = tmp.group(0) if tmp else ""
-            date = datetime.strptime(
-                self.date, '%Y-%m-%d').strftime('%d-%m-%Y')
+            date = datetime.strptime(self.date,
+                                     '%Y-%m-%d').strftime('%d-%m-%Y')
             self.folder_filename = 'pliego-' + date + extension
 
-    @api.multi
     def save_event(self):
         if self.document_id:
             if self.date:
-                event_year = datetime.strptime(
-                    self.date, '%Y-%m-%d').strftime('%Y')
+                event_year = datetime.strptime(self.date,
+                                               '%Y-%m-%d').strftime('%Y')
                 if event_year != str(self.document_id.period):
                     raise UserError(
                         _('Event year must be equal to document period.'))
@@ -115,15 +95,11 @@ class AddEventWizard(models.TransientModel):
 
         if self.modify_concession:
             event.modify_concession = True
-            domain = [
-                ('concession_id', '=', self.concession_id.id),
-                ('modify_concession', '=', True)
-            ]
+            domain = [('concession_id', '=', self.concession_id.id),
+                      ('modify_concession', '=', True)]
             related_events = self.env['sicon.event'].search(domain)
 
-            newests = related_events.sorted(
-                key=lambda r: r.date,
-                reverse=True)
+            newests = related_events.sorted(key=lambda r: r.date, reverse=True)
             newest = False
             if newests:
                 newest = newests[0]
@@ -147,40 +123,3 @@ class AddEventWizard(models.TransientModel):
     def _onchange_state(self):
         if self.state in ['rescinded', 'caducous']:
             self.concessionaire_id = False
-
-
-class ConcessionsListingReportWizard(models.TransientModel):
-
-    _name = 'sicon.concessions_listing.report.wizard'
-    _inherit = ['tmc.report']
-
-    _listing_options = [
-        ('expired', 'Expired Concessions'),
-        ('all', 'All'),
-    ]
-
-    listing = fields.Selection(
-        selection=_listing_options,
-        default='all',
-        required=True
-    )
-
-    @api.multi
-    def get_concessions(self):
-        concession_list = None
-        concessions_model = self.env['sicon.concession']
-        if self.listing == 'all':
-            concession_list = concessions_model.search(
-                [('concession_id', '=', False)])
-        if self.listing == 'expired':
-            concession_list = concessions_model.search(
-                [('concession_id', '=', False),
-                 ('expired', '=', True)])
-        return concession_list
-
-    @api.multi
-    def check_and_generate_report(self):
-        if not self.get_concessions():
-            raise UserError(
-                _('No concessions matched to specified search criteria.'))
-        return self.generate_report()

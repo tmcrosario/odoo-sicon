@@ -1,2 +1,1 @@
-
-import unrelated_documents
+from . import unrelated_documents

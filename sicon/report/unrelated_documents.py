@@ -1,4 +1,3 @@
-
 from odoo import api, fields, models, tools
 
 
@@ -8,39 +7,26 @@ class UnrelatedDocumentsReport(models.Model):
     _name = "sicon.unrelated_documents.report"
     _auto = False
 
-    dependence_id = fields.Many2one(
-        comodel_name='tmc.dependence',
-        readonly=True
-    )
+    dependence_id = fields.Many2one(comodel_name='tmc.dependence',
+                                    readonly=True)
 
-    document_type_id = fields.Many2one(
-        comodel_name='tmc.document_type',
-        readonly=True
-    )
+    document_type_id = fields.Many2one(comodel_name='tmc.document_type',
+                                       readonly=True)
 
-    number = fields.Integer(
-        readonly=True
-    )
+    number = fields.Integer(readonly=True)
 
-    period = fields.Integer(
-        readonly=True
-    )
+    period = fields.Integer(readonly=True)
 
-    document_object = fields.Char(
-        readonly=True
-    )
+    document_object = fields.Char(readonly=True)
 
-    name = fields.Char(
-        string='Document',
-        readonly=True
-    )
+    name = fields.Char(string='Document', readonly=True)
 
     _depends = {
         'tmc.document': ['name', 'document_object', 'main_topic_ids'],
         'sicon.event': ['document_id']
     }
 
-    @api.model_cr
+    # @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute("""

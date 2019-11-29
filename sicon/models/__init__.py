@@ -1,7 +1,5 @@
-
-import concession
-import event
-import event_type
-import highlight
-import partner
-import wizards
+from . import concession
+from . import event
+from . import event_type
+from . import highlight
+from . import partner
