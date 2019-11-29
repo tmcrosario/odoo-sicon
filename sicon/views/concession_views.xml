@@ -116,13 +116,6 @@
                                 icon="fa-plus"
                                 attrs="{'invisible': [('create_date','=', False)]}" />
                         <button class="oe_inline oe_stat_button"
-                                name="open_url"
-                                type="object"
-                                string="Images"
-                                attrs="{'invisible': [('url_images', '=', False)]}"
-                                context="{'url': url_images}"
-                                icon="fa-image" />
-                        <button class="oe_inline oe_stat_button"
                                 name="open_map"
                                 type="object"
                                 string="Map"
@@ -158,8 +151,6 @@
                             <field name="fantasy_name" />
                             <field name="location"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
-                            <field name="url_images"
-                                   class="oe_edit_only" />
                             <field name="concessionaire_id"
                                    attrs="{'readonly':[('create_date','!=',False)]}"
                                    context="{'default_concessionaire': True}" />

@@ -99,8 +99,6 @@ class Concession(models.Model):
 
     url_mr = fields.Char()
 
-    url_images = fields.Char()
-
     permission_to_use = fields.Boolean()
 
     related_document_ids = fields.Many2many(
