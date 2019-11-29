@@ -1,38 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="sicon_concessions_main_menu"
-              name="General Concessions"
-              parent="sicon_main_menu"
-              sequence="10" />
-
-    <menuitem id="sicon_concessions_list_menu"
+    <menuitem id="sicon_menu_concession"
               name="Concessions"
-              parent="sicon_concessions_main_menu"
+              parent="sicon_menu_root"
               sequence="5"
               action="concessions_list_action" />
-
-    <menuitem id="sicon_lists_menu"
-              name="Lists"
-              parent="sicon_concessions_main_menu"
-              sequence="20" />
-
-    <menuitem id="sicon_expired_concessions_menu"
-              name="Expired Concessions"
-              parent="sicon_lists_menu"
-              sequence="5"
-              action="expired_concessions_list_action" />
-
-    <menuitem id="sicon_concessions_to_expire_menu"
-              name="Concessions To Expire"
-              parent="sicon_lists_menu"
-              sequence="10"
-              action="concessions_to_expire_list_action" />
-
-    <menuitem id="sicon_concessions_archived_menu"
-              name="Archived Concessions"
-              parent="sicon_lists_menu"
-              sequence="15"
-              action="concessions_archived_list_action" />
 
 </odoo>

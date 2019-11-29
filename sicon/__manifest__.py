@@ -24,7 +24,6 @@
         'views/highlight_views.xml',
         'views/concession_views.xml',
         'views/concession_menus.xml',
-        'views/highlight_menus.xml',
         'views/event_views.xml',
         'views/event_menus.xml',
         'views/event_type_views.xml',

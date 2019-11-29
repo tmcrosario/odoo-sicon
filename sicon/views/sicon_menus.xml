@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="sicon_main_menu"
+    <menuitem id="sicon_menu_root"
               name="SICON"
               sequence="10"
               groups="group_manager,group_user,group_read_only" />
 
-    <menuitem id="sicon_configuration_menu"
+    <menuitem id="sicon_menu_configuration"
               name="Configuration"
-              parent="sicon_main_menu"
+              parent="sicon_menu_root"
               sequence="20"
               groups="group_manager" />
 

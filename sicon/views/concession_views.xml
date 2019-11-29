@@ -10,24 +10,6 @@
         <field name="domain">[('concession_id', '=', False),('expiration_date','&lt;',time.strftime('%Y-%m-%d'))]</field>
     </record>
 
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="concessions_to_expire_list_action">
-        <field name="name">Concessions To Expire</field>
-        <field name="res_model">sicon.concession</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False),('expiration_date', '&gt;', (context_today().strftime('%Y-%m-%d'))), ('expiration_date', '&lt;', ((context_today()+datetime.timedelta(days=365)).strftime('%Y-%m-%d')))]</field>
-    </record>
-
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="concessions_archived_list_action">
-        <field name="name">Archived Concessions</field>
-        <field name="res_model">sicon.concession</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False), ('active', '=', False)]</field>
-    </record>
-
     <!-- TREE VIEW -->
     <record id="concession_tree_view"
             model="ir.ui.view">

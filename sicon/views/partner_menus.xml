@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="sicon_highlight_menu"
-              name="Highlights"
-              parent="sicon_lists_menu"
-              sequence="25"
-              action="highlight_list_action" />
+    <menuitem id="sicon_menu_concessionaire"
+              name="Concessionaires"
+              parent="sicon_menu_root"
+              sequence="10"
+              action="partner_concessionaires_list_action" />
 
 </odoo>
