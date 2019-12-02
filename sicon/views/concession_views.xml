@@ -18,35 +18,18 @@
         <field name="priority">5</field>
         <field name="arch"
                type="xml">
-            <tree string="concession"
+            <!-- <tree string="concession"
                   decoration-danger="highest_highlight=='high'"
                   decoration-warning="highest_highlight=='medium'"
-                  edit="false">
+                  edit="false"> -->
+            <tree>
                 <field name="name" />
                 <field name="start_date" />
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
-                <field name="highest_highlight"
-                       invisible="True" />
-            </tree>
-        </field>
-    </record>
-
-    <!-- HISTORY TREE VIEW -->
-    <record id="concession_history_tree_view"
-            model="ir.ui.view">
-        <field name="name">sicon.concession.history.tree</field>
-        <field name="model">sicon.concession</field>
-        <field name="priority">10</field>
-        <field name="arch"
-               type="xml">
-            <tree default_order="event_date desc">
-                <field name="event_date"
-                       string="Event Date" />
-                <field name="event_id" />
-                <field name="concessionaire_id" />
-                <field name="state" />
+                <!-- <field name="highest_highlight"
+                       invisible="True" /> -->
             </tree>
         </field>
     </record>
@@ -260,125 +243,6 @@
         </field>
     </record>
 
-    <!-- HISTORY FORM VIEW -->
-    <record id="concession_history_form_view"
-            model="ir.ui.view">
-        <field name="name">sicon.concession.history.form</field>
-        <field name="model">sicon.concession</field>
-        <field name="priority">10</field>
-        <field name="arch"
-               type="xml">
-            <form edit="false"
-                  create="false">
-                <sheet>
-                    <group attrs="{'invisible': [('event_id', '=', False)]}">
-                        <field name="event_date"
-                               string="Event Date"
-                               readonly="True" />
-                        <field name="event_id"
-                               readonly="True" />
-                    </group>
-                    <group string="Concession Data">
-                        <field name="state"
-                               class="oe_inline"
-                               readonly="True" />
-                    </group>
-                    <group>
-                        <group>
-                            <field name="fantasy_name"
-                                   readonly="True" />
-                            <field name="location"
-                                   readonly="True" />
-                            <field name="concessionaire_id"
-                                   readonly="True" />
-                        </group>
-                        <group>
-                            <field name="expiration_date"
-                                   readonly="True" />
-                            <field name="planned_extension"
-                                   readonly="True" />
-                        </group>
-                    </group>
-                    <group>
-                        <group>
-                            <field name="business_category_ids"
-                                   widget="many2many_tags"
-                                   readonly="True" />
-                        </group>
-                        <group>
-                            <field name="canon"
-                                   readonly="True" />
-                        </group>
-                    </group>
-                    <group>
-                        <group string="Original Term As In Statement">
-                            <field name="start_date"
-                                   readonly="True" />
-                            <field name="term_expiration"
-                                   class="oe_inline oe_edit_only"
-                                   readonly="True" />
-                            <field name="term_certain_expiration"
-                                   attrs="{'invisible': [('term_expiration', 'in', (False, 'uncertain'))]}"
-                                   class="oe_inline oe_edit_only"
-                                   readonly="True" />
-                            <field name="term_description"
-                                   attrs="{'invisible': [('term_expiration', '!=', 'uncertain')]}"
-                                   readonly="True" />
-                            <label for="term_duration"
-                                   string="Duration"
-                                   attrs="{'invisible':['|', '|', ('term_certain_expiration','=',False), ('term_expiration','=','uncertain'), ('term_certain_expiration','=','date')]}"
-                                   readonly="True" />
-                            <div attrs="{'invisible':['|', '|', ('term_certain_expiration','=',False), ('term_expiration','=','uncertain'), ('term_certain_expiration','=','date')]}">
-                                <field name="term_duration"
-                                       class="oe_inline"
-                                       nolabel="1"
-                                       readonly="True" />
-                                <field name="term_unit"
-                                       class="oe_inline"
-                                       nolabel="1"
-                                       readonly="True" />
-                            </div>
-                            <field name="term_due_date"
-                                   attrs="{'invisible': ['|', '|', ('term_certain_expiration','=',False), ('term_expiration','=','uncertain'), ('term_certain_expiration', 'in', (False, 'duration'))]}"
-                                   class="oe_inline"
-                                   readonly="True" />
-                        </group>
-                        <group string="Extension As In Statement"
-                               attrs="{'invisible': [('planned_extension', '=', False)]}">
-                            <field name="extension_expiration"
-                                   class="oe_inline oe_edit_only"
-                                   readonly="True" />
-                            <field name="extension_certain_expiration"
-                                   attrs="{'invisible': [('extension_expiration', 'in', (False, 'uncertain'))]}"
-                                   class="oe_inline oe_edit_only"
-                                   readonly="True" />
-                            <field name="extension_description"
-                                   attrs="{'invisible': [('extension_expiration', '!=', 'uncertain')]}"
-                                   readonly="True" />
-                            <label for="extension_duration"
-                                   string="Duration"
-                                   attrs="{'invisible':['|', '|', ('extension_certain_expiration','=',False), ('extension_expiration','=','uncertain'), ('extension_certain_expiration','=','date')]}" />
-                            <div attrs="{'invisible':['|', '|', ('extension_certain_expiration','=',False), ('extension_expiration','=','uncertain'), ('extension_certain_expiration','=','date')]}">
-                                <field name="extension_duration"
-                                       class="oe_inline"
-                                       nolabel="1"
-                                       readonly="True" />
-                                <field name="extension_unit"
-                                       class="oe_inline"
-                                       nolabel="1"
-                                       readonly="True" />
-                            </div>
-                            <field name="extension_due_date"
-                                   attrs="{'invisible': ['|', '|', ('extension_certain_expiration','=',False), ('extension_expiration','=','uncertain'), ('extension_certain_expiration', 'in', (False, 'duration'))]}"
-                                   class="oe_inline"
-                                   readonly="True" />
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <!-- SEARCH VIEW -->
     <record model="ir.ui.view"
             id="view_sicon_concession_search">
@@ -407,7 +271,7 @@
         <field name="name">Concessions</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">['|', ('active', '=', False), ('active', '=', True), ('concession_id', '=', False)]</field>
+        <field name="domain">['|', ('active', '=', False), ('active', '=', True)]</field>
         <field name="context">{'search_default_filter_active_concessions': True }</field>
         <field name="help"
                type="html">

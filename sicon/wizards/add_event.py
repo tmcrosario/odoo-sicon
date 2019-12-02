@@ -79,46 +79,6 @@ class AddEventWizard(models.TransientModel):
         event_model = self.env['sicon.event']
         event = event_model.create(events_vals)
 
-        concession_vals = {
-            'concessionaire_id': self.concessionaire_id.id,
-            'business_category_ids': [(6, 0, self.business_category_ids.ids)],
-            'fantasy_name': self.concession_id.fantasy_name,
-            'location': self.concession_id.location,
-            'canon': self.canon,
-            'start_date': self.start_date,
-            'expiration_date': self.expiration_date,
-            'state': self.state,
-            'concession_id': self.concession_id.id,
-            'event_id': event.id,
-            'name': self.concession_id.name
-        }
-
-        if self.modify_concession:
-            event.modify_concession = True
-            domain = [('concession_id', '=', self.concession_id.id),
-                      ('modify_concession', '=', True)]
-            related_events = self.env['sicon.event'].search(domain)
-
-            newests = related_events.sorted(key=lambda r: r.date, reverse=True)
-            newest = False
-            if newests:
-                newest = newests[0]
-            if newest == event or not newests:
-                con_obj = self.concession_id
-                con_obj.fantasy_name = self.concession_id.fantasy_name
-                con_obj.location = self.concession_id.location
-                con_obj.business_category_ids = self.business_category_ids
-                con_obj.concessionaire_id = self.concessionaire_id.id
-                con_obj.canon = self.canon
-                con_obj.start_date = self.start_date
-                con_obj.expiration_date = self.expiration_date
-                con_obj.state = self.state
-
-        concession_model = self.env['sicon.concession']
-        concession_id = concession_model.create(concession_vals)
-
-        event.concession_history_id = concession_id
-
     @api.onchange('state')
     def _onchange_state(self):
         if self.state in ['rescinded', 'caducous']:

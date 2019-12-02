@@ -39,10 +39,8 @@ class Concession(models.Model):
                                         domain=[('concessionaire', '=', 'True')
                                                 ])
 
-    event_ids = fields.One2many(
-        comodel_name='sicon.event',
-        inverse_name='concession_id',
-    )
+    event_ids = fields.One2many(comodel_name='sicon.event',
+                                inverse_name='concession_id')
 
     canon = fields.Char()
 
@@ -91,12 +89,6 @@ class Concession(models.Model):
 
     event_date = fields.Date(related='event_id.date', store=True)
 
-    concession_id = fields.Many2one(comodel_name='sicon.concession',
-                                    ondelete='cascade')
-
-    concession_history_ids = fields.One2many(comodel_name='sicon.concession',
-                                             inverse_name='concession_id')
-
     url_mr = fields.Char()
 
     permission_to_use = fields.Boolean()
@@ -107,21 +99,6 @@ class Concession(models.Model):
         readonly=True)
 
     active = fields.Boolean(default=True)
-
-    @api.model
-    def create(self, values):
-        if 'concession_id' not in values:
-            domain = [('name', '=', values['name']),
-                      ('concession_id', '=', False)]
-            if self.env['sicon.concession'].search(domain, limit=1):
-                raise Warning(_('Integrity Error: Duplicated concession'))
-            else:
-                res_id = super(Concession, self).create(values)
-                values['concession_id'] = res_id.id
-                super(Concession, self).create(values)
-        else:
-            res_id = super(Concession, self).create(values)
-        return res_id
 
     @api.onchange('planned_extension')
     def _onchange_planned_extension(self):
