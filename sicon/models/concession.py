@@ -127,18 +127,19 @@ class Concession(models.Model):
 
     @api.depends('highlight_ids')
     def _get_priority_and_color(self):
-        self.ensure_one()
-        domain = [('concession_id', '=', self.id), ('applicable', '=', True)]
-        related_highlights = self.env['tmc.highlight'].search(domain)
+        for concession in self:
+            domain = [('concession_id', '=', concession.id),
+                      ('applicable', '=', True)]
+            related_highlights = self.env['tmc.highlight'].search(domain)
 
-        highest = related_highlights.sorted(
-            key=lambda r: r.highlight_level_id.priority, reverse=True)
+            highest = related_highlights.sorted(
+                key=lambda r: r.highlight_level_id.priority, reverse=True)
 
-        if highest:
-            highlight = highest[0]
-            highlight_level = highlight.highlight_level_id
-            self.priority = highlight_level.priority
-            self.color = highlight.color
+            if highest:
+                highlight = highest[0]
+                highlight_level = highlight.highlight_level_id
+                concession.priority = highlight_level.priority
+                concession.color = highlight.color
 
     @api.depends('event_ids')
     def _compute_related_documents(self):
@@ -195,6 +196,8 @@ class Concession(models.Model):
                 concession.highest_highlight = 'high'
             elif medium_highlights:
                 concession.highest_highlight = 'medium'
+            else:
+                concession.highest_highlight = None
 
     def open_url(self):
         self.ensure_one()

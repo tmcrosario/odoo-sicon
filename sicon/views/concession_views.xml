@@ -18,18 +18,17 @@
         <field name="priority">5</field>
         <field name="arch"
                type="xml">
-            <!-- <tree string="concession"
+            <tree string="concession"
                   decoration-danger="highest_highlight=='high'"
                   decoration-warning="highest_highlight=='medium'"
-                  edit="false"> -->
-            <tree>
+                  edit="false">
                 <field name="name" />
                 <field name="start_date" />
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
-                <!-- <field name="highest_highlight"
-                       invisible="True" /> -->
+                <field name="highest_highlight"
+                       invisible="True" />
             </tree>
         </field>
     </record>
