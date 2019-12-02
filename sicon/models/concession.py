@@ -173,13 +173,13 @@ class Concession(models.Model):
 
     @api.depends('expiration_date')
     def _compute_if_expired(self):
-        self.ensure_one()
-        if self.expiration_date:
-            today = fields.Date.from_string(fields.Date.today())
-            if fields.Date.from_string(self.expiration_date) <= today:
-                self.expired = True
-            else:
-                self.expired = False
+        for concession in self:
+            concession.expired = False
+            if concession.expiration_date:
+                today = fields.Date.from_string(fields.Date.today())
+                if fields.Date.from_string(
+                        concession.expiration_date) <= today:
+                    concession.expired = True
 
     @api.depends('highlight_ids')
     def _compute_highest_highlight(self):

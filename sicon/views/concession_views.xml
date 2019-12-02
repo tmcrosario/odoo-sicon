@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="expired_concessions_list_action">
-        <field name="name">Expired Concessions</field>
-        <field name="res_model">sicon.concession</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('concession_id', '=', False),('expiration_date','&lt;',time.strftime('%Y-%m-%d'))]</field>
-    </record>
-
     <!-- TREE VIEW -->
     <record id="concession_tree_view"
             model="ir.ui.view">
