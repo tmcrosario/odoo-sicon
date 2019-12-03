@@ -2,9 +2,9 @@
 <odoo>
 
     <!-- FORM VIEW -->
-    <record id="view_concession_partner_form"
+    <record id="concessionaire_view_form"
             model="ir.ui.view">
-        <field name="name">sicon.concession.partner.form</field>
+        <field name="name">sicon.concessionaire.view.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id"
                ref="base.view_partner_form" />
@@ -49,8 +49,8 @@
     </record> -->
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="partner_concessionaires_list_action">
+    <record id="concessionaire_action_form"
+            model="ir.actions.act_window">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form</field>

@@ -2,9 +2,9 @@
 <odoo>
 
     <!-- TREE VIEW -->
-    <record id="event_tree_view"
+    <record id="event_view_tree"
             model="ir.ui.view">
-        <field name="name">event.tree</field>
+        <field name="name">event.view.tree</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
@@ -42,9 +42,9 @@
     </record>
 
     <!-- SEARCH VIEW -->
-    <record model="ir.ui.view"
-            id="event_search_view">
-        <field name="name">event.search</field>
+    <record id="event_view_search"
+            model="ir.ui.view">
+        <field name="name">event.view.search</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
@@ -62,9 +62,9 @@
     </record>
 
     <!-- FORM VIEW -->
-    <record id="event_form_view"
+    <record id="event_view_form"
             model="ir.ui.view">
-        <field name="name">sicon.event.form</field>
+        <field name="name">sicon.event.view.form</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
@@ -99,8 +99,8 @@
     </record>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="events_list_action">
+    <record id="event_action_form"
+            model="ir.actions.act_window">
         <field name="name">Events</field>
         <field name="res_model">sicon.event</field>
         <field name="view_mode">tree,form</field>

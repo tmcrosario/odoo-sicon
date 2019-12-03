@@ -2,15 +2,14 @@
 <odoo>
 
     <!-- TREE VIEW -->
-    <record id="concession_tree_view"
+    <record id="concession_view_tree"
             model="ir.ui.view">
-        <field name="name">sicon.concession.tree</field>
+        <field name="name">sicon.concession.view.tree</field>
         <field name="model">sicon.concession</field>
         <field name="priority">5</field>
         <field name="arch"
                type="xml">
-            <tree string="concession"
-                  decoration-danger="highest_highlight=='high'"
+            <tree decoration-danger="highest_highlight=='high'"
                   decoration-warning="highest_highlight=='medium'"
                   edit="false">
                 <field name="name" />
@@ -25,9 +24,9 @@
     </record>
 
     <!-- FORM VIEW -->
-    <record id="concession_form_view"
+    <record id="concession_view_form"
             model="ir.ui.view">
-        <field name="name">sicon.concession.form</field>
+        <field name="name">sicon.concession.view.form</field>
         <field name="model">sicon.concession</field>
         <field name="priority">5</field>
         <field name="arch"
@@ -56,7 +55,7 @@
                                        "hover_false": "Desarchivar"
                                    }}'/>
                         </button>
-                        <button class="oe_inline oe_stat_button"
+                        <button class="oe_stat_button"
                                 name="add_event"
                                 type="object"
                                 string="New Event"
@@ -75,9 +74,8 @@
                                 type="object"
                                 string="Map"
                                 attrs="{'invisible': [('location', '=', False)]}"
-                                icon="fa-map-marker" />
-                        <button class="oe_inline oe_stat_button"
-                                name="%(highlight_by_concession_list_action)d"
+                        <button class="oe_stat_button"
+                                name="%(highlight_action_form)d"
                                 type="action"
                                 attrs="{'invisible':[('highlights_count','=', 0)]}"
                                 icon="fa-exclamation-circle">
@@ -184,7 +182,7 @@
                     </group>
                     <notebook>
                         <page string="Events"
-                              attrs="{'invisible': [('create_date','=',False)]}">
+                              attrs="{'invisible': [('create_date', '=', False)]}">
                             <field name="event_ids"
                                    options="{'no_create': True}" />
                         </page>
@@ -200,43 +198,10 @@
         </field>
     </record>
 
-    <!-- FULL WRITE FORM VIEW -->
-    <record id="concession_form_view_write"
-            model="ir.ui.view">
-        <field name="name">sicon.concession.form.write</field>
-        <field name="model">sicon.concession</field>
-        <field name="inherit_id"
-               ref="concession_form_view" />
-        <field name="arch"
-               type="xml">
-            <field name="name"
-                   position="attributes"
-                   duplicate="0">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
-            <field name="location"
-                   position="attributes">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
-            <field name="concessionaire_id"
-                   position="attributes">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
-            <field name="canon"
-                   position="attributes">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
-            <field name="expiration_date"
-                   position="attributes">
-                <attribute name="attrs">{'readonly': False}</attribute>
-            </field>
-        </field>
-    </record>
-
     <!-- SEARCH VIEW -->
-    <record model="ir.ui.view"
-            id="view_sicon_concession_search">
-        <field name="name">sicon.concession.search</field>
+    <record id="concession_view_search"
+            model="ir.ui.view">
+        <field name="name">sicon.concession.view.search</field>
         <field name="model">sicon.concession</field>
         <field name="arch"
                type="xml">
@@ -256,8 +221,8 @@
     </record>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="concessions_list_action">
+    <record id="concession_action_form"
+            model="ir.actions.act_window">
         <field name="name">Concessions</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_mode">tree,form</field>

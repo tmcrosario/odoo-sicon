@@ -5,6 +5,6 @@
               name="Events"
               parent="sicon_menu_root"
               sequence="15"
-              action="events_list_action" />
+              action="event_action_form" />
 
 </odoo>

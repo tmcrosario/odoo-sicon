@@ -5,6 +5,6 @@
               name="Event Types"
               parent="tmc_menu_config_sicon"
               sequence="5"
-              action="event_types_list_action" />
+              action="event_type_action_form" />
 
 </odoo>

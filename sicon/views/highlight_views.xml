@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- SEARCH VIEW -->
-    <record id="highlight_search_view"
-            model="ir.ui.view">
-        <field name="name">tmc.highlight.view_search</field>
-        <field name="model">tmc.highlight</field>
-        <field name="arch"
-               type="xml">
-            <search string="Highlights">
-                <group expand="1">
-                    <filter name="group_by_concession"
-                            string="Concession"
-                            context="{'group_by':'concession_id'}" />
-                </group>
-                <field name="concession_id" />
-            </search>
-        </field>
-    </record>
-
     <!-- TREE VIEW -->
-    <record id="highlight_tree_view"
+    <record id="highlight_view_tree"
             model="ir.ui.view">
-        <field name="name">sicon.highlight.tree</field>
+        <field name="name">sicon.highlight.view.tree</field>
         <field name="model">tmc.highlight</field>
         <field name="arch"
                type="xml">
@@ -41,35 +23,30 @@
         </field>
     </record>
 
-    <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="highlight_list_action">
-        <field name="name">Highlights</field>
-        <field name="res_model">tmc.highlight</field>
-        <field name="view_mode">tree</field>
-        <field name="domain">[('concession_id', '!=', False)]</field>
-        <field name="view_id"
-               ref="highlight_tree_view" />
-        <field name="limit">20</field>
-        <field name="help"
-               type="html">
-            <p class="oe_view_nocontent">
-                No highlights were found.
-            </p>
-            <p>
-                You can add a highlight by editing the concession.
-            </p>
+    <!-- SEARCH VIEW -->
+    <record id="highlight_search_view"
+            model="ir.ui.view">
+        <field name="name">tmc.highlight.search</field>
+        <field name="model">tmc.highlight</field>
+        <field name="arch"
+               type="xml">
+            <search>
+                <group expand="1">
+                    <filter name="group_by_concession"
+                            string="Concession"
+                            context="{'group_by':'concession_id'}" />
+                </group>
+                <field name="concession_id" />
+            </search>
         </field>
     </record>
 
     <!-- WINDOW ACTION -->
-    <record model="ir.actions.act_window"
-            id="highlight_by_concession_list_action">
+    <record id="highlight_action_form"
+            model="ir.actions.act_window">
         <field name="name">Highlights</field>
         <field name="res_model">tmc.highlight</field>
         <field name="view_mode">tree</field>
-        <field name="view_id"
-               ref="highlight_tree_view" />
         <field name="context">
             { 'search_default_concession_id': [active_id], 'default_concession_id': active_id }
         </field>

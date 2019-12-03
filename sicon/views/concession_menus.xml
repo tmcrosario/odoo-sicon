@@ -5,6 +5,6 @@
               name="Concessions"
               parent="sicon_menu_root"
               sequence="5"
-              action="concessions_list_action" />
+              action="concession_action_form" />
 
 </odoo>

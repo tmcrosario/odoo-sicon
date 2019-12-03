@@ -5,6 +5,6 @@
               name="Concessionaires"
               parent="sicon_menu_root"
               sequence="10"
-              action="partner_concessionaires_list_action" />
+              action="concessionaire_action_form" />
 
 </odoo>
