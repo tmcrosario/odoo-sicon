@@ -28,8 +28,7 @@
                 <field name="event_type_name"
                        invisible="True" />
                 <field name="name" />
-                <field name="concessionaire_id"
-                       widget="many2one_unclickable" />
+                <field name="concessionaire_id" />
                 <field name="folder_file"
                        filename="folder_filename" />
                 <field name="folder_filename"

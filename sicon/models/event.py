@@ -13,6 +13,8 @@ class Event(models.Model):
                                     ondelete='cascade',
                                     domain=[('concession_id', '=', False)])
 
+    concessionaire_id = fields.Many2one(comodel_name='res.partner')
+
     date = fields.Date(required=True)
 
     event_type_id = fields.Many2one(comodel_name='sicon.event_type',
