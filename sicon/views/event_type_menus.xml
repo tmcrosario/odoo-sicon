@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="sicon_menu_configuration_event_type"
+    <menuitem id="tmc_menu_config_sicon_event_type"
               name="Event Types"
-              parent="sicon_menu_configuration"
+              parent="tmc_menu_config_sicon"
               sequence="5"
               action="event_types_list_action" />
 
