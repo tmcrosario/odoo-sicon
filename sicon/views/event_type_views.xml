@@ -9,7 +9,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- SIMPLE FORM VIEW -->
+    <!-- FORM VIEW -->
     <record id="view_sicon_event_type_simple_form"
             model="ir.ui.view">
         <field name="name">sicon.event_type.form</field>

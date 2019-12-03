@@ -42,38 +42,17 @@
         </field>
     </record>
 
-    <!-- SEARCH VIEW SINGLE MODE-->
-    <!-- <record model="ir.ui.view"
-            id="event_single_mode_search_view">
-        <field name="name">event_single_mode.search</field>
-        <field name="model">sicon.event</field>
-        <field name="arch"
-               type="xml">
-            <search string="Events">
-                <field name="event_type_id"
-                       string="Event Type"
-                       search_domain="['|', ('event_type_id', '=', self)]" />
-            </search>
-        </field>
-    </record> -->
-
     <!-- SEARCH VIEW -->
-    <!-- <record model="ir.ui.view"
+    <record model="ir.ui.view"
             id="event_search_view">
         <field name="name">event.search</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
             <search string="Events">
-                <field name="concession_id"
-                       string="Concession"
-                       search_domain="['|', ('concession_id', '=', self)]" />
-                <field name="event_type_id"
-                       string="Event Type"
-                       search_domain="['|', ('event_type_id', '=', self)]" />
-                <field name="document_id"
-                       string="Document"
-                       search_domain="['|', ('document_id', '=', self)]" />
+                <field name="concession_id" />
+                <field name="event_type_id" />
+                <field name="document_id" />
                 <group expand="1">
                     <filter name="group_by_concession"
                             string="Concession"
@@ -81,7 +60,7 @@
                 </group>
             </search>
         </field>
-    </record> -->
+    </record>
 
     <!-- FORM VIEW -->
     <record id="event_form_view"

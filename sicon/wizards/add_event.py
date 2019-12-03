@@ -76,8 +76,7 @@ class AddEventWizard(models.TransientModel):
             'folder_filename': self.folder_filename
         }
 
-        event_model = self.env['sicon.event']
-        event = event_model.create(events_vals)
+        self.env['sicon.event'].create(events_vals)
 
     @api.onchange('state')
     def _onchange_state(self):

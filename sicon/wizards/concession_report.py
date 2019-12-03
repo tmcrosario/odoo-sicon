@@ -1,9 +1,5 @@
-from datetime import datetime
-from re import search
-
-from odoo import _, api, fields, models
+from odoo import fields, models, _
 from odoo.exceptions import UserError
-from ..models.concession import Concession
 
 
 class ConcessionsListingReportWizard(models.TransientModel):
@@ -11,10 +7,7 @@ class ConcessionsListingReportWizard(models.TransientModel):
     _name = 'sicon.concessions_listing.report.wizard'
     _inherit = ['tmc.report']
 
-    _listing_options = [
-        ('expired', 'Expired Concessions'),
-        ('all', 'All'),
-    ]
+    _listing_options = [('expired', 'Expired Concessions'), ('all', 'All')]
 
     listing = fields.Selection(selection=_listing_options,
                                default='all',
