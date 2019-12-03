@@ -59,9 +59,7 @@ class AddEventWizard(models.TransientModel):
     def save_event(self):
         if self.document_id:
             if self.date:
-                event_year = datetime.strptime(self.date,
-                                               '%Y-%m-%d').strftime('%Y')
-                if event_year != str(self.document_id.period):
+                if self.date.year != self.document_id.period:
                     raise UserError(
                         _('Event year must be equal to document period.'))
 
