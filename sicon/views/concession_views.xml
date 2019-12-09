@@ -33,33 +33,11 @@
                type="xml">
             <form duplicate="0">
                 <header>
-                    <field name="state"
-                           widget="statusbar" />
-                </header>
-                <sheet>
-                    <div class="oe_button_box"
-                         name="button_box"
-                         groups="base.group_user">
-                        <button name="toggle_active"
-                                type="object"
-                                groups="base.group_user"
-                                class="oe_stat_button"
-                                icon="fa-archive"
-                                attrs="{'invisible': [('state', 'not in', ('rescinded', 'caducous'))]}">
-                            <field name="active"
-                                   widget="boolean_button"
-                                   options='{"terminology": {
-                                       "string_true": "Activa",
-                                       "hover_true": "Archivar",
-                                       "string_false": "Archivada",
-                                       "hover_false": "Desarchivar"
-                                   }}'/>
-                        </button>
-                        <button class="oe_stat_button"
-                                name="add_event"
-                                type="object"
-                                string="New Event"
-                                context="{'default_concession_id':active_id,
+                    <button class="oe_highlight"
+                            name="add_event"
+                            type="object"
+                            string="New Event"
+                            context="{'default_concession_id':active_id,
                                     'default_concessionaire_id':concessionaire_id,
                                     'default_location':location,
                                     'default_canon':canon,
@@ -67,13 +45,19 @@
                                     'default_expiration_date':expiration_date,
                                     'default_state':state
                                 }"
-                                icon="fa-plus"
-                                attrs="{'invisible': [('create_date','=', False)]}" />
+                            attrs="{'invisible': [('create_date','=', False)]}" />
                     <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box"
+                         name="button_box"
+                         groups="base.group_user">
+                        <!-- <button class="oe_inline oe_stat_button"
                                 name="open_map"
                                 type="object"
                                 string="Map"
                                 attrs="{'invisible': [('location', '=', False)]}"
+                                icon="fa-map-marker" /> -->
                         <button class="oe_stat_button"
                                 name="%(highlight_action_form)d"
                                 type="action"
@@ -84,6 +68,12 @@
                                    widget="statinfo"/>
                         </button>
                     </div>
+                    <field name="active"
+                           invisible="True"/>
+                    <widget name="web_ribbon"
+                            title="Archived"
+                            bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
                     <div class="oe_title">
                         <label for="name"
                                class="oe_edit_only"
@@ -208,9 +198,15 @@
             <search string="Concessions">
                 <field name="name" />
                 <field name="concessionaire_id" />
-                <filter string="Vigentes"
+                <filter string="Active"
                         name="filter_active_concessions"
                         domain="[('active', '=', True)]" />
+                <filter string="Inactive"
+                        name="filter_inactive_concessions"
+                        domain="[('active', '=', False)]" />
+                <filter string="Expired"
+                        name="filter_expired_concessions"
+                        domain="[('expiration_date', '&lt;', datetime.datetime.now())]" />
                 <group expand="1">
                     <filter name="group_by_state"
                             string="State"
