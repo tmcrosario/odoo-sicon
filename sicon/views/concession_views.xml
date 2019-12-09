@@ -97,7 +97,7 @@
 
                     <group>
                         <field name="create_date"
-                               invisible="1" />
+                               invisible="True" />
                     </group>
                     <group>
                         <group>

@@ -8,8 +8,7 @@
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
-            <tree string="Events"
-                  default_order="date desc document_id desc"
+            <tree default_order="date desc document_id desc"
                   create="false"
                   decoration-bf="event_type_name=='Adjudicación'">
                 <field name="date" />
@@ -28,15 +27,13 @@
                 <field name="event_type_name"
                        invisible="True" />
                 <field name="name" />
-                <field name="concessionaire_id" />
+                <field name="concessionaire_id"
+                       optional="hide" />
                 <field name="folder_file"
-                       filename="folder_filename" />
+                       filename="folder_filename"
+                       optional="hide" />
                 <field name="folder_filename"
                        invisible="True" />
-                <button type="object"
-                        string="View Historical State"
-                        name="view_concession"
-                        attrs="{'invisible':[('modify_concession', '=', False)]}" />
             </tree>
         </field>
     </record>

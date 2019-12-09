@@ -31,10 +31,10 @@
         <field name="arch"
                type="xml">
             <search>
-                <group expand="1">
+                <group>
                     <filter name="group_by_concession"
                             string="Concession"
-                            context="{'group_by':'concession_id'}" />
+                            context="{'group_by':'concession_id'}"/>
                 </group>
                 <field name="concession_id" />
             </search>
