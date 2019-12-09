@@ -12,8 +12,6 @@
                   create="false"
                   decoration-bf="event_type_name=='Adjudicación'">
                 <field name="date" />
-                <field name="modify_concession"
-                       invisible="True" />
                 <field name="document_pdf_url"
                        invisible="True" />
                 <button type="object"
@@ -28,6 +26,8 @@
                        invisible="True" />
                 <field name="name" />
                 <field name="concessionaire_id"
+                       optional="hide" />
+                <field name="state"
                        optional="hide" />
                 <field name="folder_file"
                        filename="folder_filename"

@@ -1,4 +1,5 @@
 from odoo import fields, models
+from .concession import Concession
 
 
 class Event(models.Model):
@@ -28,7 +29,7 @@ class Event(models.Model):
 
     related_document_ids = fields.Many2many(comodel_name='tmc.document')
 
-    modify_concession = fields.Boolean()
+    state = fields.Selection(selection=Concession.states)
 
     folder_file = fields.Binary()
 
