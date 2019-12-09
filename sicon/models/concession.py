@@ -89,8 +89,6 @@ class Concession(models.Model):
 
     url_mr = fields.Char()
 
-    permission_to_use = fields.Boolean()
-
     related_document_ids = fields.Many2many(
         comodel_name='tmc.document',
         compute='_compute_related_documents',
