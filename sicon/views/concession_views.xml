@@ -69,7 +69,7 @@
                                 }"
                                 icon="fa-plus"
                                 attrs="{'invisible': [('create_date','=', False)]}" />
-                        <button class="oe_inline oe_stat_button"
+                    <field name="state" widget="statusbar"/>
                                 name="open_map"
                                 type="object"
                                 string="Map"

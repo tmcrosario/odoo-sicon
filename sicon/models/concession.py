@@ -16,8 +16,7 @@ class Concession(models.Model):
 
     states = [('tendered', 'Tendered'), ('awarded', 'Awarded'),
               ('on_term', 'On Term'), ('extended', 'Extended'),
-              ('precarious', 'Precarious'), ('rescinded', 'Rescinded'),
-              ('caducous', 'Caducous')]
+              ('rescinded', 'Rescinded')]
 
     name = fields.Char(required=True)
 

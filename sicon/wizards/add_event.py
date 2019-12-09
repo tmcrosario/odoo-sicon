@@ -78,5 +78,5 @@ class AddEventWizard(models.TransientModel):
 
     @api.onchange('state')
     def _onchange_state(self):
-        if self.state in ['rescinded', 'caducous']:
+        if self.state == 'rescinded':
             self.concessionaire_id = False
