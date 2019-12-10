@@ -2,9 +2,9 @@ from odoo import fields, models, _
 from odoo.exceptions import UserError
 
 
-class ConcessionsListingReportWizard(models.TransientModel):
+class ConcessionsListReportWizard(models.TransientModel):
 
-    _name = 'sicon.concessions_listing.report.wizard'
+    _name = 'sicon.concessions_list.report.wizard'
     _inherit = ['tmc.report']
 
     _listing_options = [('expired', 'Expired Concessions'), ('all', 'All')]

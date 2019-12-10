@@ -26,7 +26,6 @@ class UnrelatedDocumentsReport(models.Model):
         'sicon.event': ['document_id']
     }
 
-    # @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute("""

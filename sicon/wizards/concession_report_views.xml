@@ -2,9 +2,9 @@
 <odoo>
 
     <record model="ir.ui.view"
-            id="view_sicon_concessions_listing_report_wizard_form">
-        <field name="name">sicon.concessions_listing.report.wizard.form</field>
-        <field name="model">sicon.concessions_listing.report.wizard</field>
+            id="concessions_list_report_wizard_view_form">
+        <field name="name">sicon.concessions_list.report.wizard.view.form</field>
+        <field name="model">sicon.concessions_list.report.wizard</field>
         <field name="arch"
                type="xml">
             <form>
@@ -15,7 +15,7 @@
                     <button name="check_and_generate_report"
                             type="object"
                             string="_Print"
-                            context="{'report_name': 'concessions_listing'}"
+                            context="{'report_name': 'concessions_list'}"
                             icon="fa-file-text-o"
                             class="oe_highlight" />
                     <button special="cancel"
@@ -25,11 +25,11 @@
         </field>
     </record>
 
-    <act_window id="concessions_listing_report_wizard_action"
+    <act_window id="concessions_list_report_wizard_action_form"
                 name="Generate Concessions Report"
-                res_model="sicon.concessions_listing.report.wizard"
+                res_model="sicon.concessions_list.report.wizard"
                 view_mode="form"
                 target="new"
-                view_id="view_sicon_concessions_listing_report_wizard_form"/>
+                view_id="concessions_list_report_wizard_view_form"/>
 
 </odoo>

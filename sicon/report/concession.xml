@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="concession"
+    <record id="concession_details_report"
             model="ir.actions.report.xml">
         <field name="name">Concession Details</field>
         <field name="model">sicon.concession</field>
@@ -13,7 +13,7 @@
         <field name="py3o_is_local_fusion"
                eval="1" />
         <field name="module">sicon</field>
-        <field name="py3o_template_fallback">report/concession.odt</field>
+        <field name="py3o_template_fallback">report/concession_details.odt</field>
     </record>
 
 </odoo>

@@ -1,5 +1,5 @@
 {
-    'name': "TMC SICON",
+    'name': 'TMC SICON',
     'version': '13.0.1.0.0',
     'summary': 'Sistema de Concesiones Generales',
     'author': 'Tribunal Municipal de Cuentas - Municipalidad de Rosario',
@@ -31,7 +31,7 @@
         'views/partner_views.xml',
         'views/partner_menus.xml',
         'report/unrelated_documents.xml',
-        # 'report/concessions_listing.xml',
+        # 'report/concessions_list.xml',
         # 'report/concession.xml',
         'wizards/add_event_views.xml',
         'wizards/concession_report_views.xml'

@@ -2,9 +2,9 @@
 <odoo>
 
     <!-- FORM VIEW -->
-    <record id="view_add_event_wizard_form"
+    <record id="add_event_wizard_view_form"
             model="ir.ui.view">
-        <field name="name">sicon.add_event_wizard.form</field>
+        <field name="name">sicon.add_event_wizard.view.form</field>
         <field name="model">sicon.add_event_wizard</field>
         <field name="arch"
                type="xml">
@@ -77,10 +77,10 @@
         </field>
     </record>
 
-    <act_window id="add_event_wizard_action"
+    <act_window id="add_event_wizard_action_form"
                 name="Event Entry"
                 res_model="sicon.add_event_wizard"
-                view_id="view_add_event_wizard_form"
+                view_id="add_event_wizard_view_form"
                 view_mode="form"
                 target="new" />
 
