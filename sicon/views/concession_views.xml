@@ -17,6 +17,8 @@
                 <field name="expiration_date" />
                 <field name="concessionaire_id" />
                 <field name="state" />
+                <field name="administrator_id"
+                       optional="hide"/>
                 <field name="highest_highlight"
                        invisible="True" />
             </tree>
@@ -99,6 +101,7 @@
                                    context="{'default_concessionaire': True}" />
                         </group>
                         <group>
+                            <field name="administrator_id" />
                             <field name="expiration_date"
                                    attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="planned_extension" />

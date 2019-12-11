@@ -94,6 +94,9 @@ class Concession(models.Model):
         compute='_compute_related_documents',
         readonly=True)
 
+    administrator_id = fields.Many2one(comodel_name='sicon.administrator',
+                                       required=True)
+
     active = fields.Boolean(default=True)
 
     @api.onchange('planned_extension')
