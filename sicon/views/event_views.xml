@@ -10,7 +10,7 @@
                type="xml">
             <tree default_order="date desc document_id desc"
                   create="false"
-                  decoration-bf="event_type_name=='Adjudicación'">
+                  decoration-bf="state=='awarded'">
                 <field name="date" />
                 <field name="document_pdf_url"
                        invisible="True" />
@@ -20,10 +20,7 @@
                         attrs="{'invisible': [('document_pdf_url', '=', False)]}"
                         icon="fa-file-pdf-o text-danger" />
                 <field name="document_id" />
-                <field name="event_type_id"
-                       widget="many2one_unclickable" />
-                <field name="event_type_name"
-                       invisible="True" />
+                <field name="event_type_id"/>
                 <field name="name" />
                 <field name="concessionaire_id"
                        optional="hide" />

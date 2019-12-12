@@ -22,8 +22,6 @@ class Event(models.Model):
     event_type_id = fields.Many2one(comodel_name='sicon.event_type',
                                     required=True)
 
-    event_type_name = fields.Char(related='event_type_id.name')
-
     document_id = fields.Many2one(comodel_name='tmc.document')
 
     document_pdf_url = fields.Char(related='document_id.pdf_url')
