@@ -1,4 +1,3 @@
-from datetime import datetime
 from re import search
 
 from odoo import _, api, fields, models
@@ -53,8 +52,7 @@ class AddEventWizard(models.TransientModel):
         if self.folder_file and self.date:
             tmp = search(r'\.[A-Za-z0-9]+$', self.folder_filename)
             extension = tmp.group(0) if tmp else ""
-            date = datetime.strptime(self.date,
-                                     '%Y-%m-%d').strftime('%d-%m-%Y')
+            date = self.date.strftime('%d-%m-%Y')
             self.folder_filename = 'pliego-' + date + extension
 
     def save_event(self):
@@ -64,6 +62,7 @@ class AddEventWizard(models.TransientModel):
                     raise UserError(
                         _('Event year must be equal to document period.'))
 
+        # Create the event
         events_vals = {
             'date': self.date,
             'event_type_id': self.event_type_id.id,
@@ -72,10 +71,32 @@ class AddEventWizard(models.TransientModel):
             'document_id': self.document_id.id,
             'related_document_ids': [(6, 0, self.related_document_ids.ids)],
             'folder_file': self.folder_file,
-            'folder_filename': self.folder_filename
+            'folder_filename': self.folder_filename,
+            'concessionaire_id': self.concessionaire_id.id,
+            'state': self.state
         }
 
-        self.env['sicon.event'].create(events_vals)
+        event_model = self.env['sicon.event']
+        event = event_model.create(events_vals)
+
+        # If the event modify the concession then get the newest event
+        # If this one is the last event then modify the concession
+        if self.modify_concession:
+            event.modify_concession = True
+            domain = [('concession_id', '=', self.concession_id.id),
+                      ('modify_concession', '=', True)]
+            related_events = self.env['sicon.event'].search(domain)
+
+            newests = related_events.sorted(key=lambda r: r.date, reverse=True)
+            newest = False
+            if newests:
+                newest = newests[0]
+            if newest == event or not newests:
+                self.concession_id.concessionaire_id = self.concessionaire_id
+                self.concession_id.canon = self.canon
+                self.concession_id.start_date = self.start_date
+                self.concession_id.expiration_date = self.expiration_date
+                self.concession_id.state = self.state
 
     @api.onchange('state')
     def _onchange_state(self):

@@ -13,9 +13,8 @@
                     <label for="name"
                            class="oe_edit_only"
                            string="New event for" />
-                    <h2>
-                        <field name="concession_id" readonly="True"/>
-                    </h2>
+                    <field name="concession_id"
+                           readonly="True"/>
                 </div>
                 <group>
                     <group string="Event Data">
@@ -26,25 +25,21 @@
                         <field name="document_id"
                                options="{'no_create': True}"
                                attrs="{'required':[('state','=', 'tendered')]}" />
-                        <field name="related_document_ids">
-                            <tree>
-                                <field name="name" />
-                            </tree>
-                        </field>
+                        <field name="related_document_ids"
+                               widget="many2many_tags"/>
                     </group>
                     <group string="Concession Data">
                         <group>
                             <field name="modify_concession" />
                         </group>
-                        <group attrs="{'invisible':[('modify_concession','=',False)]}"
-                               col="2"
-                               colspan="2">
+                        <group col="2"
+                               colspan="2"
+                               attrs="{'invisible':[('modify_concession','=',False)]}">
                             <field name="concessionaire_id"
                                    context="{'default_concessionaire': True}"
                                    attrs="{'required':[('state','=', 'awarded')]}" />
-                            <field name="fantasy_name" />
                             <field name="canon"
-                                   attrs="{'invisible':[('state', 'not in', ['awarded', 'precarious', 'on_term'])]}" />
+                                   attrs="{'invisible':[('state', 'not in', ['awarded', 'on_term'])]}" />
                             <field name="start_date" />
                             <field name="expiration_date" />
                             <field name="state" />
@@ -68,9 +63,7 @@
                             string="Save"
                             class="oe_highlight"
                             attrs="{'invisible':[('modify_concession','=', True)]}" />
-                    or
                     <button string="Discard"
-                            class="oe_link"
                             special="cancel" />
                 </footer>
             </form>

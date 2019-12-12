@@ -4,7 +4,7 @@
     <!-- TREE VIEW -->
     <record id="event_view_tree"
             model="ir.ui.view">
-        <field name="name">event.view.tree</field>
+        <field name="name">sicon.event.view.tree</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">
@@ -41,7 +41,7 @@
     <!-- SEARCH VIEW -->
     <record id="event_view_search"
             model="ir.ui.view">
-        <field name="name">event.view.search</field>
+        <field name="name">sicon.event.view.search</field>
         <field name="model">sicon.event</field>
         <field name="arch"
                type="xml">

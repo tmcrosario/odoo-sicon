@@ -26,7 +26,7 @@
     <!-- SEARCH VIEW -->
     <record id="highlight_search_view"
             model="ir.ui.view">
-        <field name="name">tmc.highlight.search</field>
+        <field name="name">tmc.highlight.view.search</field>
         <field name="model">tmc.highlight</field>
         <field name="arch"
                type="xml">

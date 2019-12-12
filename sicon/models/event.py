@@ -36,5 +36,7 @@ class Event(models.Model):
 
     folder_filename = fields.Char()
 
+    modify_concession = fields.Boolean()
+
     def open_document_pdf(self):
         return self.document_id.open_pdf()
