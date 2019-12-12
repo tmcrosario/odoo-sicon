@@ -201,11 +201,11 @@
             <search string="Concessions">
                 <field name="name" />
                 <field name="concessionaire_id" />
-                <filter string="Active"
+                <filter string="Active Concessions"
                         name="filter_active_concessions"
                         domain="[('active', '=', True)]" />
-                <filter string="Inactive"
-                        name="filter_inactive_concessions"
+                <filter string="Archived Concessions"
+                        name="filter_archived_concessions"
                         domain="[('active', '=', False)]" />
                 <filter string="Expired"
                         name="filter_expired_concessions"
