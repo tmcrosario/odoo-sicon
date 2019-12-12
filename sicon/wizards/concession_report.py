@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 class ConcessionsListReportWizard(models.TransientModel):
 
     _name = 'sicon.concessions_list.report.wizard'
+    _description = 'Wizard to generate concession list report'
     _inherit = ['tmc.report']
 
     _listing_options = [('expired', 'Expired Concessions'), ('all', 'All')]

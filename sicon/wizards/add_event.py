@@ -9,6 +9,7 @@ from ..models.concession import Concession
 class AddEventWizard(models.TransientModel):
 
     _name = 'sicon.add_event_wizard'
+    _description = 'Wizard for adding a new event'
 
     concession_id = fields.Many2one(comodel_name='sicon.concession')
 

@@ -4,6 +4,7 @@ from odoo import _, fields, models
 class Administrator(models.Model):
 
     _name = 'sicon.administrator'
+    _description = 'Concession Administrator'
 
     name = fields.Char(required=True)
 

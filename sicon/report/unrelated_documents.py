@@ -2,9 +2,9 @@ from odoo import api, fields, models, tools
 
 
 class UnrelatedDocumentsReport(models.Model):
-    """Documents not related to any concession"""
 
     _name = "sicon.unrelated_documents.report"
+    _description = 'Documents not related yet to any concession'
     _auto = False
 
     dependence_id = fields.Many2one(comodel_name='tmc.dependence',

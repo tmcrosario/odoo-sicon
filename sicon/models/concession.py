@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class Concession(models.Model):
 
     _name = 'sicon.concession'
+    _description = 'Concession'
     _order = 'name'
     _inherit = ['tmc.report']
 

@@ -5,6 +5,7 @@ from .concession import Concession
 class Event(models.Model):
 
     _name = 'sicon.event'
+    _description = 'Event'
     _order = 'date desc'
 
     name = fields.Char(string='Description', required=True)

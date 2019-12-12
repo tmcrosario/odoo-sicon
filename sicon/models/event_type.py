@@ -4,6 +4,7 @@ from odoo import _, fields, models
 class EventType(models.Model):
 
     _name = 'sicon.event_type'
+    _description = 'Event Type'
 
     name = fields.Char(required=True)
 
