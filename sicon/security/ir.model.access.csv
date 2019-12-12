@@ -11,4 +11,7 @@ access_sicon_event_read_only,sicon.event.read_only,model_sicon_event,group_read_
 access_sicon_event_type_manager,sicon.event_type.manager,model_sicon_event_type,group_manager,1,1,1,1
 access_sicon_event_type_user,sicon.event_type.user,model_sicon_event_type,group_user,1,0,0,0
 access_sicon_event_type_read_only,sicon.event_type.read_only,model_sicon_event_type,group_read_only,1,0,0,0
+access_sicon_administrator_manager,sicon.administrator.manager,model_sicon_administrator,group_manager,1,1,1,1
+access_sicon_administrator_user,sicon.administrator.user,model_sicon_administrator,group_user,1,0,0,0
+access_sicon_administrator_read_only,sicon.administrator.read_only,model_sicon_administrator,group_read_only,1,0,0,0
 access_sicon_unrelated_documents_report,access_sicon_unrelated_documents_report,model_sicon_unrelated_documents_report,,1,0,0,0
