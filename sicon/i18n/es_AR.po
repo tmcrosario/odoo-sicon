@@ -4,18 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 13.0-20210217\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 19:08+0000\n"
-"PO-Revision-Date: 2019-12-12 16:09-0300\n"
+"POT-Creation-Date: 2021-03-10 17:13+0000\n"
+"PO-Revision-Date: 2021-03-10 17:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: es_AR\n"
-"X-Generator: Poedit 2.2.4\n"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_unit__days
@@ -36,14 +34,14 @@ msgid " Year(s)"
 msgstr " Año(s)"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+msgid "Activas"
+msgstr ""
+
+#. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__active
 msgid "Active"
 msgstr "Activa"
-
-#. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
-msgid "Active Concessions"
-msgstr "Vigentes"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__document_id
@@ -67,14 +65,14 @@ msgid "All"
 msgstr "Todas las Concesiones"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+msgid "Archivadas"
+msgstr ""
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_form
 msgid "Archived"
 msgstr "Archivada"
-
-#. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
-msgid "Archived Concessions"
-msgstr "Archivadas"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__awarded
@@ -88,6 +86,11 @@ msgstr "Adjudicada"
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__business_category_ids
 msgid "Business Category"
 msgstr "Rubro"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+msgid "Caducadas"
+msgstr ""
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concessions_list_report_wizard_view_form
@@ -117,12 +120,16 @@ msgid "Click to create a new concessionaire."
 msgstr "Haga click para crear un nuevo concesionario."
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.event_view_search
+#: model_terms:ir.ui.view,arch_db:sicon.highlight_search_view
+msgid "Concesión"
+msgstr ""
+
+#. module: sicon
 #: model:ir.model,name:sicon.model_sicon_concession
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__concession_id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__concession_id
 #: model:ir.model.fields,field_description:sicon.field_tmc_highlight__concession_id
-#: model_terms:ir.ui.view,arch_db:sicon.event_view_search
-#: model_terms:ir.ui.view,arch_db:sicon.highlight_search_view
 msgid "Concession"
 msgstr "Concesión"
 
@@ -135,6 +142,11 @@ msgstr "Administrador de la Concesión"
 #: model_terms:ir.ui.view,arch_db:sicon.add_event_wizard_view_form
 msgid "Concession Data"
 msgstr "Datos de la Concesión"
+
+#. module: sicon
+#: model:ir.actions.report,name:sicon.concession_details_report
+msgid "Concession Details"
+msgstr ""
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concessionaire_view_form
@@ -164,9 +176,13 @@ msgstr "Concesionarios"
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.concession_action_form
 #: model:ir.ui.menu,name:sicon.sicon_menu_concession
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "Concessions"
 msgstr "Concesiones"
+
+#. module: sicon
+#: model:ir.actions.report,name:sicon.concessions_list_report
+msgid "Concessions List"
+msgstr ""
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_res_partner
@@ -276,6 +292,11 @@ msgid "El tipo de evento debe ser único"
 msgstr ""
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+msgid "Estado"
+msgstr ""
+
+#. module: sicon
 #: model:ir.model,name:sicon.model_sicon_event
 #: model:ir.model.fields,field_description:sicon.field_res_partner__event_ids
 #: model:ir.model.fields,field_description:sicon.field_res_users__event_ids
@@ -324,7 +345,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:sicon.event_action_form
 #: model:ir.ui.menu,name:sicon.sicon_menu_event
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_form
-#: model_terms:ir.ui.view,arch_db:sicon.event_view_search
 msgid "Events"
 msgstr "Eventos"
 
@@ -336,7 +356,6 @@ msgstr "Fecha de Vencimiento"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__expired
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "Expired"
 msgstr "Vencidas"
 
@@ -430,6 +449,7 @@ msgid "Highest Highlight"
 msgstr ""
 
 #. module: sicon
+#: model:ir.model,name:sicon.model_tmc_highlight
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__highlight_ids
 msgid "Highlight"
 msgstr "Resaltado"
@@ -579,7 +599,7 @@ msgstr "Plazo Original Según Pliego"
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__document_pdf_url
 msgid "Pdf Url"
-msgstr ""
+msgstr "PDF URL"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__period
@@ -595,11 +615,6 @@ msgstr "Prórroga Prevista"
 #: model:res.groups,name:sicon.group_read_only
 msgid "Read Only"
 msgstr "Sólo Lectura"
-
-#. module: sicon
-#: model:ir.module.category,description:sicon.module_category_sicon
-msgid "Registro de Auditores Externos"
-msgstr ""
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__related_document_ids
@@ -642,7 +657,6 @@ msgstr "Fecha de Inicio"
 #: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__state
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__state
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__state
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "State"
 msgstr "Estado"
 
@@ -748,8 +762,3 @@ msgstr "Puede agregar un evento editando los datos de la concesión."
 #: model_terms:ir.ui.view,arch_db:sicon.concessions_list_report_wizard_view_form
 msgid "_Print"
 msgstr "Reporte"
-
-#. module: sicon
-#: model:ir.model,name:sicon.model_tmc_highlight
-msgid "tmc.highlight"
-msgstr ""

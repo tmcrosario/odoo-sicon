@@ -3,38 +3,38 @@
 
     <!-- TREE VIEW -->
     <record id="highlight_view_tree"
-            model="ir.ui.view">
+        model="ir.ui.view">
         <field name="name">sicon.highlight.view.tree</field>
         <field name="model">tmc.highlight</field>
         <field name="arch"
-               type="xml">
+            type="xml">
             <tree create="false"
-                  delete="false"
-                  default_order="applicable"
-                  decoration-it="applicable==False"
-                  decoration-danger="level=='high'"
-                  decoration-warning="level=='medium'">
+                delete="false"
+                default_order="applicable"
+                decoration-it="applicable==False"
+                decoration-danger="level=='high'"
+                decoration-warning="level=='medium'">
                 <field name="comment" />
                 <field name="level" />
                 <field name="concession_id" />
                 <field name="applicable"
-                       invisible="True" />
+                    invisible="True" />
             </tree>
         </field>
     </record>
 
     <!-- SEARCH VIEW -->
     <record id="highlight_search_view"
-            model="ir.ui.view">
+        model="ir.ui.view">
         <field name="name">tmc.highlight.view.search</field>
         <field name="model">tmc.highlight</field>
         <field name="arch"
-               type="xml">
+            type="xml">
             <search>
                 <group>
                     <filter name="group_by_concession"
-                            string="Concession"
-                            context="{'group_by':'concession_id'}"/>
+                        string="Concesión"
+                        context="{'group_by':'concession_id'}" />
                 </group>
                 <field name="concession_id" />
             </search>
@@ -43,7 +43,7 @@
 
     <!-- WINDOW ACTION -->
     <record id="highlight_action_form"
-            model="ir.actions.act_window">
+        model="ir.actions.act_window">
         <field name="name">Highlights</field>
         <field name="res_model">tmc.highlight</field>
         <field name="view_mode">tree</field>
@@ -52,7 +52,7 @@
         </field>
         <field name="limit">20</field>
         <field name="help"
-               type="html">
+            type="html">
             <p class="oe_view_nocontent">
                 No highlights were found.
             </p>
