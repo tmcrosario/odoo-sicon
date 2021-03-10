@@ -39,7 +39,8 @@ class Concession(models.Model):
                                                 ])
 
     event_ids = fields.One2many(comodel_name='sicon.event',
-                                inverse_name='concession_id')
+                                inverse_name='concession_id',
+                                string='Events')
 
     canon = fields.Char()
 
