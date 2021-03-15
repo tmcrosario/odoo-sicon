@@ -3,25 +3,25 @@
 
     <!-- FORM VIEW -->
     <record id="concessionaire_view_form"
-            model="ir.ui.view">
+        model="ir.ui.view">
         <field name="name">sicon.concessionaire.view.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id"
-               ref="base.view_partner_form" />
+            ref="base.view_partner_form" />
         <field eval="90"
-               name="priority" />
+            name="priority" />
         <field name="arch"
-               type="xml">
+            type="xml">
             <page name="internal_notes"
-                  position="before">
+                position="before">
                 <page string="Concession Events"
-                      attrs="{'invisible':[('concessionaire', '=', False)]}">
+                    attrs="{'invisible':[('concessionaire', '=', False)]}">
                     <field name="concessionaire"
-                           invisible="True" />
+                        invisible="True" />
                     <field name="event_ids">
                         <tree create="false"
-                              edit="false"
-                              delete="false">
+                            edit="false"
+                            delete="false">
                             <field name="date" />
                             <field name="concession_id" />
                             <field name="event_type_id" />
@@ -32,32 +32,31 @@
         </field>
     </record>
 
-    <!-- PARTNER FORM VIEW -->
-    <!-- <record id="view_partner_form"
-            model="ir.ui.view">
-        <field name="name">map.button.res.partner.form</field>
+    <!-- SEARCH VIEW -->
+    <record id="partner_view_search"
+        model="ir.ui.view">
+        <field name="name">sicon.partner.view.search</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id"
-               ref="base.view_partner_form" />
         <field name="arch"
-               type="xml">
-            <xpath expr="//button[@name='open_map']"
-                   position="replace" />
-            <xpath expr="//button[@name='open_route_map']"
-                   position="replace" />
+            type="xml">
+            <search>
+                <field name="name" />
+            </search>
         </field>
-    </record> -->
+    </record>
 
     <!-- WINDOW ACTION -->
     <record id="concessionaire_action_form"
-            model="ir.actions.act_window">
+        model="ir.actions.act_window">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('concessionaire','=',True)]</field>
         <field name="context">{'default_concessionaire': True}</field>
+        <field name="search_view_id"
+            ref="sicon.partner_view_search" />
         <field name="help"
-               type="html">
+            type="html">
             <p class="oe_view_nocontent_create">
                 Click to create a new concessionaire.
             </p>
