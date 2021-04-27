@@ -210,7 +210,7 @@
                 <filter string="Archivadas"
                     name="filter_archived_concessions"
                     domain="[('active', '=', False)]" />
-                <filter string="Caducadas"
+                <filter string="Vencidas"
                     name="filter_expired_concessions"
                     domain="[('expiration_date', '&lt;', datetime.datetime.now())]" />
                 <group expand="1">

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="tmc_menu_config_sicon_administrator"
+        name="Administrators"
+        parent="tmc_menu_config_sicon"
+        sequence="10"
+        action="administrator_action_form" />
+
+</odoo>
