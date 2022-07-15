@@ -3,78 +3,82 @@
 
     <!-- FORM VIEW -->
     <record id="add_event_wizard_view_form"
-            model="ir.ui.view">
-        <field name="name">sicon.add_event_wizard.view.form</field>
-        <field name="model">sicon.add_event_wizard</field>
+        model="ir.ui.view">
+        <field name="name">sicon.event.add.view.form</field>
+        <field name="model">sicon.event.add</field>
         <field name="arch"
-               type="xml">
+            type="xml">
             <form>
                 <div class="oe_title">
                     <label for="name"
-                           class="oe_edit_only"
-                           string="New event for" />
+                        class="oe_edit_only"
+                        string="New event for" />
                     <field name="concession_id"
-                           readonly="True"/>
+                        readonly="True" />
                 </div>
                 <group>
                     <group string="Event Data">
                         <field name="date" />
                         <field name="event_type_id"
-                               options="{'no_create': True}" />
+                            options="{'no_create': True}" />
                         <field name="name" />
                         <field name="document_id"
-                               options="{'no_create': True}"
-                               attrs="{'required':[('state','=', 'tendered')]}" />
+                            options="{'no_create': True}"
+                            attrs="{'required':[('state','=', 'tendered')]}" />
                         <field name="related_document_ids"
-                               widget="many2many_tags"/>
+                            widget="many2many_tags" />
                     </group>
                     <group string="Concession Data">
                         <group>
                             <field name="modify_concession" />
                         </group>
                         <group col="2"
-                               colspan="2"
-                               attrs="{'invisible':[('modify_concession','=',False)]}">
+                            colspan="2"
+                            attrs="{'invisible':[('modify_concession','=',False)]}">
                             <field name="concessionaire_id"
-                                   context="{'default_concessionaire': True}"
-                                   attrs="{'required':[('state','=', 'awarded')]}" />
+                                context="{'default_concessionaire': True}"
+                                attrs="{'required':[('state','=', 'awarded')]}" />
                             <field name="canon"
-                                   attrs="{'invisible':[('state', 'not in', ['awarded', 'on_term'])]}" />
+                                attrs="{'invisible':[('state', 'not in', ['awarded', 'on_term'])]}" />
                             <field name="start_date" />
                             <field name="expiration_date" />
                             <field name="state" />
                             <field name="folder_file"
-                                   filename="folder_filename"
-                                   attrs="{'invisible':[('state','!=', 'tendered')]}" />
+                                filename="folder_filename"
+                                attrs="{'invisible':[('state','!=', 'tendered')]}" />
                             <field name="folder_filename"
-                                   invisible="True" />
+                                invisible="True" />
                         </group>
                     </group>
                 </group>
                 <footer>
                     <button name="save_event"
-                            type="object"
-                            string="Save"
-                            class="oe_highlight"
-                            confirm="This action will made changes to the concession. Are you sure you want to continue?"
-                            attrs="{'invisible':[('modify_concession','=', False)]}" />
+                        type="object"
+                        string="Save"
+                        class="oe_highlight"
+                        confirm="This action will made changes to the concession. Are you sure you want to continue?"
+                        attrs="{'invisible':[('modify_concession','=', False)]}" />
                     <button name="save_event"
-                            type="object"
-                            string="Save"
-                            class="oe_highlight"
-                            attrs="{'invisible':[('modify_concession','=', True)]}" />
+                        type="object"
+                        string="Save"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('modify_concession','=', True)]}" />
                     <button string="Discard"
-                            special="cancel" />
+                        special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
 
-    <act_window id="add_event_wizard_action_form"
-                name="Event Entry"
-                res_model="sicon.add_event_wizard"
-                view_id="add_event_wizard_view_form"
-                view_mode="form"
-                target="new" />
+    <!-- WINDOW ACTION -->
+    <record id="add_event_wizard_action_form"
+        model="ir.actions.act_window">
+        <field name="name">Event Entry</field>
+        <field name="res_model">sicon.event.add</field>
+        <field name="view_mode">form</field>
+        <field name="view_id"
+            ref="add_event_wizard_view_form" />
+        <field name="target">new</field>
+    </record>
 
 </odoo>

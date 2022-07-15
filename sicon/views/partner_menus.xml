@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="sicon_menu_concessionaire"
-              name="Concessionaires"
-              parent="sicon_menu_root"
-              sequence="10"
-              action="concessionaire_action_form" />
+    <menuitem id="sicon_concessionaire_menu"
+        name="Concessionaires"
+        parent="sicon_menu"
+        sequence="10"
+        action="concessionaire_action_form" />
 
 </odoo>

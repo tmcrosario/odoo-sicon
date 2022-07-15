@@ -114,10 +114,6 @@
                     </group>
                     <group>
                         <group>
-                            <field name="business_category_ids"
-                                widget="many2many_tags" />
-                        </group>
-                        <group>
                             <field name="canon"
                                 attrs="{'readonly':[('create_date','!=',False)]}" />
                         </group>

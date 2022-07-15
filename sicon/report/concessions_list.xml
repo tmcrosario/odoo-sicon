@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="concessions_list_report"
+    <record id="concessions_report_list"
         model="ir.actions.report">
         <field name="name">Concessions List</field>
         <field name="model">sicon.concessions_list.report.wizard</field>

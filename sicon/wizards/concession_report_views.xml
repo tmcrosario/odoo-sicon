@@ -2,34 +2,38 @@
 <odoo>
 
     <record model="ir.ui.view"
-            id="concessions_list_report_wizard_view_form">
-        <field name="name">sicon.concessions_list.report.wizard.view.form</field>
-        <field name="model">sicon.concessions_list.report.wizard</field>
+        id="concession_report_list_view_form">
+        <field name="name">sicon.concession.report.list.view.form</field>
+        <field name="model">sicon.concession.report.list</field>
         <field name="arch"
-               type="xml">
+            type="xml">
             <form>
                 <group>
                     <field name="listing" />
                 </group>
                 <footer>
                     <button name="check_and_generate_report"
-                            type="object"
-                            string="_Print"
-                            context="{'report_name': 'concessions_list'}"
-                            icon="fa-file-text-o"
-                            class="oe_highlight" />
+                        type="object"
+                        string="_Print"
+                        context="{'report_name': 'concessions_list'}"
+                        icon="fa-file-text-o"
+                        class="oe_highlight" />
                     <button special="cancel"
-                            string="Cancel" />
+                        string="Cancel" />
                 </footer>
             </form>
         </field>
     </record>
 
-    <act_window id="concessions_list_report_wizard_action_form"
-                name="Generate Concessions Report"
-                res_model="sicon.concessions_list.report.wizard"
-                view_mode="form"
-                target="new"
-                view_id="concessions_list_report_wizard_view_form"/>
+    <!-- WINDOW ACTION -->
+    <record id="concession_report_list_action_form"
+        model="ir.actions.act_window">
+        <field name="name">Generate Concessions Report</field>
+        <field name="res_model">sicon.concession.report.list</field>
+        <field name="view_mode">form</field>
+        <field name="view_id"
+            ref="concession_report_list_view_form" />
+        <field name="target">new</field>
+    </record>
 
 </odoo>

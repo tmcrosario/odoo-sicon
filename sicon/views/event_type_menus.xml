@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="tmc_menu_config_sicon_event_type"
-              name="Event Types"
-              parent="tmc_menu_config_sicon"
-              sequence="5"
-              action="event_type_action_form" />
+    <menuitem id="tmc_config_sicon_event_type_menu"
+        name="Event Types"
+        parent="tmc_config_sicon_menu"
+        sequence="5"
+        action="event_type_action_form" />
 
 </odoo>
