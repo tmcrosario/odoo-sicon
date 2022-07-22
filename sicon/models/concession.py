@@ -58,7 +58,7 @@ class Concession(models.Model):
         selection=_certain_expiration_options_
     )
 
-    term_duration = fields.Integer(size=4)
+    term_duration = fields.Integer()
 
     term_unit = fields.Selection(selection=_date_units_, default="years")
 
@@ -74,7 +74,7 @@ class Concession(models.Model):
         selection=_certain_expiration_options_
     )
 
-    extension_duration = fields.Integer(size=4)
+    extension_duration = fields.Integer()
 
     extension_unit = fields.Selection(selection=_date_units_, default="years")
 
