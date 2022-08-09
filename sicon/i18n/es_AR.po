@@ -4,16 +4,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0-20210217\n"
+"Project-Id-Version: Odoo Server 14.0-20220727\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-10 17:13+0000\n"
-"PO-Revision-Date: 2021-03-10 17:13+0000\n"
+"POT-Creation-Date: 2022-08-09 13:59+0000\n"
+"PO-Revision-Date: 2022-08-09 11:00-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_unit__days
@@ -44,7 +46,7 @@ msgid "Active"
 msgstr "Activa"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__document_id
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__document_id
 msgid "Administrative Act"
 msgstr "Acto Administrativo"
 
@@ -60,7 +62,13 @@ msgid "Administrator name must be unique"
 msgstr "El nombre de administrador debe ser único"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_concessions_list_report_wizard__listing__all
+#: model:ir.actions.act_window,name:sicon.administrator_action_form
+#: model:ir.ui.menu,name:sicon.tmc_config_sicon_administrator_menu
+msgid "Administrators"
+msgstr ""
+
+#. module: sicon
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_concession_report_list__listing__all
 msgid "All"
 msgstr "Todas las Concesiones"
 
@@ -75,31 +83,20 @@ msgid "Archived"
 msgstr "Archivada"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__awarded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__awarded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__awarded
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__awarded
 msgid "Awarded"
 msgstr "Adjudicada"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__business_category_ids
-#: model:ir.model.fields,field_description:sicon.field_sicon_concession__business_category_ids
-msgid "Business Category"
-msgstr "Rubro"
-
-#. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
-msgid "Caducadas"
-msgstr ""
-
-#. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concessions_list_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:sicon.concession_report_list_view_form
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__canon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__canon
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__canon
 msgid "Canon"
 msgstr ""
 
@@ -127,8 +124,8 @@ msgstr ""
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_concession
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__concession_id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__concession_id
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__concession_id
 #: model:ir.model.fields,field_description:sicon.field_tmc_highlight__concession_id
 msgid "Concession"
 msgstr "Concesión"
@@ -146,7 +143,7 @@ msgstr "Datos de la Concesión"
 #. module: sicon
 #: model:ir.actions.report,name:sicon.concession_details_report
 msgid "Concession Details"
-msgstr ""
+msgstr "Detalles de la Concesión"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concessionaire_view_form
@@ -161,28 +158,28 @@ msgstr "Nombre de la Concesión"
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_res_partner__concessionaire
 #: model:ir.model.fields,field_description:sicon.field_res_users__concessionaire
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__concessionaire_id
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__concessionaire_id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__concessionaire_id
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__concessionaire_id
 msgid "Concessionaire"
 msgstr "Concesionario"
 
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.concessionaire_action_form
-#: model:ir.ui.menu,name:sicon.sicon_menu_concessionaire
+#: model:ir.ui.menu,name:sicon.sicon_concessionaire_menu
 msgid "Concessionaires"
 msgstr "Concesionarios"
 
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.concession_action_form
-#: model:ir.ui.menu,name:sicon.sicon_menu_concession
+#: model:ir.ui.menu,name:sicon.sicon_concession_menu
 msgid "Concessions"
 msgstr "Concesiones"
 
 #. module: sicon
-#: model:ir.actions.report,name:sicon.concessions_list_report
+#: model:ir.actions.report,name:sicon.concessions_report_list
 msgid "Concessions List"
-msgstr ""
+msgstr "Listado de Concesiones"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_res_partner
@@ -190,29 +187,29 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__create_uid
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__create_uid
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__create_uid
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__create_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__create_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__create_date
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__create_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__create_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__create_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__create_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__date
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__event_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__date
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__date
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_certain_expiration__date
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__term_certain_expiration__date
 #: model_terms:ir.ui.view,arch_db:sicon.event_view_form
@@ -225,8 +222,8 @@ msgid "Dependence"
 msgstr "Dependencia"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__name
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__name
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__name
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__description
 msgid "Description"
 msgstr "Descripción"
@@ -237,13 +234,15 @@ msgid "Discard"
 msgstr "Descartar"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__display_name
+#: model:ir.model.fields,field_description:sicon.field_res_partner__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__display_name
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__display_name
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__display_name
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__display_name
+#: model:ir.model.fields,field_description:sicon.field_tmc_highlight__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
 
@@ -267,12 +266,6 @@ msgstr "Tipo de Documento"
 #: model:ir.model,name:sicon.model_sicon_unrelated_documents_report
 msgid "Documents not related yet to any concession"
 msgstr "Documentos no vinculados aún a ninguna concesión"
-
-#. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_res_partner__drei_ids
-#: model:ir.model.fields,field_description:sicon.field_res_users__drei_ids
-msgid "Drei"
-msgstr "DREI"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_certain_expiration__duration
@@ -301,7 +294,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:sicon.field_res_partner__event_ids
 #: model:ir.model.fields,field_description:sicon.field_res_users__event_ids
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__event_id
-#: model:ir.model.fields,field_description:sicon.field_sicon_concession__event_ids
 msgid "Event"
 msgstr "Evento"
 
@@ -317,14 +309,14 @@ msgstr "Nuevo Evento"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_event_type
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__event_type_id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__event_type_id
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__event_type_id
 msgid "Event Type"
 msgstr "Tipo de Evento"
 
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.event_type_action_form
-#: model:ir.ui.menu,name:sicon.tmc_menu_config_sicon_event_type
+#: model:ir.ui.menu,name:sicon.tmc_config_sicon_event_type_menu
 msgid "Event Types"
 msgstr "Tipos de Evento"
 
@@ -343,14 +335,15 @@ msgstr ""
 
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.event_action_form
-#: model:ir.ui.menu,name:sicon.sicon_menu_event
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession__event_ids
+#: model:ir.ui.menu,name:sicon.sicon_event_menu
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_form
 msgid "Events"
 msgstr "Eventos"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__expiration_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__expiration_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__expiration_date
 msgid "Expiration Date"
 msgstr "Fecha de Vencimiento"
 
@@ -360,14 +353,14 @@ msgid "Expired"
 msgstr "Vencidas"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_concessions_list_report_wizard__listing__expired
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_concession_report_list__listing__expired
 msgid "Expired Concessions"
 msgstr "Concesiones Vencidas"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__extended
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__extended
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__extended
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__extended
 msgid "Extended"
 msgstr "Prorrogada"
 
@@ -407,25 +400,25 @@ msgid "Extension Unit"
 msgstr "Unidad de Tiempo"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__fantasy_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__fantasy_name
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__fantasy_name
 msgid "Fantasy Name"
 msgstr "Nombre de Fantasía"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__folder_file
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__folder_file
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__folder_file
 msgid "Folder File"
 msgstr "Pliego"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__folder_filename
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__folder_filename
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__folder_filename
 msgid "Folder Filename"
 msgstr "Nombre de Archivo"
 
 #. module: sicon
-#: model:ir.actions.act_window,name:sicon.concessions_list_report_wizard_action_form
+#: model:ir.actions.act_window,name:sicon.concession_report_list_action_form
 msgid "Generate Concessions Report"
 msgstr "Generar Reporte de Concesiones"
 
@@ -471,49 +464,53 @@ msgid "Highlights Count"
 msgstr ""
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__id
+#: model:ir.model.fields,field_description:sicon.field_res_partner__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__id
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__id
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__id
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__id
+#: model:ir.model.fields,field_description:sicon.field_tmc_highlight__id
 msgid "ID"
 msgstr ""
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard____last_update
+#: model:ir.model.fields,field_description:sicon.field_res_partner____last_update
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator____last_update
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard____last_update
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list____last_update
 #: model:ir.model.fields,field_description:sicon.field_sicon_event____last_update
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add____last_update
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type____last_update
 #: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report____last_update
+#: model:ir.model.fields,field_description:sicon.field_tmc_highlight____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__write_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__write_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__write_uid
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__write_uid
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__write_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__write_uid
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__write_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización realizada por"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__write_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__write_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__write_date
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__write_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__write_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__write_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__write_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_concessions_list_report_wizard__listing
+#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__listing
 msgid "Listing"
 msgstr "Listado"
 
@@ -533,8 +530,8 @@ msgid "Medium"
 msgstr "Medio"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__modify_concession
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__modify_concession
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__modify_concession
 msgid "Modify Concession"
 msgstr "Modificar Concesión"
 
@@ -569,11 +566,6 @@ msgid "No events were found."
 msgstr "No se encontraron eventos."
 
 #. module: sicon
-#: model_terms:ir.actions.act_window,help:sicon.highlight_action_form
-msgid "No highlights were found."
-msgstr "No se encontraron resaltados."
-
-#. module: sicon
 #: model_terms:ir.actions.act_window,help:sicon.concession_action_form
 #: model_terms:ir.actions.act_window,help:sicon.concessionaire_action_form
 msgid "No registries were found."
@@ -585,9 +577,9 @@ msgid "Number"
 msgstr "Número"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__on_term
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__on_term
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__on_term
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__on_term
 msgid "On Term"
 msgstr "En Término"
 
@@ -617,9 +609,9 @@ msgid "Read Only"
 msgstr "Sólo Lectura"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__related_document_ids
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__related_document_ids
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__related_document_ids
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__related_document_ids
 msgid "Related Document"
 msgstr "Documentos Relacionados"
 
@@ -629,16 +621,16 @@ msgid "Related Documents"
 msgstr "Documentos Relacionados"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__rescinded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__rescinded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__rescinded
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__rescinded
 msgid "Rescinded"
 msgstr "Rescindida"
 
 #. module: sicon
 #: model:ir.module.category,name:sicon.module_category_sicon
-#: model:ir.ui.menu,name:sicon.sicon_menu_root
-#: model:ir.ui.menu,name:sicon.tmc_menu_config_sicon
+#: model:ir.ui.menu,name:sicon.sicon_menu
+#: model:ir.ui.menu,name:sicon.tmc_config_sicon_menu
 msgid "SICON"
 msgstr ""
 
@@ -648,22 +640,22 @@ msgid "Save"
 msgstr "Guardar"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__start_date
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__start_date
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__start_date
 msgid "Start Date"
 msgstr "Fecha de Inicio"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_add_event_wizard__state
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__state
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__state
+#: model:ir.model.fields,field_description:sicon.field_sicon_event_add__state
 msgid "State"
 msgstr "Estado"
 
 #. module: sicon
-#: model:ir.model.fields.selection,name:sicon.selection__sicon_add_event_wizard__state__tendered
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__tendered
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__tendered
+#: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__tendered
 msgid "Tendered"
 msgstr "Licitación en Ejecución"
 
@@ -734,24 +726,24 @@ msgid "User"
 msgstr "Usuario"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+msgid "Vencidas"
+msgstr ""
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.event_view_tree
 msgid "View PDF"
 msgstr "Ver PDF"
 
 #. module: sicon
-#: model:ir.model,name:sicon.model_sicon_add_event_wizard
+#: model:ir.model,name:sicon.model_sicon_event_add
 msgid "Wizard for adding a new event"
 msgstr "Wizard para agregar un nuevo evento"
 
 #. module: sicon
-#: model:ir.model,name:sicon.model_sicon_concessions_list_report_wizard
+#: model:ir.model,name:sicon.model_sicon_concession_report_list
 msgid "Wizard to generate concession list report"
 msgstr "Wizard para generar un reporte con la lista de concesiones"
-
-#. module: sicon
-#: model_terms:ir.actions.act_window,help:sicon.highlight_action_form
-msgid "You can add a highlight by editing the concession."
-msgstr "Puede agregar un resaltado editando los datos de la concesión."
 
 #. module: sicon
 #: model_terms:ir.actions.act_window,help:sicon.event_action_form
@@ -759,6 +751,6 @@ msgid "You can add an event editing the concession."
 msgstr "Puede agregar un evento editando los datos de la concesión."
 
 #. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concessions_list_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:sicon.concession_report_list_view_form
 msgid "_Print"
 msgstr "Reporte"
