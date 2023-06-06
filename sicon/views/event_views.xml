@@ -15,7 +15,6 @@
                 <field name="document_pdf_url"
                     invisible="True" />
                 <button type="object"
-                    string="View PDF"
                     name="open_document_pdf"
                     attrs="{'invisible': [('document_pdf_url', '=', False)]}"
                     icon="fa-file-pdf-o text-danger" />
