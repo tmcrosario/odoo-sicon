@@ -5,11 +5,6 @@ on:
     branches:
       - "14.0"
 
-  pull_request:
-    branches:
-      - "14.0"
-    types: [closed]
-
 jobs:
   build:
     name: "Build and Push Docker Image"
@@ -32,7 +27,7 @@ jobs:
           repository: ${{ secrets.GIT_PRIVATE_REPOSITORY }}
           ref: ${{ github.ref_name }}
           token: ${{ secrets.GIT_AUTH_TOKEN }}
-          set-safe-directory: ''
+          set-safe-directory: ""
           fetch-depth: 0
       - name: Build and push private Docker image
         uses: docker/build-push-action@v3
