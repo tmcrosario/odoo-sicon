@@ -12,6 +12,15 @@
             name="priority" />
         <field name="arch"
             type="xml">
+            <div class="o_row"
+                position="before">
+                <group>
+                    <group>
+                        <field name="is_company"
+                            widget="boolean_toggle" />
+                    </group>
+                </group>
+            </div>
             <page name="internal_notes"
                 position="before">
                 <page string="Concession Events"

@@ -2,7 +2,6 @@ from odoo import api, fields, models
 
 
 class Concession(models.Model):
-
     _name = "sicon.concession"
     _description = "Concession"
     _order = "name"
@@ -54,9 +53,7 @@ class Concession(models.Model):
 
     term_expiration = fields.Selection(selection=_expiration_types_)
 
-    term_certain_expiration = fields.Selection(
-        selection=_certain_expiration_options_
-    )
+    term_certain_expiration = fields.Selection(selection=_certain_expiration_options_)
 
     term_duration = fields.Integer()
 
@@ -164,7 +161,9 @@ class Concession(models.Model):
             if event.document_id.id:
                 tmp.append(event.document_id.id)
             if event.related_document_ids:
-                tmp.extend(event.related_document_ids.mapped("id"))
+                for related_document in event.related_document_ids:
+                    if related_document.id:
+                        tmp.append(related_document.id)
         related_documents_list = sorted(list(set(tmp)))
         domain = [("id", "in", related_documents_list)]
         self.related_document_ids = self.env["tmc.document"].search(domain)
@@ -183,10 +182,7 @@ class Concession(models.Model):
             concession.expired = False
             if concession.expiration_date:
                 today = fields.Date.from_string(fields.Date.today())
-                if (
-                    fields.Date.from_string(concession.expiration_date)
-                    <= today
-                ):
+                if fields.Date.from_string(concession.expiration_date) <= today:
                     concession.expired = True
 
     @api.depends("highlight_ids")
