@@ -40,18 +40,6 @@ class AddEventWizard(models.TransientModel):
 
     state = fields.Selection(selection=Concession.states)
 
-    folder_file = fields.Binary()
-
-    folder_filename = fields.Char()
-
-    @api.onchange("folder_file", "document_id")
-    def _onchange_folder_file(self):
-        if self.folder_file and self.date:
-            tmp = search(r"\.[A-Za-z0-9]+$", self.folder_filename)
-            extension = tmp.group(0) if tmp else ""
-            date = self.date.strftime("%d-%m-%Y")
-            self.folder_filename = "pliego-" + date + extension
-
     def save_event(self):
         if self.document_id:
             if self.date:
