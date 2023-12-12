@@ -30,10 +30,6 @@ class Event(models.Model):
 
     state = fields.Selection(selection=Concession.states)
 
-    folder_file = fields.Binary()
-
-    folder_filename = fields.Char()
-
     modify_concession = fields.Boolean()
 
     def open_document_pdf(self):

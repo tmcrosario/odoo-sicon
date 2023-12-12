@@ -1,5 +1,3 @@
-from re import search
-
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
@@ -7,7 +5,6 @@ from ..models.concession import Concession
 
 
 class AddEventWizard(models.TransientModel):
-
     _name = "sicon.event.add"
     _description = "Wizard for adding a new event"
 
@@ -71,8 +68,6 @@ class AddEventWizard(models.TransientModel):
             "concession_id": self.concession_id.id,
             "document_id": self.document_id.id,
             "related_document_ids": [(6, 0, self.related_document_ids.ids)],
-            "folder_file": self.folder_file,
-            "folder_filename": self.folder_filename,
             "concessionaire_id": self.concessionaire_id.id,
             "state": self.state,
         }
