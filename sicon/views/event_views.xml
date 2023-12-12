@@ -9,8 +9,7 @@
         <field name="arch"
             type="xml">
             <tree default_order="date desc document_id desc"
-                create="false"
-                decoration-bf="state=='awarded'">
+                create="false">
                 <field name="date" />
                 <field name="document_pdf_url"
                     invisible="True" />
