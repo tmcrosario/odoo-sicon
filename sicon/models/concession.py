@@ -106,6 +106,8 @@ class Concession(models.Model):
         comodel_name="sicon.administrator", required=True
     )
 
+    grantor_id = fields.Many2one(comodel_name="sicon.grantor", required=True)
+
     active = fields.Boolean(default=True)
 
     @api.onchange("planned_extension")

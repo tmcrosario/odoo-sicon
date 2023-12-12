@@ -26,6 +26,8 @@
         "views/event_type_menus.xml",
         "views/administrator_views.xml",
         "views/administrator_menus.xml",
+        "views/grantor_views.xml",
+        "views/grantor_menus.xml",
         "views/partner_views.xml",
         "views/partner_menus.xml",
         "report/unrelated_documents.xml",
