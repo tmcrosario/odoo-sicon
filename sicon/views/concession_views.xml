@@ -97,20 +97,27 @@
                             <field name="fantasy_name" />
                             <field name="location"
                                 attrs="{'readonly':[('create_date','!=',False)]}" />
+                            <field name="geographical_location"
+                                widget="url" />
+                            <field name="url_mr"
+                                widget="url" />
+                        </group>
+                        <group>
+                            <field name="administrator_id" />
+                            <field name="grantor_id" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
                             <field name="concessionaire_id"
                                 attrs="{'readonly':[('create_date','!=',False)]}"
                                 context="{'default_concessionaire': True}" />
                         </group>
                         <group>
-                            <field name="administrator_id" />
                             <field name="expiration_date"
                                 attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="planned_extension" />
                         </group>
-                    </group>
-                    <group>
-                        <field name="url_mr"
-                            widget="url" />
                     </group>
                     <group>
                         <group>

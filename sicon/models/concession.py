@@ -35,6 +35,8 @@ class Concession(models.Model):
 
     location = fields.Char(required=True)
 
+    geographical_location = fields.Char(required=True)
+
     concessionaire_id = fields.Many2one(
         comodel_name="res.partner", domain=[("concessionaire", "=", "True")]
     )
