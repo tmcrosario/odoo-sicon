@@ -12,9 +12,7 @@ class AddEventWizard(models.TransientModel):
 
     date = fields.Date(required=True)
 
-    event_type_id = fields.Many2one(
-        comodel_name="sicon.event_type", required=True
-    )
+    event_type_id = fields.Many2one(comodel_name="sicon.event_type", required=True)
 
     name = fields.Char(string="Description", required=True)
 
@@ -44,9 +42,7 @@ class AddEventWizard(models.TransientModel):
         if self.document_id:
             if self.date:
                 if self.date.year != self.document_id.period:
-                    raise UserError(
-                        _("Event year must be equal to document period.")
-                    )
+                    raise UserError(_("Event year must be equal to document period."))
 
         # Create the event
         events_vals = {

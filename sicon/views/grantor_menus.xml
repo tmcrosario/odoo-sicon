@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <menuitem id="tmc_config_sicon_administrator_menu"
-        name="Administrators"
+    <menuitem id="tmc_config_sicon_grantor_menu"
+        name="Grantors"
         parent="tmc_config_sicon_menu"
-        sequence="10"
-        action="administrator_action_form" />
+        sequence="15"
+        action="grantor_action_form" />
 
 </odoo>
