@@ -5,3 +5,4 @@ from . import highlight
 from . import partner
 from . import administrator
 from . import grantor
+from . import zone

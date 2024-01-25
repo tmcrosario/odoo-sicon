@@ -110,6 +110,8 @@ class Concession(models.Model):
 
     grantor_id = fields.Many2one(comodel_name="sicon.grantor", required=True)
 
+    zone_id = fields.Many2one(comodel_name="sicon.zone", required=True)
+
     active = fields.Boolean(default=True)
 
     @api.onchange("planned_extension")

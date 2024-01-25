@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="tmc_config_sicon_zone_menu"
+        name="Zones"
+        parent="tmc_config_sicon_menu"
+        sequence="20"
+        action="zone_action_form" />
+
+</odoo>

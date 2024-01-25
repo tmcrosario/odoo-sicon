@@ -12,6 +12,7 @@
             <tree decoration-danger="highest_highlight=='high'"
                 decoration-warning="highest_highlight=='medium'"
                 edit="false">
+                <field name="zone_id" />
                 <field name="name" />
                 <field name="start_date" />
                 <field name="expiration_date" />
@@ -95,8 +96,8 @@
                     <group>
                         <group>
                             <field name="fantasy_name" />
-                            <field name="location"
-                                attrs="{'readonly':[('create_date','!=',False)]}" />
+                            <field name="zone_id" />
+                            <field name="location" />
                             <field name="geographical_location"
                                 widget="url" />
                             <field name="url_mr"
