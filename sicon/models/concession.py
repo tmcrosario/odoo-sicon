@@ -35,7 +35,9 @@ class Concession(models.Model):
 
     location = fields.Char(required=True)
 
-    geographical_location = fields.Char(required=True)
+    geographical_location = fields.Char()
+
+    additional_information = fields.Char()
 
     concessionaire_id = fields.Many2one(
         comodel_name="res.partner", domain=[("concessionaire", "=", "True")]
@@ -179,6 +181,20 @@ class Concession(models.Model):
             "type": "ir.actions.act_window",
             "view_mode": "form",
             "res_model": "sicon.event.add",
+            "target": "new",
+        }
+
+    def open_location(self):
+        return {
+            "type": "ir.actions.act_url",
+            "url": self.geographical_location,
+            "target": "new",
+        }
+
+    def open_additional_information(self):
+        return {
+            "type": "ir.actions.act_url",
+            "url": self.additional_information,
             "target": "new",
         }
 
