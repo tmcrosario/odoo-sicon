@@ -36,18 +36,12 @@
                             colspan="2"
                             attrs="{'invisible':[('modify_concession','=',False)]}">
                             <field name="concessionaire_id"
-                                context="{'default_concessionaire': True}"
-                                attrs="{'required':[('state','=', 'awarded')]}" />
+                                context="{'default_concessionaire': True}" />
                             <field name="canon"
                                 attrs="{'invisible':[('state', 'not in', ['awarded', 'on_term'])]}" />
                             <field name="start_date" />
                             <field name="expiration_date" />
                             <field name="state" />
-                            <field name="folder_file"
-                                filename="folder_filename"
-                                attrs="{'invisible':[('state','!=', 'tendered')]}" />
-                            <field name="folder_filename"
-                                invisible="True" />
                         </group>
                     </group>
                 </group>
@@ -57,7 +51,7 @@
                         string="Save"
                         class="oe_highlight"
                         confirm="This action will made changes to the concession. Are you sure you want to continue?"
-                        attrs="{'invisible':[('modify_concession','=', False)]}" />
+                        attrs="{'invisible': [('modify_concession', '=', False), ('concessionaire_id', '!=', False)]}" />
                     <button name="save_event"
                         type="object"
                         string="Save"

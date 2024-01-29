@@ -21,3 +21,9 @@ access_sicon_event_add_read_only,sicon.event_add.read_only,model_sicon_event_add
 access_sicon_concession_report_list_manager,sicon.concessions_report_list.manager,model_sicon_concession_report_list,group_manager,1,1,1,1
 access_sicon_concession_report_list_user,sicon.concessions_report_list.user,model_sicon_concession_report_list,group_user,1,0,0,0
 access_sicon_concession_report_list_read_only,sicon.concessions_report_list.read_only,model_sicon_concession_report_list,group_read_only,1,0,0,0
+access_sicon_grantor_manager,sicon.grantor.manager,model_sicon_grantor,group_manager,1,1,1,1
+access_sicon_grantor_user,sicon.grantor.user,model_sicon_grantor,group_user,1,1,1,0
+access_sicon_grantor_read_only,sicon.grantor.read_only,model_sicon_grantor,group_read_only,1,0,0,0
+access_sicon_zone_manager,sicon.zone.manager,model_sicon_zone,group_manager,1,1,1,1
+access_sicon_zone_user,sicon.zone.user,model_sicon_zone,group_user,1,1,1,0
+access_sicon_zone_read_only,sicon.zone.read_only,model_sicon_zone,group_read_only,1,0,0,0

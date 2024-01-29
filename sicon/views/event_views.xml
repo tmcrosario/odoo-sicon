@@ -9,8 +9,7 @@
         <field name="arch"
             type="xml">
             <tree default_order="date desc document_id desc"
-                create="false"
-                decoration-bf="state=='awarded'">
+                create="false">
                 <field name="date" />
                 <field name="document_pdf_url"
                     invisible="True" />
@@ -25,11 +24,6 @@
                     optional="hide" />
                 <field name="state"
                     optional="hide" />
-                <field name="folder_file"
-                    filename="folder_filename"
-                    optional="hide" />
-                <field name="folder_filename"
-                    invisible="True" />
             </tree>
         </field>
     </record>
@@ -71,10 +65,6 @@
                             <field name="event_type_id" />
                             <field name="name" />
                             <field name="document_id" />
-                            <field name="folder_file"
-                                filename="folder_filename" />
-                            <field name="folder_filename"
-                                invisible="True" />
                         </group>
                         <group>
                             <field name="create_uid"

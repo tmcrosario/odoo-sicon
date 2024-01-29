@@ -12,11 +12,20 @@
             <tree decoration-danger="highest_highlight=='high'"
                 decoration-warning="highest_highlight=='medium'"
                 edit="false">
+                <field name="zone_id" />
                 <field name="name" />
-                <field name="start_date" />
-                <field name="expiration_date" />
                 <field name="concessionaire_id" />
+                <field name="start_date"
+                    string="Inicio" />
+                <field name="expiration_date"
+                    string="Vencimiento"
+                    widget="remaining_days" />
+                <field name="extension_due_date"
+                    string="Venc. Prórroga"
+                    widget="remaining_days" />
                 <field name="state" />
+                <field name="canon"
+                    optional="hide" />
                 <field name="administrator_id"
                     optional="hide" />
                 <field name="highest_highlight"
@@ -55,12 +64,20 @@
                     <div class="oe_button_box"
                         name="button_box"
                         groups="base.group_user">
-                        <!-- <button class="oe_inline oe_stat_button"
-                                name="open_map"
-                                type="object"
-                                string="Map"
-                                attrs="{'invisible': [('location', '=', False)]}"
-                                icon="fa-map-marker" /> -->
+                        <button class="oe_stat_button"
+                            name="open_location"
+                            type="object"
+                            string="Location"
+                            attrs="{'invisible': [('geographical_location', '=', False)]}"
+                            icon="fa-map-marker"
+                            target="_blank" />
+                        <button class="oe_stat_button"
+                            name="open_additional_information"
+                            type="object"
+                            string="Additional Information"
+                            attrs="{'invisible': [('additional_information', '=', False)]}"
+                            icon="fa-folder-open-o"
+                            target="_blank" />
                         <button class="oe_stat_button"
                             name="%(highlight_action_form)d"
                             type="action"
@@ -95,22 +112,33 @@
                     <group>
                         <group>
                             <field name="fantasy_name" />
-                            <field name="location"
-                                attrs="{'readonly':[('create_date','!=',False)]}" />
+                            <field name="zone_id" />
+                            <field name="location" />
+                            <field name="geographical_location"
+                                class="oe_edit_only"
+                                widget="url" />
+                            <field name="url_mr"
+                                widget="url" />
+                        </group>
+                        <group>
+                            <field name="administrator_id" />
+                            <field name="grantor_id" />
+                            <field name="additional_information"
+                                class="oe_edit_only"
+                                widget="url" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
                             <field name="concessionaire_id"
                                 attrs="{'readonly':[('create_date','!=',False)]}"
                                 context="{'default_concessionaire': True}" />
                         </group>
                         <group>
-                            <field name="administrator_id" />
                             <field name="expiration_date"
                                 attrs="{'readonly':[('create_date','!=',False)]}" />
                             <field name="planned_extension" />
                         </group>
-                    </group>
-                    <group>
-                        <field name="url_mr"
-                            widget="url" />
                     </group>
                     <group>
                         <group>

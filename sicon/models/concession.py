@@ -35,6 +35,10 @@ class Concession(models.Model):
 
     location = fields.Char(required=True)
 
+    geographical_location = fields.Char()
+
+    additional_information = fields.Char()
+
     concessionaire_id = fields.Many2one(
         comodel_name="res.partner", domain=[("concessionaire", "=", "True")]
     )
@@ -106,25 +110,36 @@ class Concession(models.Model):
         comodel_name="sicon.administrator", required=True
     )
 
+    grantor_id = fields.Many2one(comodel_name="sicon.grantor", required=True)
+
+    zone_id = fields.Many2one(comodel_name="sicon.zone", required=True)
+
     active = fields.Boolean(default=True)
 
-    @api.onchange("planned_extension")
+    @api.onchange(
+        "planned_extension",
+        "term_expiration",
+        "term_certain_expiration",
+        "extension_due_date",
+        "extension_duration",
+        "extension_expiration",
+        "extension_certain_expiration",
+    )
     def _onchange_planned_extension(self):
-        self.extension_expiration = False
-        self.extension_certain_expiration = False
-        self.extension_duration = False
-        self.extension_due_date = False
-
-    @api.onchange("term_expiration")
-    def _onchange_term_expiration(self):
-        self.term_certain_expiration = False
-        self.term_duration = False
-        self.term_due_date = False
-
-    @api.onchange("term_certain_expiration")
-    def _onchange_term_certain_expiration(self):
-        self.term_duration = False
-        self.term_due_date = False
+        if not self.planned_extension:
+            self.extension_expiration = False
+            self.extension_certain_expiration = False
+            self.extension_duration = False
+            self.extension_due_date = False
+        if self.extension_expiration == "certain":
+            self.extension_description = False
+        if self.extension_expiration == "uncertain":
+            self.extension_certain_expiration = False
+        if not self.extension_expiration:
+            self.extension_certain_expiration = False
+        if not self.extension_certain_expiration:
+            self.extension_due_date = False
+            self.extension_duration = False
 
     @api.depends("highlight_ids")
     def _compute_highlights_count(self):
@@ -173,6 +188,20 @@ class Concession(models.Model):
             "type": "ir.actions.act_window",
             "view_mode": "form",
             "res_model": "sicon.event.add",
+            "target": "new",
+        }
+
+    def open_location(self):
+        return {
+            "type": "ir.actions.act_url",
+            "url": self.geographical_location,
+            "target": "new",
+        }
+
+    def open_additional_information(self):
+        return {
+            "type": "ir.actions.act_url",
+            "url": self.additional_information,
             "target": "new",
         }
 

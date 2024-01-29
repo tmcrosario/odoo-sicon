@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- WINDOW ACTION -->
+    <record id="grantor_action_form"
+        model="ir.actions.act_window">
+        <field name="name">Grantors</field>
+        <field name="res_model">sicon.grantor</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- TREE VIEW -->
+    <record id="grantor_view_tree"
+        model="ir.ui.view">
+        <field name="name">sicon.grantor.view.tree</field>
+        <field name="model">sicon.grantor</field>
+        <field name="arch"
+            type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
