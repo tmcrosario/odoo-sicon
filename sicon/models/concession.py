@@ -116,23 +116,30 @@ class Concession(models.Model):
 
     active = fields.Boolean(default=True)
 
-    @api.onchange("planned_extension")
+    @api.onchange(
+        "planned_extension",
+        "term_expiration",
+        "term_certain_expiration",
+        "extension_due_date",
+        "extension_duration",
+        "extension_expiration",
+        "extension_certain_expiration",
+    )
     def _onchange_planned_extension(self):
-        self.extension_expiration = False
-        self.extension_certain_expiration = False
-        self.extension_duration = False
-        self.extension_due_date = False
-
-    @api.onchange("term_expiration")
-    def _onchange_term_expiration(self):
-        self.term_certain_expiration = False
-        self.term_duration = False
-        self.term_due_date = False
-
-    @api.onchange("term_certain_expiration")
-    def _onchange_term_certain_expiration(self):
-        self.term_duration = False
-        self.term_due_date = False
+        if not self.planned_extension:
+            self.extension_expiration = False
+            self.extension_certain_expiration = False
+            self.extension_duration = False
+            self.extension_due_date = False
+        if self.extension_expiration == "certain":
+            self.extension_description = False
+        if self.extension_expiration == "uncertain":
+            self.extension_certain_expiration = False
+        if not self.extension_expiration:
+            self.extension_certain_expiration = False
+        if not self.extension_certain_expiration:
+            self.extension_due_date = False
+            self.extension_duration = False
 
     @api.depends("highlight_ids")
     def _compute_highlights_count(self):
