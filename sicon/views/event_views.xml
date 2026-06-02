@@ -1,76 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- TREE VIEW -->
-    <record id="event_view_tree"
-        model="ir.ui.view">
+    <record id="event_view_tree" model="ir.ui.view">
         <field name="name">sicon.event.view.tree</field>
         <field name="model">sicon.event</field>
-        <field name="arch"
-            type="xml">
-            <list default_order="date desc document_id desc"
-                create="false">
+        <field name="arch" type="xml">
+            <list default_order="date desc document_id desc" create="false">
                 <field name="date" />
-                <field name="document_pdf_url"
-                    invisible="True" />
-                <button type="object"
+                <field name="document_pdf_url" invisible="True" />
+                <button
+                    type="object"
                     name="open_document_pdf"
                     invisible="not document_pdf_url"
-                    icon="fa-file-pdf-o text-danger" />
+                    icon="fa-file-pdf-o text-danger"
+                />
                 <field name="document_id" />
                 <field name="event_type_id" />
                 <field name="name" />
-                <field name="concessionaire_id"
-                    optional="hide" />
-                <field name="state"
-                    optional="hide" />
+                <field name="concessionaire_id" optional="hide" />
+                <field name="state" optional="hide" />
             </list>
         </field>
     </record>
 
     <!-- SEARCH VIEW -->
-    <record id="event_view_search"
-        model="ir.ui.view">
+    <record id="event_view_search" model="ir.ui.view">
         <field name="name">sicon.event.view.search</field>
         <field name="model">sicon.event</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <search>
                 <field name="concession_id" />
                 <field name="event_type_id" />
                 <field name="document_id" />
                 <group expand="1">
-                    <filter name="group_by_concession"
+                    <filter
+                        name="group_by_concession"
                         string="Concesión"
-                        context="{'group_by':'concession_id'}" />
+                        context="{'group_by':'concession_id'}"
+                    />
                 </group>
             </search>
         </field>
     </record>
 
     <!-- FORM VIEW -->
-    <record id="event_view_form"
-        model="ir.ui.view">
+    <record id="event_view_form" model="ir.ui.view">
         <field name="name">sicon.event.view.form</field>
         <field name="model">sicon.event</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
                         <group>
                             <field name="concession_id" />
-                            <field name="date"
-                                string="Date" />
+                            <field name="date" string="Date" />
                             <field name="event_type_id" />
                             <field name="name" />
                             <field name="document_id" />
                         </group>
                         <group>
-                            <field name="create_uid"
-                                readonly="True" />
-                            <field name="write_uid"
-                                readonly="True" />
+                            <field name="create_uid" readonly="True" />
+                            <field name="write_uid" readonly="True" />
                         </group>
                     </group>
                     <group>
@@ -82,15 +72,13 @@
     </record>
 
     <!-- WINDOW ACTION -->
-    <record id="event_action_form"
-        model="ir.actions.act_window">
+    <record id="event_action_form" model="ir.actions.act_window">
         <field name="name">Events</field>
         <field name="res_model">sicon.event</field>
         <field name="view_mode">list,form</field>
         <field name="context">{'search_default_group_by_concession':True}</field>
         <field name="limit">20</field>
-        <field name="help"
-            type="html">
+        <field name="help" type="html">
             <p class="oe_view_nocontent">
                 No events were found.
             </p>
@@ -99,5 +87,4 @@
             </p>
         </field>
     </record>
-
 </odoo>

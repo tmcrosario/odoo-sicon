@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- WINDOW ACTION -->
-    <record id="unrelated_documents_list_action_form"
-            model="ir.actions.act_window">
+    <record id="unrelated_documents_list_action_form" model="ir.actions.act_window">
         <field name="name">Unrelated Documents</field>
         <field name="res_model">sicon.unrelated_documents.report</field>
         <field name="view_mode">list</field>
-        <field name="help"
-               type="html">
+        <field name="help" type="html">
             <p class="oe_view_nocontent">
                 There are no pending documents to relate.
             </p>
@@ -19,18 +16,14 @@
     </record>
 
     <!-- TREE VIEW -->
-    <record id="unrelated_documents_view_tree"
-            model="ir.ui.view">
+    <record id="unrelated_documents_view_tree" model="ir.ui.view">
         <field name="name">sicon.unrelated_documents.report.view.tree</field>
         <field name="model">sicon.unrelated_documents.report</field>
-        <field name="arch"
-               type="xml">
-            <list string="Unrelated Documents"
-                  create="false">
+        <field name="arch" type="xml">
+            <list string="Unrelated Documents" create="false">
                 <field name="name" />
                 <field name="document_object" />
             </list>
         </field>
     </record>
-
 </odoo>

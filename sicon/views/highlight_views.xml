@@ -1,40 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- TREE VIEW -->
-    <record id="highlight_view_tree"
-        model="ir.ui.view">
+    <record id="highlight_view_tree" model="ir.ui.view">
         <field name="name">sicon.highlight.view.tree</field>
         <field name="model">tmc.highlight</field>
-        <field name="arch"
-            type="xml">
-            <list create="false"
+        <field name="arch" type="xml">
+            <list
+                create="false"
                 delete="false"
                 default_order="applicable"
                 decoration-it="applicable==False"
                 decoration-danger="level=='high'"
-                decoration-warning="level=='medium'">
+                decoration-warning="level=='medium'"
+            >
                 <field name="comment" />
                 <field name="level" />
                 <field name="concession_id" />
-                <field name="applicable"
-                    invisible="True" />
+                <field name="applicable" invisible="True" />
             </list>
         </field>
     </record>
 
     <!-- SEARCH VIEW -->
-    <record id="highlight_search_view"
-        model="ir.ui.view">
+    <record id="highlight_search_view" model="ir.ui.view">
         <field name="name">tmc.highlight.view.search</field>
         <field name="model">tmc.highlight</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <search>
                 <group>
-                    <filter name="group_by_concession"
+                    <filter
+                        name="group_by_concession"
                         string="Concesión"
-                        context="{'group_by':'concession_id'}" />
+                        context="{'group_by':'concession_id'}"
+                    />
                 </group>
                 <field name="concession_id" />
             </search>
@@ -42,12 +40,10 @@
     </record>
 
     <!-- WINDOW ACTION -->
-    <record id="highlight_action_form"
-        model="ir.actions.act_window">
+    <record id="highlight_action_form" model="ir.actions.act_window">
         <field name="name">Highlights</field>
         <field name="res_model">tmc.highlight</field>
         <field name="view_mode">list</field>
         <field name="context">{}</field>
     </record>
-
 </odoo>

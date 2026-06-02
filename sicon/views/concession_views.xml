@@ -1,50 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- TREE VIEW -->
-    <record id="concession_view_tree"
-        model="ir.ui.view">
+    <record id="concession_view_tree" model="ir.ui.view">
         <field name="name">sicon.concession.view.tree</field>
         <field name="model">sicon.concession</field>
         <field name="priority">5</field>
-        <field name="arch"
-            type="xml">
-            <list decoration-danger="highest_highlight=='high'"
+        <field name="arch" type="xml">
+            <list
+                decoration-danger="highest_highlight=='high'"
                 decoration-warning="highest_highlight=='medium'"
-                edit="false">
+                edit="false"
+            >
                 <field name="zone_id" />
                 <field name="name" />
                 <field name="concessionaire_id" />
-                <field name="start_date"
-                    string="Inicio" />
-                <field name="expiration_date"
+                <field name="start_date" string="Inicio" />
+                <field
+                    name="expiration_date"
                     string="Vencimiento"
-                    widget="remaining_days" />
-                <field name="extension_due_date"
+                    widget="remaining_days"
+                />
+                <field
+                    name="extension_due_date"
                     string="Venc. Prórroga"
-                    widget="remaining_days" />
+                    widget="remaining_days"
+                />
                 <field name="state" />
-                <field name="canon"
-                    optional="hide" />
-                <field name="administrator_id"
-                    optional="hide" />
-                <field name="highest_highlight"
-                    invisible="True" />
+                <field name="canon" optional="hide" />
+                <field name="administrator_id" optional="hide" />
+                <field name="highest_highlight" invisible="True" />
             </list>
         </field>
     </record>
 
     <!-- FORM VIEW -->
-    <record id="concession_view_form"
-        model="ir.ui.view">
+    <record id="concession_view_form" model="ir.ui.view">
         <field name="name">sicon.concession.view.form</field>
         <field name="model">sicon.concession</field>
         <field name="priority">5</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <form duplicate="0">
                 <header>
-                    <button class="oe_highlight"
+                    <button
+                        class="oe_highlight"
                         name="add_event"
                         type="object"
                         string="New Event"
@@ -56,155 +54,198 @@
                                     'default_expiration_date':expiration_date,
                                     'default_state':state
                                 }"
-                        invisible="not create_date" />
-                    <field name="state"
-                        widget="statusbar" />
+                        invisible="not create_date"
+                    />
+                    <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
-                    <div class="oe_button_box"
+                    <div
+                        class="oe_button_box"
                         name="button_box"
-                        groups="base.group_user">
-                        <button class="oe_stat_button"
+                        groups="base.group_user"
+                    >
+                        <button
+                            class="oe_stat_button"
                             name="open_location"
                             type="object"
                             string="Location"
                             invisible="not geographical_location"
                             icon="fa-map-marker"
-                            target="_blank" />
-                        <button class="oe_stat_button"
+                            target="_blank"
+                        />
+                        <button
+                            class="oe_stat_button"
                             name="open_additional_information"
                             type="object"
                             string="Additional Information"
                             invisible="not additional_information"
                             icon="fa-folder-open-o"
-                            target="_blank" />
-                        <button class="oe_stat_button"
+                            target="_blank"
+                        />
+                        <button
+                            class="oe_stat_button"
                             name="%(highlight_action_form)d"
                             type="action"
                             invisible="highlights_count == 0"
-                            icon="fa-exclamation-circle">
-                            <field string="Highlight(s)"
+                            icon="fa-exclamation-circle"
+                        >
+                            <field
+                                string="Highlight(s)"
                                 name="highlights_count"
-                                widget="statinfo" />
+                                widget="statinfo"
+                            />
                         </button>
                     </div>
-                    <field name="active"
-                        invisible="True" />
-                    <widget name="web_ribbon"
+                    <field name="active" invisible="True" />
+                    <widget
+                        name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        invisible="active" />
+                        invisible="active"
+                    />
                     <div class="oe_title">
-                        <label for="name"
+                        <label
+                            for="name"
                             class="oe_edit_only"
-                            string="Concession Name" />
+                            string="Concession Name"
+                        />
                         <h1>
-                            <field name="name"
+                            <field
+                                name="name"
                                 string="Concession Name"
-                                readonly="create_date" />
+                                readonly="create_date"
+                            />
                         </h1>
                     </div>
 
                     <group>
-                        <field name="create_date"
-                            invisible="True" />
+                        <field name="create_date" invisible="True" />
                     </group>
                     <group>
                         <group>
                             <field name="fantasy_name" />
                             <field name="zone_id" />
                             <field name="location" />
-                            <field name="geographical_location"
+                            <field
+                                name="geographical_location"
                                 class="oe_edit_only"
-                                widget="url" />
-                            <field name="url_mr"
-                                widget="url" />
+                                widget="url"
+                            />
+                            <field name="url_mr" widget="url" />
                         </group>
                         <group>
                             <field name="administrator_id" />
                             <field name="grantor_id" />
-                            <field name="additional_information"
+                            <field
+                                name="additional_information"
                                 class="oe_edit_only"
-                                widget="url" />
+                                widget="url"
+                            />
                         </group>
                     </group>
                     <group>
                         <group>
-                            <field name="concessionaire_id"
+                            <field
+                                name="concessionaire_id"
                                 readonly="create_date"
-                                context="{'default_concessionaire': True}" />
+                                context="{'default_concessionaire': True}"
+                            />
                         </group>
                         <group>
-                            <field name="expiration_date"
-                                readonly="create_date" />
+                            <field name="expiration_date" readonly="create_date" />
                             <field name="planned_extension" />
                         </group>
                     </group>
                     <group>
                         <group>
-                            <field name="canon"
-                                readonly="create_date" />
+                            <field name="canon" readonly="create_date" />
                         </group>
                     </group>
                     <group>
                         <group string="Original Term As In Statement">
                             <field name="start_date" />
-                            <field name="term_expiration"
-                                class="oe_inline oe_edit_only" />
-                            <field name="term_certain_expiration"
+                            <field
+                                name="term_expiration"
+                                class="oe_inline oe_edit_only"
+                            />
+                            <field
+                                name="term_certain_expiration"
                                 invisible="term_expiration in [False, 'uncertain']"
-                                class="oe_inline oe_edit_only" />
-                            <field name="term_description"
-                                invisible="term_expiration != 'uncertain'" />
-                            <label for="term_duration"
+                                class="oe_inline oe_edit_only"
+                            />
+                            <field
+                                name="term_description"
+                                invisible="term_expiration != 'uncertain'"
+                            />
+                            <label
+                                for="term_duration"
                                 string="Duration"
-                                invisible="not term_certain_expiration or term_expiration == 'uncertain' or term_certain_expiration == 'date'" />
+                                invisible="not term_certain_expiration or term_expiration == 'uncertain' or term_certain_expiration == 'date'"
+                            />
                             <div
-                                invisible="not term_certain_expiration or term_expiration == 'uncertain' or term_certain_expiration == 'date'">
-                                <field name="term_duration"
+                                invisible="not term_certain_expiration or term_expiration == 'uncertain' or term_certain_expiration == 'date'"
+                            >
+                                <field
+                                    name="term_duration"
                                     class="oe_inline"
                                     nolabel="1"
-                                    style="margin-right: 5px;" />
-                                <field name="term_unit"
-                                    class="oe_inline"
-                                    nolabel="1" />
+                                    style="margin-right: 5px;"
+                                />
+                                <field name="term_unit" class="oe_inline" nolabel="1" />
                             </div>
-                            <field name="term_due_date"
+                            <field
+                                name="term_due_date"
                                 invisible="not term_certain_expiration or term_expiration == 'uncertain' or term_certain_expiration in [False, 'duration']"
-                                class="oe_inline" />
+                                class="oe_inline"
+                            />
                         </group>
-                        <group string="Extension As In Statement"
-                            invisible="not planned_extension">
-                            <field name="extension_expiration"
-                                class="oe_inline oe_edit_only" />
-                            <field name="extension_certain_expiration"
+                        <group
+                            string="Extension As In Statement"
+                            invisible="not planned_extension"
+                        >
+                            <field
+                                name="extension_expiration"
+                                class="oe_inline oe_edit_only"
+                            />
+                            <field
+                                name="extension_certain_expiration"
                                 invisible="extension_expiration in [False, 'uncertain']"
-                                class="oe_inline oe_edit_only" />
-                            <field name="extension_description"
-                                invisible="extension_expiration != 'uncertain'" />
-                            <label for="extension_duration"
+                                class="oe_inline oe_edit_only"
+                            />
+                            <field
+                                name="extension_description"
+                                invisible="extension_expiration != 'uncertain'"
+                            />
+                            <label
+                                for="extension_duration"
                                 string="Duration"
-                                invisible="not extension_certain_expiration or extension_expiration == 'uncertain' or extension_certain_expiration == 'date'" />
+                                invisible="not extension_certain_expiration or extension_expiration == 'uncertain' or extension_certain_expiration == 'date'"
+                            />
                             <div
-                                invisible="not extension_certain_expiration or extension_expiration == 'uncertain' or extension_certain_expiration == 'date'">
-                                <field name="extension_duration"
+                                invisible="not extension_certain_expiration or extension_expiration == 'uncertain' or extension_certain_expiration == 'date'"
+                            >
+                                <field
+                                    name="extension_duration"
                                     class="oe_inline"
                                     nolabel="1"
-                                    style="margin-right: 5px;" />
-                                <field name="extension_unit"
+                                    style="margin-right: 5px;"
+                                />
+                                <field
+                                    name="extension_unit"
                                     class="oe_inline"
-                                    nolabel="1" />
+                                    nolabel="1"
+                                />
                             </div>
-                            <field name="extension_due_date"
+                            <field
+                                name="extension_due_date"
                                 invisible="not extension_certain_expiration or extension_expiration == 'uncertain' or extension_certain_expiration in [False, 'duration']"
-                                class="oe_inline" />
+                                class="oe_inline"
+                            />
                         </group>
                     </group>
                     <notebook>
-                        <page string="Events"
-                            invisible="not create_date">
-                            <field name="event_ids"
-                                options="{'no_create': True}" />
+                        <page string="Events" invisible="not create_date">
+                            <field name="event_ids" options="{'no_create': True}" />
                         </page>
                         <page string="Highlights">
                             <field name="highlight_ids" />
@@ -219,43 +260,51 @@
     </record>
 
     <!-- SEARCH VIEW -->
-    <record id="concession_view_search"
-        model="ir.ui.view">
+    <record id="concession_view_search" model="ir.ui.view">
         <field name="name">sicon.concession.view.search</field>
         <field name="model">sicon.concession</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <search>
                 <field name="name" />
                 <field name="concessionaire_id" />
-                <filter string="Activas"
+                <filter
+                    string="Activas"
                     name="filter_active_concessions"
-                    domain="[('active', '=', True)]" />
-                <filter string="Archivadas"
+                    domain="[('active', '=', True)]"
+                />
+                <filter
+                    string="Archivadas"
                     name="filter_archived_concessions"
-                    domain="[('active', '=', False)]" />
-                <filter string="Vencidas"
+                    domain="[('active', '=', False)]"
+                />
+                <filter
+                    string="Vencidas"
                     name="filter_expired_concessions"
-                    domain="[('expiration_date', '&lt;', datetime.datetime.now())]" />
+                    domain="[('expiration_date', '&lt;', datetime.datetime.now())]"
+                />
                 <group expand="1">
-                    <filter name="group_by_state"
+                    <filter
+                        name="group_by_state"
                         string="Estado"
-                        context="{'group_by':'state'}" />
+                        context="{'group_by':'state'}"
+                    />
                 </group>
             </search>
         </field>
     </record>
 
     <!-- WINDOW ACTION -->
-    <record id="concession_action_form"
-        model="ir.actions.act_window">
+    <record id="concession_action_form" model="ir.actions.act_window">
         <field name="name">Concessions</field>
         <field name="res_model">sicon.concession</field>
         <field name="view_mode">list,form</field>
-        <field name="domain">['|', ('active', '=', False), ('active', '=', True)]</field>
-        <field name="context">{'search_default_filter_active_concessions': True }</field>
-        <field name="help"
-            type="html">
+        <field
+            name="domain"
+        >['|', ('active', '=', False), ('active', '=', True)]</field>
+        <field
+            name="context"
+        >{'search_default_filter_active_concessions': True }</field>
+        <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to create a new concession.
             </p>
@@ -264,5 +313,4 @@
             </p>
         </field>
     </record>
-
 </odoo>

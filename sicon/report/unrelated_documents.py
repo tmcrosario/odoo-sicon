@@ -1,17 +1,14 @@
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
 
 
 class UnrelatedDocumentsReport(models.Model):
-
     _name = "sicon.unrelated_documents.report"
-    _description = 'Documents not related yet to any concession'
+    _description = "Documents not related yet to any concession"
     _auto = False
 
-    dependence_id = fields.Many2one(comodel_name='tmc.dependence',
-                                    readonly=True)
+    dependence_id = fields.Many2one(comodel_name="tmc.dependence", readonly=True)
 
-    document_type_id = fields.Many2one(comodel_name='tmc.document_type',
-                                       readonly=True)
+    document_type_id = fields.Many2one(comodel_name="tmc.document_type", readonly=True)
 
     number = fields.Integer(readonly=True)
 
@@ -19,11 +16,11 @@ class UnrelatedDocumentsReport(models.Model):
 
     document_object = fields.Char(readonly=True)
 
-    name = fields.Char(string='Document', readonly=True)
+    name = fields.Char(string="Document", readonly=True)
 
     _depends = {
-        'tmc.document': ['name', 'document_object', 'main_topic_ids'],
-        'sicon.event': ['document_id']
+        "tmc.document": ["name", "document_object", "main_topic_ids"],
+        "sicon.event": ["document_id"],
     }
 
     def init(self):

@@ -1,46 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
-    <record id="module_category_sicon"
-            model="ir.module.category">
+    <record id="module_category_sicon" model="ir.module.category">
         <field name="name">SICON</field>
         <field name="sequence">2</field>
     </record>
 
-    <record id="res_groups_privilege_sicon"
-            model="res.groups.privilege">
+    <record id="res_groups_privilege_sicon" model="res.groups.privilege">
         <field name="name">SICON</field>
-        <field name="category_id"
-               ref="module_category_sicon" />
+        <field name="category_id" ref="module_category_sicon" />
     </record>
 
-    <record id="group_user"
-            model="res.groups">
+    <record id="group_user" model="res.groups">
         <field name="name">User</field>
-        <field name="users"
-               eval="[(4, ref('base.user_root'))]" />
-        <field name="privilege_id"
-               ref="res_groups_privilege_sicon" />
+        <field name="users" eval="[(4, ref('base.user_root'))]" />
+        <field name="privilege_id" ref="res_groups_privilege_sicon" />
     </record>
 
-    <record id="group_manager"
-            model="res.groups">
+    <record id="group_manager" model="res.groups">
         <field name="name">Manager</field>
-        <field name="users"
-               eval="[(4, ref('base.user_root'))]" />
-        <field name="privilege_id"
-               ref="res_groups_privilege_sicon" />
-        <field name="implied_ids"
-               eval="[(4,ref('group_user'))]" />
+        <field name="users" eval="[(4, ref('base.user_root'))]" />
+        <field name="privilege_id" ref="res_groups_privilege_sicon" />
+        <field name="implied_ids" eval="[(4,ref('group_user'))]" />
     </record>
 
-    <record id="group_read_only"
-            model="res.groups">
+    <record id="group_read_only" model="res.groups">
         <field name="name">Read Only</field>
-        <field name="users"
-               eval="[(4, ref('base.user_root'))]" />
-        <field name="privilege_id"
-               ref="res_groups_privilege_sicon" />
+        <field name="users" eval="[(4, ref('base.user_root'))]" />
+        <field name="privilege_id" ref="res_groups_privilege_sicon" />
     </record>
-
 </odoo>

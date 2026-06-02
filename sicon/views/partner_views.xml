@@ -1,36 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- FORM VIEW -->
-    <record id="concessionaire_view_form"
-        model="ir.ui.view">
+    <record id="concessionaire_view_form" model="ir.ui.view">
         <field name="name">sicon.concessionaire.view.form</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id"
-            ref="base.view_partner_form" />
-        <field eval="90"
-            name="priority" />
-        <field name="arch"
-            type="xml">
-            <div class="o_row"
-                position="before">
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field eval="90" name="priority" />
+        <field name="arch" type="xml">
+            <div class="o_row" position="before">
                 <group>
                     <group>
-                        <field name="is_company"
-                            widget="boolean_toggle" />
+                        <field name="is_company" widget="boolean_toggle" />
                     </group>
                 </group>
             </div>
-            <page name="internal_notes"
-                position="before">
-                <page string="Concession Events"
-                    invisible="not concessionaire">
-                    <field name="concessionaire"
-                        invisible="True" />
+            <page name="internal_notes" position="before">
+                <page string="Concession Events" invisible="not concessionaire">
+                    <field name="concessionaire" invisible="True" />
                     <field name="event_ids">
-                        <list create="false"
-                            edit="false"
-                            delete="false">
+                        <list create="false" edit="false" delete="false">
                             <field name="date" />
                             <field name="concession_id" />
                             <field name="event_type_id" />
@@ -42,12 +30,10 @@
     </record>
 
     <!-- SEARCH VIEW -->
-    <record id="partner_view_search"
-        model="ir.ui.view">
+    <record id="partner_view_search" model="ir.ui.view">
         <field name="name">sicon.partner.view.search</field>
         <field name="model">res.partner</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <search>
                 <field name="name" />
             </search>
@@ -55,17 +41,14 @@
     </record>
 
     <!-- WINDOW ACTION -->
-    <record id="concessionaire_action_form"
-        model="ir.actions.act_window">
+    <record id="concessionaire_action_form" model="ir.actions.act_window">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[('concessionaire','=',True)]</field>
         <field name="context">{'default_concessionaire': True}</field>
-        <field name="search_view_id"
-            ref="sicon.partner_view_search" />
-        <field name="help"
-            type="html">
+        <field name="search_view_id" ref="sicon.partner_view_search" />
+        <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to create a new concessionaire.
             </p>
@@ -74,5 +57,4 @@
             </p>
         </field>
     </record>
-
 </odoo>

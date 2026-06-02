@@ -1,44 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <!-- FORM VIEW -->
-    <record id="add_event_wizard_view_form"
-        model="ir.ui.view">
+    <record id="add_event_wizard_view_form" model="ir.ui.view">
         <field name="name">sicon.event.add.view.form</field>
         <field name="model">sicon.event.add</field>
-        <field name="arch"
-            type="xml">
+        <field name="arch" type="xml">
             <form>
                 <div class="oe_title">
-                    <label for="name"
-                        class="oe_edit_only"
-                        string="New event for" />
-                    <field name="concession_id"
-                        readonly="True" />
+                    <label for="name" class="oe_edit_only" string="New event for" />
+                    <field name="concession_id" readonly="True" />
                 </div>
                 <group>
                     <group string="Event Data">
                         <field name="date" />
-                        <field name="event_type_id"
-                            options="{'no_create': True}" />
+                        <field name="event_type_id" options="{'no_create': True}" />
                         <field name="name" />
-                        <field name="document_id"
+                        <field
+                            name="document_id"
                             options="{'no_create': True}"
-                            required="state == 'tendered'" />
-                        <field name="related_document_ids"
-                            widget="many2many_tags" />
+                            required="state == 'tendered'"
+                        />
+                        <field name="related_document_ids" widget="many2many_tags" />
                     </group>
                     <group string="Concession Data">
                         <group>
                             <field name="modify_concession" />
                         </group>
-                        <group col="2"
-                            colspan="2"
-                            invisible="not modify_concession">
-                            <field name="concessionaire_id"
-                                context="{'default_concessionaire': True}" />
-                            <field name="canon"
-                                invisible="state not in ['awarded', 'on_term']" />
+                        <group col="2" colspan="2" invisible="not modify_concession">
+                            <field
+                                name="concessionaire_id"
+                                context="{'default_concessionaire': True}"
+                            />
+                            <field
+                                name="canon"
+                                invisible="state not in ['awarded', 'on_term']"
+                            />
                             <field name="start_date" />
                             <field name="expiration_date" />
                             <field name="state" />
@@ -46,33 +42,33 @@
                     </group>
                 </group>
                 <footer>
-                    <button name="save_event"
+                    <button
+                        name="save_event"
                         type="object"
                         string="Save"
                         class="oe_highlight"
                         confirm="This action will made changes to the concession. Are you sure you want to continue?"
-                        invisible="not modify_concession and concessionaire_id" />
-                    <button name="save_event"
+                        invisible="not modify_concession and concessionaire_id"
+                    />
+                    <button
+                        name="save_event"
                         type="object"
                         string="Save"
                         class="oe_highlight"
-                        invisible="modify_concession" />
-                    <button string="Discard"
-                        special="cancel" />
+                        invisible="modify_concession"
+                    />
+                    <button string="Discard" special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
 
     <!-- WINDOW ACTION -->
-    <record id="add_event_wizard_action_form"
-        model="ir.actions.act_window">
+    <record id="add_event_wizard_action_form" model="ir.actions.act_window">
         <field name="name">Event Entry</field>
         <field name="res_model">sicon.event.add</field>
         <field name="view_mode">form</field>
-        <field name="view_id"
-            ref="add_event_wizard_view_form" />
+        <field name="view_id" ref="add_event_wizard_view_form" />
         <field name="target">new</field>
     </record>
-
 </odoo>

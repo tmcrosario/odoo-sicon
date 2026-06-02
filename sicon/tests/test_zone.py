@@ -1,5 +1,6 @@
-from odoo.tests.common import TransactionCase
 from psycopg2 import IntegrityError
+
+from odoo.tests.common import TransactionCase
 
 
 class TestZone(TransactionCase):
