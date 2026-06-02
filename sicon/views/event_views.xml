@@ -8,14 +8,14 @@
         <field name="model">sicon.event</field>
         <field name="arch"
             type="xml">
-            <tree default_order="date desc document_id desc"
+            <list default_order="date desc document_id desc"
                 create="false">
                 <field name="date" />
                 <field name="document_pdf_url"
                     invisible="True" />
                 <button type="object"
                     name="open_document_pdf"
-                    attrs="{'invisible': [('document_pdf_url', '=', False)]}"
+                    invisible="not document_pdf_url"
                     icon="fa-file-pdf-o text-danger" />
                 <field name="document_id" />
                 <field name="event_type_id" />
@@ -24,7 +24,7 @@
                     optional="hide" />
                 <field name="state"
                     optional="hide" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -86,7 +86,7 @@
         model="ir.actions.act_window">
         <field name="name">Events</field>
         <field name="res_model">sicon.event</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'search_default_group_by_concession':True}</field>
         <field name="limit">20</field>
         <field name="help"

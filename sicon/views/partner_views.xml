@@ -24,17 +24,17 @@
             <page name="internal_notes"
                 position="before">
                 <page string="Concession Events"
-                    attrs="{'invisible':[('concessionaire', '=', False)]}">
+                    invisible="not concessionaire">
                     <field name="concessionaire"
                         invisible="True" />
                     <field name="event_ids">
-                        <tree create="false"
+                        <list create="false"
                             edit="false"
                             delete="false">
                             <field name="date" />
                             <field name="concession_id" />
                             <field name="event_type_id" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>
@@ -59,7 +59,7 @@
         model="ir.actions.act_window">
         <field name="name">Concessionaires</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[('concessionaire','=',True)]</field>
         <field name="context">{'default_concessionaire': True}</field>
         <field name="search_view_id"

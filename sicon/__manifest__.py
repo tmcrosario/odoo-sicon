@@ -1,6 +1,6 @@
 {
     "name": "TMC SICON",
-    "version": "14.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Sistema de Concesiones Generales",
     "author": "Tribunal Municipal de Cuentas - Municipalidad de Rosario",
     "website": "https://www.tmcrosario.gob.ar",
@@ -8,7 +8,10 @@
     "depends": [
         "tmc",
         "tmc_data",
-        "tmc_data_py3o",
+        # TODO(19.0 migration): "tmc_data_py3o" removed — that module was dropped
+        # in the tmc-data 19.0 migration and the py3o report engine has no confirmed
+        # 19.0 release. The two py3o reports are stubbed (see report/*.xml). Restore
+        # this dep (or reimplement reports as QWeb) at the validation stage.
         "document_pdf",
         "partner_tmc",
         "partner_fiscal",
@@ -41,5 +44,4 @@
     "demo": [],
     "installable": True,
     "application": True,
-    "qweb": [],
 }  # yapf: disable

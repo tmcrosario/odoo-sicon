@@ -5,7 +5,11 @@ class Concession(models.Model):
     _name = "sicon.concession"
     _description = "Concession"
     _order = "name"
-    _inherit = ["tmc.report"]
+    # TODO(19.0 migration): removed `_inherit = ["tmc.report"]`. The `tmc.report`
+    # py3o report mixin was provided by tmc_data_py3o, which no longer exists in
+    # this codebase. A dangling _inherit to a missing model breaks installation.
+    # The concession py3o report is stubbed (see report/concession.xml). Restore a
+    # report mixin / reimplement reporting at the validation stage if needed.
 
     _expiration_types_ = [("certain", "Certain"), ("uncertain", "Uncertain")]
 

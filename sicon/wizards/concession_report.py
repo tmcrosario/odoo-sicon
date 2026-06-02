@@ -6,7 +6,11 @@ class ConcessionListReportWizard(models.TransientModel):
 
     _name = "sicon.concession.report.list"
     _description = "Wizard to generate concession list report"
-    _inherit = ["tmc.report"]
+    # TODO(19.0 migration): removed `_inherit = ["tmc.report"]` (model provided by
+    # the deleted tmc_data_py3o module). NOTE: check_and_generate_report() below
+    # calls self.generate_report(), which came from that mixin and is now undefined
+    # — the button will fail until report generation is reimplemented (the py3o
+    # report it produced is stubbed in report/concessions_list.xml).
 
     _listing_options = [("expired", "Expired Concessions"), ("all", "All")]
 
