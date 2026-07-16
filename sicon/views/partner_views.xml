@@ -7,14 +7,14 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field eval="90" name="priority" />
         <field name="arch" type="xml">
-            <div class="o_row" position="before">
+            <xpath expr="//notebook" position="before">
                 <group>
                     <group>
                         <field name="is_company" widget="boolean_toggle" />
                     </group>
                 </group>
-            </div>
-            <page name="internal_notes" position="before">
+            </xpath>
+            <xpath expr="//notebook" position="inside">
                 <page string="Concession Events" invisible="not concessionaire">
                     <field name="concessionaire" invisible="True" />
                     <field name="event_ids">
@@ -25,7 +25,7 @@
                         </list>
                     </field>
                 </page>
-            </page>
+            </xpath>
         </field>
     </record>
 

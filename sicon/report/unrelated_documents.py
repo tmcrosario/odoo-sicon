@@ -29,8 +29,10 @@ class UnrelatedDocumentsReport(models.Model):
             CREATE OR REPLACE VIEW sicon_unrelated_documents_report AS (
                 SELECT
                     doc.id,
-                    doc.document_object,
-                    doc.name
+                    -- 19.0: translated fields are stored as jsonb; extract the
+                    -- source-language term so the Char columns receive plain text.
+                    doc.document_object->>'en_US' AS document_object,
+                    doc.name->>'en_US' AS name
                 FROM (
                     tmc_document doc
                         LEFT JOIN document_main_topic_rel rel
@@ -42,7 +44,7 @@ class UnrelatedDocumentsReport(models.Model):
                         LEFT JOIN tmc_document_type doc_type
                             ON doc.document_type_id = doc_type.id
                 )
-                WHERE doc_topic.name = 'Concesiones Generales'
+                WHERE doc_topic.name->>'en_US' = 'Concesiones Generales'
                     AND doc_type.abbreviation = 'DEC'
                     AND doc.id NOT IN (
                         SELECT

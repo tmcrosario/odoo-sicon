@@ -32,7 +32,7 @@
                 <field name="concession_id" />
                 <field name="event_type_id" />
                 <field name="document_id" />
-                <group expand="1">
+                <group>
                     <filter
                         name="group_by_concession"
                         string="Concesión"

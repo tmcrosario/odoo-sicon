@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class Grantor(models.Model):
@@ -7,6 +7,4 @@ class Grantor(models.Model):
 
     name = fields.Char(required=True)
 
-    _sql_constraints = [
-        ("name_unique", "UNIQUE(name)", _("Grantor name must be unique"))
-    ]
+    _name_unique = models.Constraint("UNIQUE(name)", "Grantor name must be unique")

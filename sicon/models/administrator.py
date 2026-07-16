@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class Administrator(models.Model):
@@ -7,6 +7,4 @@ class Administrator(models.Model):
 
     name = fields.Char(required=True)
 
-    _sql_constraints = [
-        ("name_unique", "UNIQUE(name)", _("Administrator name must be unique"))
-    ]
+    _name_unique = models.Constraint("UNIQUE(name)", "Administrator name must be unique")

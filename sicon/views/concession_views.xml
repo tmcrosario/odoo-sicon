@@ -46,7 +46,7 @@
                         name="add_event"
                         type="object"
                         string="New Event"
-                        context="{'default_concession_id':active_id,
+                        context="{'default_concession_id':id,
                                     'default_concessionaire_id':concessionaire_id,
                                     'default_location':location,
                                     'default_canon':canon,
@@ -282,7 +282,7 @@
                     name="filter_expired_concessions"
                     domain="[('expiration_date', '&lt;', datetime.datetime.now())]"
                 />
-                <group expand="1">
+                <group>
                     <filter
                         name="group_by_state"
                         string="Estado"

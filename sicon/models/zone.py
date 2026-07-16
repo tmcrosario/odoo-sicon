@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class Zone(models.Model):
@@ -7,4 +7,4 @@ class Zone(models.Model):
 
     name = fields.Char(required=True)
 
-    _sql_constraints = [("name_unique", "UNIQUE(name)", _("Zone name must be unique"))]
+    _name_unique = models.Constraint("UNIQUE(name)", "Zone name must be unique")

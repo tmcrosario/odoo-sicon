@@ -29,4 +29,13 @@ class ConcessionListReportWizard(models.TransientModel):
     def check_and_generate_report(self):
         if not self.get_concessions():
             raise UserError(_("No concessions matched to specified search criteria."))
-        return self.generate_report()
+        # TODO(19.0 migration): report generation is being reimplemented as native
+        # QWeb (the py3o `tmc.report` mixin was removed). The wizard button is hidden
+        # (invisible="1") until then; this guard replaces the old, now-undefined
+        # self.generate_report() call so it fails clearly instead of AttributeError.
+        raise UserError(
+            _(
+                "Concession report generation is temporarily unavailable "
+                "(being migrated to QWeb)."
+            )
+        )
