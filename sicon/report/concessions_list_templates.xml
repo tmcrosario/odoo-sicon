@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_concessions_list">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="sicon.report_tmc_header" />
+                <div
+                    class="article tmc-report"
+                    t-att-data-oe-model="o._name"
+                    t-att-data-oe-id="o.id"
+                >
+                    <t t-call="sicon.report_tmc_styles" />
+                    <t t-set="concessions" t-value="o.get_concessions()" />
+
+                    <div class="tmc-box">
+                        <t
+                            t-if="o.listing == 'expired'"
+                        >Listado de Concesiones Vencidas</t>
+                        <t t-else="">Listado de Concesiones</t>
+                    </div>
+
+                    <table class="tmc-data tmc-list">
+                        <thead>
+                            <tr>
+                                <th class="c-name">Concesión</th>
+                                <th class="c-date">Inicio</th>
+                                <th class="c-date">Vencimiento</th>
+                                <th class="c-party">Concesionario</th>
+                                <th class="c-state">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="concessions" t-as="concession">
+                                <td>
+                                    <t t-out="concession.name" />
+                                </td>
+                                <td>
+                                    <t
+                                        t-out="concession.start_date"
+                                        t-options='{"widget": "date"}'
+                                    />
+                                </td>
+                                <td>
+                                    <t
+                                        t-out="concession.expiration_date"
+                                        t-options='{"widget": "date"}'
+                                    />
+                                </td>
+                                <td>
+                                    <t t-out="concession.concessionaire_id.name" />
+                                </td>
+                                <td>
+                                    <t
+                                        t-if="concession.state == 'tendered'"
+                                    >Licitación en Ejecución</t>
+                                    <t
+                                        t-elif="concession.state == 'awarded'"
+                                    >Adjudicada</t>
+                                    <t
+                                        t-elif="concession.state == 'on_term'"
+                                    >En Término</t>
+                                    <t
+                                        t-elif="concession.state == 'extended'"
+                                    >Prorrogada</t>
+                                    <t
+                                        t-elif="concession.state == 'rescinded'"
+                                    >Rescindida</t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <t t-call="sicon.report_tmc_footer" />
+            </t>
+        </t>
+    </template>
+</odoo>

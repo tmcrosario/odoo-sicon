@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!--
-    TODO(19.0 migration): py3o report STUBBED OUT.
-
-    Same situation as report/concession.xml: report_type="py3o" referencing the
-    removed tmc_data_py3o.local_server. Disabled so the module installs cleanly.
-    Reimplement as native QWeb (qweb-pdf) or restored py3o at the validation
-    stage. The .odt template report/concessions_list.odt is kept on disk.
-
     <record id="concessions_report_list" model="ir.actions.report">
         <field name="name">Concessions List</field>
-        <field name="model">sicon.concessions_list.report.wizard</field>
-        <field name="report_name">concessions_list</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">pdf</field>
-        <field name="py3o_server_id" ref="tmc_data_py3o.local_server" />
-        <field name="py3o_is_local_fusion" eval="1" />
-        <field name="module">sicon</field>
-        <field name="py3o_template_fallback">report/concessions_list.odt</field>
+        <field name="model">sicon.concession.report.list</field>
+        <field name="report_name">sicon.report_concessions_list</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="paperformat_tmc_report" />
     </record>
-    -->
 </odoo>

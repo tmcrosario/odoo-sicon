@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_concession_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="sicon.report_tmc_header" />
+                <div
+                    class="article tmc-report"
+                    t-att-data-oe-model="o._name"
+                    t-att-data-oe-id="o.id"
+                >
+                    <t t-call="sicon.report_tmc_styles" />
+
+                    <div class="tmc-box">
+                        Concesión “<t t-out="o.name" />”
+                    </div>
+
+                    <table class="tmc-kv">
+                        <tr>
+                            <td class="label">Ubicación</td>
+                            <td>
+                                <t t-out="o.location" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Concesionario</td>
+                            <td>
+                                <t t-out="o.concessionaire_id.name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Fecha de Inicio</td>
+                            <td>
+                                <t
+                                    t-out="o.start_date"
+                                    t-options='{"widget": "date"}'
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Fecha de Vencimiento</td>
+                            <td>
+                                <t
+                                    t-out="o.expiration_date"
+                                    t-options='{"widget": "date"}'
+                                />
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="tmc-section">Eventos</div>
+                    <t t-if="o.event_ids">
+                        <table class="tmc-data">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Documento</th>
+                                    <th>Tipo de Evento</th>
+                                    <th>Descripción</th>
+                                    <th>Concesionario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.event_ids" t-as="event">
+                                    <td>
+                                        <t
+                                            t-out="event.date"
+                                            t-options='{"widget": "date"}'
+                                        />
+                                    </td>
+                                    <td>
+                                        <t t-out="event.document_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-out="event.event_type_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-out="event.name" />
+                                    </td>
+                                    <td>
+                                        <t t-out="event.concessionaire_id.name" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <t t-else="">
+                        <p class="tmc-muted">
+                            No se registraron eventos para esta concesión.
+                        </p>
+                    </t>
+
+                    <t t-if="o.highlight_ids">
+                        <div class="tmc-section">Resaltados</div>
+                        <table class="tmc-data">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Comentario</th>
+                                    <th>Importancia</th>
+                                    <th>Creado Por</th>
+                                    <th>Actualizado Por</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.highlight_ids" t-as="highlight">
+                                    <td>
+                                        <t
+                                            t-out="highlight.create_date"
+                                            t-options='{"widget": "date"}'
+                                        />
+                                    </td>
+                                    <td>
+                                        <t t-out="highlight.comment" />
+                                    </td>
+                                    <td>
+                                        <t t-if="highlight.level == 'high'">Alta</t>
+                                        <t
+                                            t-elif="highlight.level == 'medium'"
+                                        >Media</t>
+                                        <t t-elif="highlight.level == 'low'">Baja</t>
+                                    </td>
+                                    <td>
+                                        <t t-out="highlight.create_uid.name" />
+                                    </td>
+                                    <td>
+                                        <t t-out="highlight.write_uid.name" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+                <t t-call="sicon.report_tmc_footer" />
+            </t>
+        </t>
+    </template>
+</odoo>

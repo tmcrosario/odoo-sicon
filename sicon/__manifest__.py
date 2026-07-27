@@ -8,10 +8,6 @@
     "depends": [
         "tmc",
         "tmc_data",
-        # TODO(19.0 migration): "tmc_data_py3o" removed — that module was dropped
-        # in the tmc-data 19.0 migration and the py3o report engine has no confirmed
-        # 19.0 release. The two py3o reports are stubbed (see report/*.xml). Restore
-        # this dep (or reimplement reports as QWeb) at the validation stage.
         "document_pdf",
         "partner_tmc",
         "partner_fiscal",
@@ -36,8 +32,12 @@
         "views/partner_views.xml",
         "views/partner_menus.xml",
         "report/unrelated_documents.xml",
+        "report/paperformat.xml",
+        "report/report_styles.xml",
         "report/concessions_list.xml",
+        "report/concessions_list_templates.xml",
         "report/concession.xml",
+        "report/concession_templates.xml",
         "wizards/add_event_views.xml",
         "wizards/concession_report_views.xml",
     ],

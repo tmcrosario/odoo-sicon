@@ -13,10 +13,8 @@
                         name="check_and_generate_report"
                         type="object"
                         string="_Print"
-                        context="{'report_name': 'concessions_list'}"
                         icon="fa-file-text-o"
                         class="oe_highlight"
-                        invisible="1"
                     />
                     <button special="cancel" string="Cancel" />
                 </footer>

@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!--
-    TODO(19.0 migration): py3o report STUBBED OUT.
-
-    This report used report_type="py3o" with a py3o_server_id pointing at
-    tmc_data_py3o.local_server. The tmc_data_py3o module was removed from this
-    codebase during the tmc-data 19.0 migration, and the py3o report engine
-    (report_py3o) has no confirmed 19.0 release. The record is disabled so the
-    module installs cleanly. Reimplement at the validation stage as either a
-    native QWeb (qweb-pdf) report or a restored py3o report once available.
-    The .odt template report/concession_details.odt is kept on disk.
-
     <record id="concession_details_report" model="ir.actions.report">
         <field name="name">Concession Details</field>
         <field name="model">sicon.concession</field>
-        <field name="report_name">concession</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">pdf</field>
-        <field name="py3o_server_id" ref="tmc_data_py3o.local_server" />
-        <field name="py3o_is_local_fusion" eval="1" />
-        <field name="module">sicon</field>
-        <field name="py3o_template_fallback">report/concession_details.odt</field>
+        <field name="report_name">sicon.report_concession_details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="paperformat_tmc_report" />
+        <field name="print_report_name">'Concesion_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_sicon_concession" />
+        <field name="binding_type">report</field>
     </record>
-    -->
 </odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Self-contained styles: wkhtmltopdf can't fetch the asset bundle here -->
+    <template id="report_tmc_styles">
+        <style>
+            .tmc-report { font-family: Helvetica, Arial, sans-serif; color: #000;
+            font-size: 12px; }
+            .tmc-box { border: 1px solid #666; padding: 8px 10px; text-align: center;
+            font-weight: bold; font-size: 13px; margin: 0 0 22px 0; }
+            .tmc-kv { width: 72%; border-collapse: collapse;
+            margin: 0 auto 22px auto; }
+            .tmc-kv td { padding: 2px 0; vertical-align: top; }
+            .tmc-kv td.label { width: 48%; font-weight: bold; text-align: right;
+            padding-right: 10px; white-space: nowrap; }
+            .tmc-section { font-weight: bold; text-transform: uppercase;
+            font-size: 12px; margin: 0 0 6px 0; }
+            .tmc-data { width: 100%; border-collapse: collapse; margin: 0 0 20px 0; }
+            .tmc-data th, .tmc-data td { border: 1px solid #999; padding: 4px 6px;
+            vertical-align: top; }
+            .tmc-data th { background: #eee; font-weight: bold; text-align: center; }
+            .tmc-data tr { page-break-inside: avoid; }
+            /* Fixed widths: auto-layout wraps short cells and doubles row height */
+            .tmc-list { table-layout: fixed; }
+            .tmc-list .c-name { width: 30%; }
+            .tmc-list .c-date { width: 11%; }
+            .tmc-list .c-party { width: 24%; }
+            .tmc-list .c-state { width: 24%; }
+            .tmc-muted { color: #444; font-style: italic; }
+            .tmc-center { text-align: center; }
+        </style>
+    </template>
+
+    <!-- Header/footer are rendered as standalone documents by wkhtmltopdf,
+         so they cannot reuse the body styles above -->
+    <template id="report_tmc_chrome_styles">
+        <style>
+            .tmc-chrome { font-family: Helvetica, Arial, sans-serif; color: #000;
+            font-size: 10px; }
+            .tmc-chrome table { width: 100%; border-collapse: collapse; }
+            .tmc-chrome td { vertical-align: top; }
+            .tmc-chrome img.logo { width: 78mm; }
+            .tmc-chrome .meta { text-align: right; line-height: 1.6; }
+            .tmc-chrome .meta .rtitle { font-weight: bold; }
+            /* Odoo never passes --footer-spacing, and a margin would collapse */
+            div.footer { padding-top: 9mm; }
+            .tmc-chrome .foot { border-top: 1px solid #999; padding-top: 5px;
+            text-align: center; color: #333; font-size: 9px; line-height: 1.4; }
+        </style>
+    </template>
+
+    <template id="report_tmc_header">
+        <div class="header tmc-chrome">
+            <t t-call="sicon.report_tmc_chrome_styles" />
+            <table>
+                <tr>
+                    <td>
+                        <img
+                            class="logo"
+                            t-att-src="env['sicon.report_logo'].data_uri()"
+                            alt=""
+                        />
+                    </td>
+                    <td class="meta">
+                        <div class="rtitle">Reporte de Concesiones Generales</div>
+                        <div>
+                            <b>Fecha:</b>
+                            <t
+                                t-out="datetime.date.today()"
+                                t-options='{"widget": "date"}'
+                            />
+                        </div>
+                        <div>
+                            <b>Página:</b>
+                            <span class="page" />
+                            de
+                            <span class="topage" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </template>
+
+    <template id="report_tmc_footer">
+        <div class="footer tmc-chrome">
+            <t t-call="sicon.report_tmc_chrome_styles" />
+            <div class="foot">
+                <div>Reporte generado por SICON – Sistema de Concesiones Generales</div>
+                <div>Tribunal Municipal de Cuentas – Municipalidad de Rosario</div>
+            </div>
+        </div>
+    </template>
+</odoo>
