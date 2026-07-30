@@ -14,7 +14,6 @@ class Event(models.Model):
         comodel_name="sicon.concession",
         required=True,
         ondelete="cascade",
-        domain=[("concession_id", "=", False)],
     )
 
     concessionaire_id = fields.Many2one(comodel_name="res.partner")
