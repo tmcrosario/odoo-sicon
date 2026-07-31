@@ -48,7 +48,7 @@
                         string="Save"
                         class="oe_highlight"
                         confirm="This action will made changes to the concession. Are you sure you want to continue?"
-                        invisible="not modify_concession and concessionaire_id"
+                        invisible="not modify_concession"
                     />
                     <button
                         name="save_event"
