@@ -31,7 +31,6 @@
         "views/zone_menus.xml",
         "views/partner_views.xml",
         "views/partner_menus.xml",
-        "report/unrelated_documents.xml",
         "report/paperformat.xml",
         "report/report_styles.xml",
         "report/concessions_list.xml",
