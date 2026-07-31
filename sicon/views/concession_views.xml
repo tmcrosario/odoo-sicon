@@ -48,7 +48,6 @@
                         string="New Event"
                         context="{'default_concession_id':id,
                                     'default_concessionaire_id':concessionaire_id,
-                                    'default_location':location,
                                     'default_canon':canon,
                                     'default_start_date':start_date,
                                     'default_expiration_date':expiration_date,
@@ -71,7 +70,6 @@
                             string="Location"
                             invisible="not geographical_location"
                             icon="fa-map-marker"
-                            target="_blank"
                         />
                         <button
                             class="oe_stat_button"
@@ -80,7 +78,6 @@
                             string="Additional Information"
                             invisible="not additional_information"
                             icon="fa-folder-open-o"
-                            target="_blank"
                         />
                         <button
                             class="oe_stat_button"

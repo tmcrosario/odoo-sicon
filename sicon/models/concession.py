@@ -37,7 +37,7 @@ class Concession(models.Model):
     additional_information = fields.Char()
 
     concessionaire_id = fields.Many2one(
-        comodel_name="res.partner", domain=[("concessionaire", "=", "True")]
+        comodel_name="res.partner", domain=[("concessionaire", "=", True)]
     )
 
     event_ids = fields.One2many(
