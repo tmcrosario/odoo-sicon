@@ -148,39 +148,14 @@ class Concession(models.Model):
             )
             concession.highlights_count = len(applicable_highlight_ids)
 
-    @api.depends("highlight_ids")
-    def _get_priority_and_color(self):
-        for concession in self:
-            domain = [
-                ("concession_id", "=", concession.id),
-                ("applicable", "=", True),
-            ]
-            related_highlights = self.env["tmc.highlight"].search(domain)
-
-            highest = related_highlights.sorted(
-                key=lambda r: r.highlight_level_id.priority, reverse=True
-            )
-
-            if highest:
-                highlight = highest[0]
-                highlight_level = highlight.highlight_level_id
-                concession.priority = highlight_level.priority
-                concession.color = highlight.color
-
-    @api.depends("event_ids")
+    @api.depends("event_ids.document_id", "event_ids.related_document_ids")
     def _compute_related_documents(self):
-        self.ensure_one()
-        tmp = []
-        for event in self.event_ids:
-            if event.document_id.id:
-                tmp.append(event.document_id.id)
-            if event.related_document_ids:
-                for related_document in event.related_document_ids:
-                    if related_document.id:
-                        tmp.append(related_document.id)
-        related_documents_list = sorted(list(set(tmp)))
-        domain = [("id", "in", related_documents_list)]
-        self.related_document_ids = self.env["tmc.document"].search(domain)
+        for concession in self:
+            documents = self.env["tmc.document"]
+            for event in concession.event_ids:
+                documents |= event.document_id
+                documents |= event.related_document_ids
+            concession.related_document_ids = documents
 
     def add_event(self):
         return {
@@ -213,26 +188,13 @@ class Concession(models.Model):
                 if fields.Date.from_string(concession.expiration_date) <= today:
                     concession.expired = True
 
-    @api.depends("highlight_ids")
+    @api.depends("highlight_ids.applicable", "highlight_ids.level")
     def _compute_highest_highlight(self):
         for concession in self:
-            high_highlights = self.env["tmc.highlight"].search(
-                [
-                    ("concession_id", "=", concession.id),
-                    ("applicable", "=", True),
-                    ("level", "=", "high"),
-                ]
-            )
-            medium_highlights = self.env["tmc.highlight"].search(
-                [
-                    ("concession_id", "=", concession.id),
-                    ("applicable", "=", True),
-                    ("level", "=", "medium"),
-                ]
-            )
-            if high_highlights:
+            applicable = concession.highlight_ids.filtered("applicable")
+            if any(h.level == "high" for h in applicable):
                 concession.highest_highlight = "high"
-            elif medium_highlights:
+            elif any(h.level == "medium" for h in applicable):
                 concession.highest_highlight = "medium"
             else:
-                concession.highest_highlight = None
+                concession.highest_highlight = False
