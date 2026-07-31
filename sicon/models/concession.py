@@ -28,8 +28,6 @@ class Concession(models.Model):
 
     fantasy_name = fields.Char()
 
-    expired = fields.Boolean(compute="_compute_if_expired", store=True)
-
     state = fields.Selection(selection=states)
 
     location = fields.Char(required=True)
@@ -178,15 +176,6 @@ class Concession(models.Model):
             "url": self.additional_information,
             "target": "new",
         }
-
-    @api.depends("expiration_date")
-    def _compute_if_expired(self):
-        for concession in self:
-            concession.expired = False
-            if concession.expiration_date:
-                today = fields.Date.from_string(fields.Date.today())
-                if fields.Date.from_string(concession.expiration_date) <= today:
-                    concession.expired = True
 
     @api.depends("highlight_ids.applicable", "highlight_ids.level")
     def _compute_highest_highlight(self):

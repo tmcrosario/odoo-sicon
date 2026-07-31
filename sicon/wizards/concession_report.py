@@ -14,7 +14,7 @@ class ConcessionListReportWizard(models.TransientModel):
         # Root concessions only; event_id set marks event-derived snapshots
         domain = [("event_id", "=", False)]
         if self.listing == "expired":
-            domain.append(("expired", "=", True))
+            domain.append(("expiration_date", "<=", fields.Date.today()))
         return self.env["sicon.concession"].search(domain)
 
     def check_and_generate_report(self):
