@@ -1,6 +1,6 @@
 {
     "name": "TMC SICON",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "summary": "Sistema de Concesiones Generales",
     "author": "Tribunal Municipal de Cuentas - Municipalidad de Rosario",
     "website": "https://www.tmcrosario.gob.ar",
@@ -40,7 +40,7 @@
         "wizards/add_event_views.xml",
         "wizards/concession_report_views.xml",
     ],
-    "demo": [],
+    "demo": ["demo/sicon_demo.xml"],
     "installable": True,
     "application": True,
 }  # yapf: disable

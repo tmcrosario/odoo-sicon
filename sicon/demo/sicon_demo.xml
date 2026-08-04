@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Fully fictional (Don Quijote themed) so it is unmistakably demo data;
+         no real people, businesses, concessions or addresses. -->
+    <record id="zone_mancha" model="sicon.zone">
+        <field name="name">Zona de la Mancha</field>
+    </record>
+    <record id="zone_toboso" model="sicon.zone">
+        <field name="name">Zona del Toboso</field>
+    </record>
+    <record id="zone_barataria" model="sicon.zone">
+        <field name="name">Zona Barataria</field>
+    </record>
+    <record id="zone_oeste" model="sicon.zone">
+        <field name="name">Zona Ficticia Oeste</field>
+    </record>
+
+    <record id="grantor_barataria" model="sicon.grantor">
+        <field name="name">Municipio de Barataria</field>
+    </record>
+    <record id="grantor_insula" model="sicon.grantor">
+        <field name="name">Concejo de la Ínsula</field>
+    </record>
+
+    <record id="admin_mancha" model="sicon.administrator">
+        <field name="name">Administración de la Mancha</field>
+    </record>
+    <record id="admin_costanera" model="sicon.administrator">
+        <field name="name">Ente Ficticio Costanera</field>
+    </record>
+
+    <record id="et_adjudicacion" model="sicon.event_type">
+        <field name="name">Adjudicación</field>
+        <field name="description">Otorga la concesión por acto administrativo.</field>
+    </record>
+    <record id="et_prorroga" model="sicon.event_type">
+        <field name="name">Prórroga</field>
+    </record>
+    <record id="et_posesion" model="sicon.event_type">
+        <field name="name">Toma de Posesión</field>
+    </record>
+    <record id="et_rescision" model="sicon.event_type">
+        <field name="name">Rescisión</field>
+    </record>
+
+    <!-- Concessionaire partners (concessionaire=True so the domains match). -->
+    <record id="p_rocinante" model="res.partner">
+        <field name="name">Rocinante Gastronomía S.R.L.</field>
+        <field name="is_company" eval="True" />
+        <field name="concessionaire" eval="True" />
+        <field name="cuit">30-70000005-9</field>
+        <field name="fiscal_situation">responsable_inscripto</field>
+    </record>
+    <record id="p_kiosco_insula" model="res.partner">
+        <field name="name">Kiosco Ínsula S.R.L.</field>
+        <field name="is_company" eval="True" />
+        <field name="concessionaire" eval="True" />
+    </record>
+    <record id="p_panza" model="res.partner">
+        <field name="firstname">Teresa</field>
+        <field name="lastname">Panza</field>
+        <field name="concessionaire" eval="True" />
+        <field name="dni">10000011</field>
+        <field name="cuit">27-10000011-9</field>
+    </record>
+
+    <!-- Concessions: root records keep event_id empty; location required. -->
+    <record id="c_bar_fantasia" model="sicon.concession">
+        <field name="name">Bar del Parque de la Fantasía</field>
+        <field name="fantasy_name">El Fogón de Rocinante</field>
+        <field name="state">awarded</field>
+        <field name="location">Av. de los Molinos 100</field>
+        <field name="canon">450 unidades de medida mensuales</field>
+        <field name="term_expiration">certain</field>
+        <field name="term_certain_expiration">date</field>
+        <field name="term_due_date">2029-03-15</field>
+        <field name="term_unit">years</field>
+        <field name="concessionaire_id" ref="p_rocinante" />
+        <field name="administrator_id" ref="admin_mancha" />
+        <field name="grantor_id" ref="grantor_barataria" />
+        <field name="zone_id" ref="zone_mancha" />
+    </record>
+
+    <record id="c_cocheras" model="sicon.concession">
+        <field name="name">Cocheras Plaza Imaginaria</field>
+        <field name="state">on_term</field>
+        <field name="location">Calle del Toboso 850</field>
+        <field name="canon">$620 mensuales</field>
+        <field name="concessionaire_id" ref="p_kiosco_insula" />
+        <field name="administrator_id" ref="admin_mancha" />
+        <field name="grantor_id" ref="grantor_insula" />
+        <field name="zone_id" ref="zone_toboso" />
+    </record>
+
+    <record id="c_balneario" model="sicon.concession">
+        <field name="name">Balneario Ínsula Barataria</field>
+        <field name="state">tendered</field>
+        <field name="location">Av. del Río Ficticio 2000</field>
+        <field name="administrator_id" ref="admin_costanera" />
+        <field name="grantor_id" ref="grantor_barataria" />
+        <field name="zone_id" ref="zone_barataria" />
+    </record>
+
+    <record id="c_kiosco" model="sicon.concession">
+        <field name="name">Kiosco Plaza del Oeste</field>
+        <field name="fantasy_name">La Esquina de Sancho</field>
+        <field name="state">extended</field>
+        <field name="location">Av. de la Mancha 4500</field>
+        <field name="planned_extension" eval="True" />
+        <field name="extension_expiration">certain</field>
+        <field name="extension_certain_expiration">duration</field>
+        <field name="extension_duration">2</field>
+        <field name="extension_unit">years</field>
+        <field name="concessionaire_id" ref="p_panza" />
+        <field name="administrator_id" ref="admin_mancha" />
+        <field name="grantor_id" ref="grantor_barataria" />
+        <field name="zone_id" ref="zone_oeste" />
+    </record>
+
+    <!-- Events: document_id omitted to stay self-contained. -->
+    <record id="e_adjudicacion" model="sicon.event">
+        <field name="name">Adjudicación por Decreto</field>
+        <field name="date">2024-03-15</field>
+        <field name="event_type_id" ref="et_adjudicacion" />
+        <field name="concession_id" ref="c_bar_fantasia" />
+        <field name="concessionaire_id" ref="p_rocinante" />
+        <field name="state">awarded</field>
+        <field name="modify_concession" eval="True" />
+    </record>
+
+    <record id="e_posesion" model="sicon.event">
+        <field name="name">Toma de posesión del inmueble</field>
+        <field name="date">2024-04-01</field>
+        <field name="event_type_id" ref="et_posesion" />
+        <field name="concession_id" ref="c_bar_fantasia" />
+    </record>
+
+    <record id="e_prorroga" model="sicon.event">
+        <field name="name">Prórroga por 2 años</field>
+        <field name="date">2025-02-10</field>
+        <field name="event_type_id" ref="et_prorroga" />
+        <field name="concession_id" ref="c_kiosco" />
+        <field name="concessionaire_id" ref="p_panza" />
+        <field name="state">extended</field>
+        <field name="modify_concession" eval="True" />
+    </record>
+
+    <record id="e_rescision" model="sicon.event">
+        <field name="name">Rescisión por incumplimiento</field>
+        <field name="date">2025-06-20</field>
+        <field name="event_type_id" ref="et_rescision" />
+        <field name="concession_id" ref="c_cocheras" />
+        <field name="state">on_term</field>
+    </record>
+
+    <!-- Highlights on concessions exercise highest_highlight (compute). -->
+    <record id="h_cocheras" model="tmc.highlight">
+        <field name="concession_id" ref="c_cocheras" />
+        <field name="level">high</field>
+        <field name="comment">Canon impago hace 3 meses.</field>
+    </record>
+
+    <record id="h_kiosco" model="tmc.highlight">
+        <field name="concession_id" ref="c_kiosco" />
+        <field name="level">medium</field>
+        <field name="comment">Vence la prórroga en 2026.</field>
+    </record>
+</odoo>
