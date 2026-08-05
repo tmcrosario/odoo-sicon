@@ -4,18 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20231106\n"
+"Project-Id-Version: Odoo Server 19.0-20260630\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-29 14:46+0000\n"
-"PO-Revision-Date: 2024-01-29 11:51-0300\n"
+"POT-Creation-Date: 2026-08-05 16:04+0000\n"
+"PO-Revision-Date: 2026-08-05 16:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_unit__days
@@ -36,9 +34,28 @@ msgid " Year(s)"
 msgstr " Año(s)"
 
 #. module: sicon
+#: model:ir.actions.report,print_report_name:sicon.concession_details_report
+msgid "'Concesion_%s' % (object.name)"
+msgstr "'Concesion_%s' % (object.name)"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_tmc_header
+msgid "<b>Fecha:</b>"
+msgstr "<b>Fecha:</b>"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_tmc_header
+msgid ""
+"<b>Página:</b>\n"
+"                            <span class=\"page\"/>\n"
+"                            de\n"
+"                            <span class=\"topage\"/>"
+msgstr "<b>Página:</b>\n                            <span class=\"page\"/>\n                            de\n                            <span class=\"topage\"/>"
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "Activas"
-msgstr ""
+msgstr "Activas"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__active
@@ -46,10 +63,20 @@ msgid "Active"
 msgstr "Activa"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Actualizado Por"
+msgstr "Actualizado Por"
+
+#. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__additional_information
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_form
 msgid "Additional Information"
 msgstr "Información Adicional"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Adjudicada"
+msgstr "Adjudicada"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_add__document_id
@@ -62,8 +89,7 @@ msgid "Administrator"
 msgstr "Administrador"
 
 #. module: sicon
-#: code:addons/sicon/models/administrator.py:0
-#, python-format
+#: model:ir.model.constraint,message:sicon.constraint_sicon_administrator_name_unique
 msgid "Administrator name must be unique"
 msgstr "El nombre de administrador debe ser único"
 
@@ -79,9 +105,14 @@ msgid "All"
 msgstr "Todas las Concesiones"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Alta"
+msgstr "Alta"
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "Archivadas"
-msgstr ""
+msgstr "Archivadas"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_form
@@ -96,6 +127,11 @@ msgid "Awarded"
 msgstr "Adjudicada"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Baja"
+msgstr "Baja"
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_report_list_view_form
 msgid "Cancel"
 msgstr "Cancelar"
@@ -104,7 +140,7 @@ msgstr "Cancelar"
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__canon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_add__canon
 msgid "Canon"
-msgstr ""
+msgstr "Canon"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_expiration__certain
@@ -123,10 +159,27 @@ msgid "Click to create a new concessionaire."
 msgstr "Haga click para crear un nuevo concesionario."
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Comentario"
+msgstr "Comentario"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Concesionario"
+msgstr "Concesionario"
+
+#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.event_view_search
 #: model_terms:ir.ui.view,arch_db:sicon.highlight_search_view
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
 msgid "Concesión"
-msgstr ""
+msgstr "Concesión"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Concesión “"
+msgstr "Concesión “"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_concession
@@ -203,6 +256,11 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Creado Por"
+msgstr "Creado Por"
+
+#. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__create_uid
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__create_uid
@@ -237,9 +295,9 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__dependence_id
-msgid "Dependence"
-msgstr "Dependencia"
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Descripción"
+msgstr "Descripción"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__name
@@ -262,32 +320,21 @@ msgstr "Descartar"
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_add__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_grantor__display_name
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__display_name
+#: model:ir.model.fields,field_description:sicon.field_sicon_report_logo__display_name
 #: model:ir.model.fields,field_description:sicon.field_sicon_zone__display_name
 #: model:ir.model.fields,field_description:sicon.field_tmc_highlight__display_name
 msgid "Display Name"
-msgstr "Mostrar Nombre"
+msgstr "Nombre en pantalla"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_event__document_id
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__name
 msgid "Document"
 msgstr "Documento"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__document_object
-msgid "Document Object"
-msgstr "Objeto"
-
-#. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__document_type_id
-msgid "Document Type"
-msgstr "Tipo de Documento"
-
-#. module: sicon
-#: model:ir.model,name:sicon.model_sicon_unrelated_documents_report
-msgid "Documents not related yet to any concession"
-msgstr "Documentos no vinculados aún a ninguna concesión"
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Documento"
+msgstr "Documento"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_certain_expiration__duration
@@ -297,19 +344,15 @@ msgid "Duration"
 msgstr "Duración"
 
 #. module: sicon
-#: model:ir.model.constraint,message:sicon.constraint_sicon_administrator_name_unique
-msgid "El nombre de administrador debe ser único"
-msgstr ""
-
-#. module: sicon
-#: model:ir.model.constraint,message:sicon.constraint_sicon_event_type_name_unique
-msgid "El tipo de evento debe ser único"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "En Término"
+msgstr "En Término"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
 msgid "Estado"
-msgstr ""
+msgstr "Estado"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_event
@@ -343,17 +386,20 @@ msgid "Event Types"
 msgstr "Tipos de Evento"
 
 #. module: sicon
-#: code:addons/sicon/models/event_type.py:0
-#, python-format
+#: model:ir.model.constraint,message:sicon.constraint_sicon_event_type_name_unique
 msgid "Event type name must be unique"
 msgstr "El tipo de evento debe ser único"
 
 #. module: sicon
+#. odoo-python
 #: code:addons/sicon/wizards/add_event.py:0
-#, python-format
 msgid "Event year must be equal to document period."
-msgstr ""
-"El año del evento debe coincidir con el período del acto administrative."
+msgstr "El año del evento debe ser igual al período del documento."
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Eventos"
+msgstr "Eventos"
 
 #. module: sicon
 #: model:ir.actions.act_window,name:sicon.event_action_form
@@ -368,11 +414,6 @@ msgstr "Eventos"
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_add__expiration_date
 msgid "Expiration Date"
 msgstr "Fecha de Vencimiento"
-
-#. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_concession__expired
-msgid "Expired"
-msgstr "Vencidas"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession_report_list__listing__expired
@@ -428,6 +469,21 @@ msgid "Fantasy Name"
 msgstr "Nombre de Fantasía"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Fecha de Inicio"
+msgstr "Fecha de Inicio"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Fecha de Vencimiento"
+msgstr "Fecha de Vencimiento"
+
+#. module: sicon
 #: model:ir.actions.act_window,name:sicon.concession_report_list_action_form
 msgid "Generate Concessions Report"
 msgstr "Generar Reporte de Concesiones"
@@ -443,9 +499,7 @@ msgid "Grantor"
 msgstr "Otorgante"
 
 #. module: sicon
-#: code:addons/sicon/models/grantor.py:0
 #: model:ir.model.constraint,message:sicon.constraint_sicon_grantor_name_unique
-#, python-format
 msgid "Grantor name must be unique"
 msgstr "El nombre del otorgante debe ser único"
 
@@ -456,15 +510,6 @@ msgid "Grantors"
 msgstr "Otorgantes"
 
 #. module: sicon
-#: model_terms:ir.actions.act_window,help:sicon.unrelated_documents_list_action_form
-msgid ""
-"Here are listed those documents whose main or secondary topic is related to "
-"concessions and has not yet been included in SICON."
-msgstr ""
-"Aquí se listan aquellos documentos cuyos tema principal se encuentre "
-"relacionado con concesiones y aún no han sido incluidos en SICON."
-
-#. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__highest_highlight__high
 msgid "High"
 msgstr "Alto"
@@ -472,7 +517,7 @@ msgstr "Alto"
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__highest_highlight
 msgid "Highest Highlight"
-msgstr ""
+msgstr "Destacado máximo"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_tmc_highlight
@@ -494,7 +539,7 @@ msgstr "Resaltados"
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__highlights_count
 msgid "Highlights Count"
-msgstr ""
+msgstr "Cantidad de destacados"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_res_partner__id
@@ -505,31 +550,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_add__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_event_type__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_grantor__id
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__id
+#: model:ir.model.fields,field_description:sicon.field_sicon_report_logo__id
 #: model:ir.model.fields,field_description:sicon.field_sicon_zone__id
 #: model:ir.model.fields,field_description:sicon.field_tmc_highlight__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Importancia"
+msgstr "Importancia"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_tree
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
 msgid "Inicio"
-msgstr ""
+msgstr "Inicio"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_res_partner____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_administrator____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_concession____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_event____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_event_add____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_event_type____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_grantor____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report____last_update
-#: model:ir.model.fields,field_description:sicon.field_sicon_zone____last_update
-#: model:ir.model.fields,field_description:sicon.field_tmc_highlight____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
+#: model:ir.model,name:sicon.model_sicon_report_logo
+msgid "Institutional Logo for Printed Reports"
+msgstr "Logo institucional para reportes impresos"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_administrator__write_uid
@@ -556,6 +597,21 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Licitación en Ejecución"
+msgstr "Licitación en Ejecución"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Listado de Concesiones"
+msgstr "Listado de Concesiones"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Listado de Concesiones Vencidas"
+msgstr "Listado de Concesiones Vencidas"
+
+#. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession_report_list__listing
 msgid "Listing"
 msgstr "Listado"
@@ -570,6 +626,11 @@ msgstr "Ubicación"
 #: model:res.groups,name:sicon.group_manager
 msgid "Manager"
 msgstr "Responsable"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Media"
+msgstr "Media"
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__highest_highlight__medium
@@ -602,12 +663,10 @@ msgid "New event for"
 msgstr "Nuevo evento para"
 
 #. module: sicon
+#. odoo-python
 #: code:addons/sicon/wizards/concession_report.py:0
-#, python-format
 msgid "No concessions matched to specified search criteria."
-msgstr ""
-"No se encontraron concesiones que coincidan con el criterio de búsqueda "
-"especificado."
+msgstr "Ninguna concesión coincide con el criterio de búsqueda especificado."
 
 #. module: sicon
 #: model_terms:ir.actions.act_window,help:sicon.event_action_form
@@ -621,9 +680,9 @@ msgid "No registries were found."
 msgstr "No se encontraron registros."
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__number
-msgid "Number"
-msgstr "Número"
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "No se registraron eventos para esta concesión."
+msgstr "No se registraron eventos para esta concesión."
 
 #. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__on_term
@@ -643,14 +702,19 @@ msgid "Pdf Url"
 msgstr "PDF URL"
 
 #. module: sicon
-#: model:ir.model.fields,field_description:sicon.field_sicon_unrelated_documents_report__period
-msgid "Period"
-msgstr "Período"
-
-#. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__planned_extension
 msgid "Planned Extension"
 msgstr "Prórroga Prevista"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.concession_report_list_view_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Prorrogada"
+msgstr "Prorrogada"
 
 #. module: sicon
 #: model:res.groups,name:sicon.group_read_only
@@ -670,6 +734,21 @@ msgid "Related Documents"
 msgstr "Documentos Relacionados"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_tmc_header
+msgid "Reporte de Concesiones Generales"
+msgstr "Reporte de Concesiones Generales"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_tmc_footer
+msgid "Reporte generado por SICON – Sistema de Concesiones Generales"
+msgstr "Reporte generado por SICON – Sistema de Concesiones Generales"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Resaltados"
+msgstr "Resaltados"
+
+#. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__state__rescinded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event__state__rescinded
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_event_add__state__rescinded
@@ -677,11 +756,17 @@ msgid "Rescinded"
 msgstr "Rescindida"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
+msgid "Rescindida"
+msgstr "Rescindida"
+
+#. module: sicon
 #: model:ir.module.category,name:sicon.module_category_sicon
 #: model:ir.ui.menu,name:sicon.sicon_menu
 #: model:ir.ui.menu,name:sicon.tmc_config_sicon_menu
+#: model:res.groups.privilege,name:sicon.res_groups_privilege_sicon
 msgid "SICON"
-msgstr ""
+msgstr "SICON"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.add_event_wizard_view_form
@@ -739,11 +824,6 @@ msgid "Term Unit"
 msgstr "Unidad de Tiempo"
 
 #. module: sicon
-#: model_terms:ir.actions.act_window,help:sicon.unrelated_documents_list_action_form
-msgid "There are no pending documents to relate."
-msgstr "No hay documentos pendientes de relacionar con SICON."
-
-#. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.add_event_wizard_view_form
 msgid ""
 "This action will made changes to the concession. Are you sure you want to "
@@ -753,16 +833,25 @@ msgstr ""
 "continuar?"
 
 #. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Tipo de Evento"
+msgstr "Tipo de Evento"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_tmc_footer
+msgid "Tribunal Municipal de Cuentas – Municipalidad de Rosario"
+msgstr "Tribunal Municipal de Cuentas – Municipalidad de Rosario"
+
+#. module: sicon
+#: model_terms:ir.ui.view,arch_db:sicon.report_concession_details
+msgid "Ubicación"
+msgstr "Ubicación"
+
+#. module: sicon
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__extension_expiration__uncertain
 #: model:ir.model.fields.selection,name:sicon.selection__sicon_concession__term_expiration__uncertain
 msgid "Uncertain"
 msgstr "Incierto"
-
-#. module: sicon
-#: model:ir.actions.act_window,name:sicon.unrelated_documents_list_action_form
-#: model_terms:ir.ui.view,arch_db:sicon.unrelated_documents_view_tree
-msgid "Unrelated Documents"
-msgstr "Decretos Sin Vincular"
 
 #. module: sicon
 #: model:ir.model.fields,field_description:sicon.field_sicon_concession__url_mr
@@ -777,17 +866,18 @@ msgstr "Usuario"
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_tree
 msgid "Venc. Prórroga"
-msgstr ""
+msgstr "Venc. Prórroga"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_search
 msgid "Vencidas"
-msgstr ""
+msgstr "Vencidas"
 
 #. module: sicon
 #: model_terms:ir.ui.view,arch_db:sicon.concession_view_tree
+#: model_terms:ir.ui.view,arch_db:sicon.report_concessions_list
 msgid "Vencimiento"
-msgstr ""
+msgstr "Vencimiento"
 
 #. module: sicon
 #: model:ir.model,name:sicon.model_sicon_event_add
@@ -810,9 +900,7 @@ msgid "Zone"
 msgstr "Zona"
 
 #. module: sicon
-#: code:addons/sicon/models/zone.py:0
 #: model:ir.model.constraint,message:sicon.constraint_sicon_zone_name_unique
-#, python-format
 msgid "Zone name must be unique"
 msgstr "El nombre de la zona debe ser único"
 
@@ -821,8 +909,3 @@ msgstr "El nombre de la zona debe ser único"
 #: model:ir.ui.menu,name:sicon.tmc_config_sicon_zone_menu
 msgid "Zones"
 msgstr "Zonas"
-
-#. module: sicon
-#: model_terms:ir.ui.view,arch_db:sicon.concession_report_list_view_form
-msgid "_Print"
-msgstr "Reporte"
