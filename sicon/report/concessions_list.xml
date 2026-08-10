@@ -5,6 +5,6 @@
         <field name="model">sicon.concession.report.list</field>
         <field name="report_name">sicon.report_concessions_list</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="paperformat_id" ref="paperformat_tmc_report" />
+        <field name="paperformat_id" ref="tmc.paperformat_tmc_report" />
     </record>
 </odoo>

@@ -5,7 +5,7 @@
         <field name="model">sicon.concession</field>
         <field name="report_name">sicon.report_concession_details</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="paperformat_id" ref="paperformat_tmc_report" />
+        <field name="paperformat_id" ref="tmc.paperformat_tmc_report" />
         <field name="print_report_name">'Concesion_%s' % (object.name)</field>
         <field name="binding_model_id" ref="model_sicon_concession" />
         <field name="binding_type">report</field>

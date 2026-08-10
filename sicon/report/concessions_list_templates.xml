@@ -2,8 +2,12 @@
 <odoo>
     <template id="report_concessions_list">
         <t t-call="web.html_container">
+            <t t-set="report_title">Reporte de Concesiones Generales</t>
+            <t
+                t-set="footer_line"
+            >Reporte generado por SICON – Sistema de Concesiones Generales</t>
             <t t-foreach="docs" t-as="o">
-                <t t-call="sicon.report_tmc_header" />
+                <t t-call="tmc.report_tmc_header" />
                 <div
                     class="article tmc-report"
                     t-att-data-oe-model="o._name"
@@ -70,7 +74,7 @@
                         </tbody>
                     </table>
                 </div>
-                <t t-call="sicon.report_tmc_footer" />
+                <t t-call="tmc.report_tmc_footer" />
             </t>
         </t>
     </template>
