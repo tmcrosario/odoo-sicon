@@ -1,4 +1,4 @@
-# Claude Instructions for `odoo-sicon`
+# Agent conventions for `odoo-sicon`
 
 TMC Odoo 19.0 addon repository.
 
