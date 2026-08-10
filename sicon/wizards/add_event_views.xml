@@ -12,7 +12,7 @@
                 </div>
                 <group>
                     <group string="Event Data">
-                        <field name="date" />
+                        <field name="date" options="{'numeric': True}" />
                         <field name="event_type_id" options="{'no_create': True}" />
                         <field name="name" />
                         <field
@@ -35,8 +35,8 @@
                                 name="canon"
                                 invisible="state not in ['awarded', 'on_term']"
                             />
-                            <field name="start_date" />
-                            <field name="expiration_date" />
+                            <field name="start_date" options="{'numeric': True}" />
+                            <field name="expiration_date" options="{'numeric': True}" />
                             <field name="state" />
                         </group>
                     </group>

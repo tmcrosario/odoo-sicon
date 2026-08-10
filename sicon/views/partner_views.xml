@@ -19,7 +19,7 @@
                     <field name="concessionaire" invisible="True" />
                     <field name="event_ids">
                         <list create="false" edit="false" delete="false">
-                            <field name="date" />
+                            <field name="date" options="{'numeric': True}" />
                             <field name="concession_id" />
                             <field name="event_type_id" />
                         </list>

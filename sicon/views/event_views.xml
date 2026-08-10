@@ -5,14 +5,17 @@
         <field name="name">sicon.event.view.tree</field>
         <field name="model">sicon.event</field>
         <field name="arch" type="xml">
-            <list default_order="date desc document_id desc" create="false">
-                <field name="date" />
-                <field name="document_pdf_url" invisible="True" />
+            <list default_order="date desc, document_id desc" create="false">
+                <field name="date" options="{'numeric': True}" />
+                <field name="document_pdf_url" column_invisible="True" />
+                <!-- title hardcoded es_AR: .po won't translate a list button title -->
                 <button
                     type="object"
                     name="open_document_pdf"
+                    title="Ver PDF"
                     invisible="not document_pdf_url"
                     icon="fa-file-pdf-o text-danger"
+                    width="45px"
                 />
                 <field name="document_id" />
                 <field name="event_type_id" />
@@ -53,7 +56,11 @@
                     <group>
                         <group>
                             <field name="concession_id" />
-                            <field name="date" string="Date" />
+                            <field
+                                name="date"
+                                string="Date"
+                                options="{'numeric': True}"
+                            />
                             <field name="event_type_id" />
                             <field name="name" />
                             <field name="document_id" />
