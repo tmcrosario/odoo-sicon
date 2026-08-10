@@ -138,7 +138,7 @@ class Concession(models.Model):
             self.extension_due_date = False
             self.extension_duration = False
 
-    @api.depends("highlight_ids")
+    @api.depends("highlight_ids", "highlight_ids.applicable")
     def _compute_highlights_count(self):
         for concession in self:
             applicable_highlight_ids = concession.highlight_ids.filtered(
