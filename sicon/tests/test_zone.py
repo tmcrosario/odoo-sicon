@@ -6,7 +6,7 @@ from odoo.tools import mute_logger
 
 class TestZone(TransactionCase):
     def setUp(self):
-        super(TestZone, self).setUp()
+        super().setUp()
         self.zone_model = self.env["sicon.zone"]
 
     def test_zone_creation(self):

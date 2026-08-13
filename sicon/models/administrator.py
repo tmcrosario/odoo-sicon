@@ -7,4 +7,6 @@ class Administrator(models.Model):
 
     name = fields.Char(required=True)
 
-    _name_unique = models.Constraint("UNIQUE(name)", "Administrator name must be unique")
+    _name_unique = models.Constraint(
+        "UNIQUE(name)", "Administrator name must be unique"
+    )

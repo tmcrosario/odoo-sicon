@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import UserError
 
 
@@ -19,5 +19,7 @@ class ConcessionListReportWizard(models.TransientModel):
 
     def check_and_generate_report(self):
         if not self.get_concessions():
-            raise UserError(_("No concessions matched to specified search criteria."))
+            raise UserError(
+                self.env._("No concessions matched to specified search criteria.")
+            )
         return self.env.ref("sicon.concessions_report_list").report_action(self)

@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 from ..models.concession import Concession
@@ -42,7 +42,9 @@ class AddEventWizard(models.TransientModel):
         if self.document_id:
             if self.date:
                 if self.date.year != self.document_id.period:
-                    raise UserError(_("Event year must be equal to document period."))
+                    raise UserError(
+                        self.env._("Event year must be equal to document period.")
+                    )
 
         # Create the event
         events_vals = {
