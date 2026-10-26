@@ -1,4 +1,5 @@
-Odoo SICON
-==========
+=========
+TMC SICON
+=========
 
-Odoo TMC SICON: Concesiones Generales.
+Sistema de Concesiones Generales (SICON) del Tribunal Municipal de Cuentas de Rosario.
